@@ -29,4 +29,4 @@ jobs:
           # Password generated from Theme Access app
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN_PROD }}
           SHOPIFY_CLI_TTY: 0
-        run: shopify theme push --theme 150058336530 --verbose --json --allow-live
+        run: shopify theme push --theme 150221324576 --verbose --json --allow-live
