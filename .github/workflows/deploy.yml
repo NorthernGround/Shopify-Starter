@@ -1,10 +1,12 @@
 name: Theme deploy
 
-on: [push]
-
+on:
+  push:
+    branches:
+      - develop
 jobs:
   deploy:
-    name: Deploy
+    name: Deploy Dev
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -17,8 +19,6 @@ jobs:
           bundler: 'latest'
       - name: Install Shopify CLI
         run: npm install -g @shopify/cli @shopify/theme
-      - name: Echo path
-        run: echo ${{ env.SHOPIFY_FLAG_STORE }}
       - name: Deploy
         env:
           # Store URL, like your-store.myshopify.com
