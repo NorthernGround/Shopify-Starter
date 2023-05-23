@@ -19,6 +19,10 @@ jobs:
           bundler: 'latest'
       - name: Install Shopify CLI
         run: npm install -g @shopify/cli @shopify/theme
+      - name: Install Dev Dependencies
+        run: npm install
+      - name: Build Output
+        run: npm run build
       - name: Deploy
         env:
           # Store URL, like your-store.myshopify.com
