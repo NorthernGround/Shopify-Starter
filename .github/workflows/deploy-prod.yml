@@ -22,6 +22,10 @@ jobs:
           bundler: 'latest'
       - name: Install Shopify CLI
         run: npm install -g @shopify/cli @shopify/theme
+      - name: Install Dev Dependencies
+        run: npm install
+      - name: Build Output
+        run: npm run build
       - name: Deploy
         env:
           # Store URL, like your-store.myshopify.com
@@ -29,4 +33,4 @@ jobs:
           # Password generated from Theme Access app
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN_PROD }}
           SHOPIFY_CLI_TTY: 0
-        run: shopify theme push --theme 150221324576 --verbose --json --allow-live
+        run: shopify theme push --theme 150221324576 --verbose --json --allow-live --only /assets/* --only /layout/* --only /sections/* --only /snippets/* --only /templates/* --only /locales/* --only /config/*
