@@ -1,4 +1,4 @@
-name: Theme deploy
+name: Dev theme deploy
 
 on:
   push:
@@ -30,4 +30,4 @@ jobs:
           # Password generated from Theme Access app
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
           SHOPIFY_CLI_TTY: 0
-        run: shopify theme push --theme 150058336530 --verbose --json --allow-live --only /assets/* --only /layout/* --only /sections/* --only /snippets/* --only /templates/* --only /locales/* --only /config/*
+        run: shopify theme push  --path ./shopifytheme --theme 150058336530 --verbose --json --allow-live
