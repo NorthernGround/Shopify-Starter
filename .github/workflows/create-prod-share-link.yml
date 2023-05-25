@@ -1,12 +1,9 @@
 name: Create Share Link
 
 on:
-  pull_request:
-    types:
-      - closed
   push:
     branches:
-      - main
+      - develop
 jobs:
   deploy:
     name: Create Live Share Link
