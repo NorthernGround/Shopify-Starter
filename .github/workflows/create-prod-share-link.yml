@@ -34,4 +34,4 @@ jobs:
             COMMIT_HASH=$(git rev-parse HEAD)
             TIMESTAMP=$(date +%Y%m%d%H%M%S)
             UNIQUE_TITLE="Deployment ${COMMIT_HASH}-${TIMESTAMP}"
-            shopify theme push --path ./shopifytheme --unpublished --verbose --title "${UNIQUE_TITLE}"
+            shopify theme push --path ./shopifytheme --unpublished --verbose -t "${UNIQUE_TITLE}"
