@@ -34,6 +34,16 @@ jobs:
       - name: Set Timezone to Central Time
         run: |
           sudo timedatectl set-timezone America/Chicago
+      - name: Delete old unpublished themes
+        env:
+          # Store URL, like your-store.myshopify.com
+          SHOPIFY_FLAG_STORE: '82cf85-2.myshopify.com'
+          # Password generated from Theme Access app
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN_PROD }}
+          SHOPIFY_CLI_TTY: 0
+        run: |
+          shopify theme list --role unpublished | awk '/\[unpublished\]/{gsub("#","",$NF); print $NF}' | xargs -I {} shopify theme delete --theme={} --force
+
       - name: Create Prod Share Link
         env:
           # Store URL, like your-store.myshopify.com
