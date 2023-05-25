@@ -31,6 +31,9 @@ jobs:
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
           SHOPIFY_CLI_TTY: 0
         run: shopify theme push  --path ./shopifytheme --theme 150058336530 --verbose --json --allow-live
+      - name: Set Timezone to Central Time
+        run: |
+          sudo timedatectl set-timezone America/Chicago
       - name: Create Prod Share Link
         env:
           # Store URL, like your-store.myshopify.com
