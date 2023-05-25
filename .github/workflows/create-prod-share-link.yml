@@ -32,6 +32,6 @@ jobs:
           SHOPIFY_CLI_TTY: 0
         run: |
             COMMIT_HASH=$(git rev-parse HEAD)
-            TIMESTAMP=$(date +%Y%m%d%H%M%S)
-            UNIQUE_TITLE="Deployment ${COMMIT_HASH}-${TIMESTAMP}"
+            TIMESTAMP=$(date +'%m%d%Y-%H:%M')
+            UNIQUE_TITLE="Deployment ${TIMESTAMP}"
             shopify theme push --path ./shopifytheme --unpublished --verbose -t "${UNIQUE_TITLE}"
