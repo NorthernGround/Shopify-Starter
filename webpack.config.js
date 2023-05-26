@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   entry: './src/js/index.js',
   output: {
-    path: path.resolve(__dirname, 'assets'),
+    path: path.resolve(__dirname, 'shopifytheme/assets'),
     filename: 'bundle.js',
     publicPath: '/assets/',
   },
@@ -42,7 +42,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'src'),
     },
-    watchFiles: ['src/**/*', '/layout/**/*', '/templates/**/*'],
+    watchFiles: ['src/**/*', 'shopifytheme/layout/**/*', 'shopifytheme/templates/**/*', 'shopifytheme/assets/**/*'],
     hot: true,
     open: true,
     port: 8080,
