@@ -21,6 +21,9 @@ Terminal 2
 ## Get Deploying
 
 - Change secrets in github repo to your shopify url, and your [api access key](https://shopify.dev/docs/apps/auth/admin-app-access-tokens)
+
+![required keys](https://github.com/NorthernGround/shopifydev/blob/develop/docs/keys.png?raw=true)
+
 - Follow the deployment branching strategy
 
 ![deployment diagram](https://github.com/NorthernGround/shopifydev/blob/develop/docs/deployment.png?raw=true)
