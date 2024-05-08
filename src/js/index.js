@@ -1,4 +1,3 @@
-import '../../src/scss/index.scss'
-
+import '@@/css/index.css';
 
 console.log('hello world again');

@@ -1,22 +1,30 @@
-# NG Shopify Starter Project 
+# NG Shopify Starter Project
 
 ## Get Started
 
 Install the CLI
+
 - `brew install shopify`
 
 Make sure to use Node version 18
-- `nvm use 18`
 
+- `nvm use 18`
 
 ## Get Running
 
 Terminal 1
-- `shopify theme dev --store <your shopify url>`
+
+```bash
+cd shopifytheme
+shopify theme dev --store <your shopify url>
+```
 
 Terminal 2
-- `npm i`
-- `npm run start`
+
+```bash
+yarn install
+yarn dev
+```
 
 ## Get Deploying
 
