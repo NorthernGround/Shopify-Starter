@@ -2,6 +2,7 @@
   "current": "Default",
   "presets": {
     "Default": {
+      "environment": "development",
       "logo_width": 90,
       "color_schemes": {
         "background-1": {
