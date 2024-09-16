@@ -6,53 +6,28 @@ on:
       - develop
 jobs:
   deploy:
-    name: Deploy Dev & Create Share Link
+    name: Deploy Dev
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.1
           bundler: 'latest'
       - name: Install Shopify CLI
-        run: npm install -g @shopify/cli @shopify/theme
+        run: npm install -g @shopify/cli@3.64.1 @shopify/theme@3.58.2
       - name: Install Dev Dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build Output
-        run: yarn build 
-      - name: Deploy
+        run: npm install
+      - name: Build Output Dev
+        run: npm run build
+      - name: Deploy To Dev
         env:
-          # Store URL, like your-store.myshopify.com
           SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_STORE_URL_DEV }}
-          # Password generated from Theme Access app
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
-          SHOPIFY_CLI_TTY: 0
-        run: shopify theme push  --path ./shopifytheme --theme 150058336530 --verbose --json --allow-live
-      - name: Set Timezone to Central Time
+          SHOPIFY_CLI_STACKTRACE: 1
         run: |
-          sudo timedatectl set-timezone America/Chicago
-      - name: Delete old unpublished themes
-        env:
-          # Store URL, like your-store.myshopify.com
-          SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_STORE_URL_PROD }}
-          # Password generated from Theme Access app
-          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN_PROD }}
-          SHOPIFY_CLI_TTY: 0
-        run: |
-          shopify theme list --role unpublished | awk '/\[unpublished\]/{gsub("#","",$NF); print $NF}' | xargs -I {} shopify theme delete --theme={} --force
-
-      - name: Create Prod Share Link
-        env:
-          # Store URL, like your-store.myshopify.com
-          SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_STORE_URL_PROD }}
-          # Password generated from Theme Access app
-          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN_PROD }}
-          SHOPIFY_CLI_TTY: 0
-        run: |
-            COMMIT_HASH=$(git rev-parse HEAD)
-            TIMESTAMP=$(date +'%B %-d, %Y %-l:%M%p')
-            UNIQUE_TITLE="Deployment ${TIMESTAMP}"
-            shopify theme push --path ./shopifytheme --unpublished --verbose -t "${UNIQUE_TITLE}"
+          cd shopifytheme 
+          shopify theme push --ignore templates/* --ignore config/* --ignore snippets/*.json --ignore sections/*.json --ignore locales/* --allow-live --live 
