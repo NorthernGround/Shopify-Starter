@@ -4,9 +4,7 @@ import { browserslistToTargets } from 'lightningcss';
 import browserslist from 'browserslist';
 
 export default defineConfig({
-  input: {
-    custom: resolve(import.meta.dirname, 'src/js/index.js'),
-  },
+  input: { custom: resolve(import.meta.dirname, 'src/js/index.js') },
 
   build: {
     outDir: resolve(import.meta.dirname, 'shopifytheme/assets'),
@@ -35,9 +33,7 @@ export default defineConfig({
       targets: browserslistToTargets(
         browserslist('last 2 versions, not dead, > 2%'),
       ),
-      drafts: {
-        customMedia: true,
-      },
+      drafts: { customMedia: true },
     },
   },
 });
