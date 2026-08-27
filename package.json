@@ -1,15 +1,25 @@
 {
   "name": "shopifydev",
   "version": "1.0.0",
-  "description": "Sample Shopify Theme ",
-  "main": "vite.config.js",
+  "description": "Northern Ground Shopify starter theme",
+  "private": true,
   "scripts": {
-    "serve": "cross-env NODE_ENV=development vite",
-    "watch": "vite build --watch",
-    "dev": "run-p serve watch",
-    "build": "vite build"
+    "dev": "concurrently --kill-others --names theme,assets \"npm:dev:theme\" \"npm:dev:assets\"",
+    "dev:theme": "shopify theme dev --path shopifytheme",
+    "dev:assets": "vite build --watch",
+    "build": "vite build",
+    "theme:check": "npm run build && shopify theme check --path shopifytheme --fail-level error",
+    "deploy": "shopify theme push --path shopifytheme --environment deployment",
+    "format": "prettier --write \"src/**/*.{css,js}\" \"*.{js,json,md}\" \".github/**/*.{yml,md}\"",
+    "format:check": "prettier --check \"src/**/*.{css,js}\" \"*.{js,json,md}\" \".github/**/*.{yml,md}\"",
+    "check": "npm run format:check && npm run theme:check"
   },
   "type": "module",
+  "engines": {
+    "node": ">=24.14 <25",
+    "npm": ">=11.9 <12"
+  },
+  "packageManager": "npm@11.9.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/siennanorthernground/shopifydev.git"
@@ -21,13 +31,11 @@
   },
   "homepage": "https://github.com/siennanorthernground/shopifydev#readme",
   "devDependencies": {
-    "browserslist": "^4.23.0",
-    "cross-env": "^7.0.3",
-    "lightningcss": "^1.24.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^3.2.5",
-    "sass": "^1.77.0",
-    "vite": "^5.2.11",
-    "vite-plugin-live-reload": "^3.0.3"
+    "@shopify/cli": "4.7.0",
+    "browserslist": "4.28.8",
+    "concurrently": "10.0.5",
+    "lightningcss": "1.33.0",
+    "prettier": "3.9.6",
+    "vite": "8.2.2"
   }
 }

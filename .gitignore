@@ -7,4 +7,16 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-node_modules
+node_modules/
+
+# Local environment and tool output
+.env
+.env.*
+!.env.example
+coverage/
+.vite/
+*.local
+
+# Generated custom theme assets
+shopifytheme/assets/custom.css
+shopifytheme/assets/custom.js

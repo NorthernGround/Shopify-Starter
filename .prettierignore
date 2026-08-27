@@ -1,0 +1,4 @@
+node_modules/
+shopifytheme/assets/
+shopifytheme/config/settings_data.json
+package-lock.json

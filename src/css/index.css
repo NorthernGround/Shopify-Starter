@@ -1,5 +1,3 @@
-body {
-  background: darkolivegreen !important;
-  color: lightgreen;
+:root {
+  --custom-theme-ready: 1;
 }
-

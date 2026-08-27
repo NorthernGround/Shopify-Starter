@@ -2,35 +2,40 @@
 
 ## Architecture Overview
 
-This is a modern Shopify theme built with **Vite + Shopify CLI dual-terminal workflow**. The codebase is organized with:
+This Dawn-based Shopify theme uses Shopify CLI for the storefront preview and
+Vite for project-specific assets:
 
-- `src/` - Modern development files (CSS, JS) built by Vite
-- `shopifytheme/` - Shopify theme structure (Liquid templates, assets)
-- **Dual Build Process**: Vite compiles `src/` → `shopifytheme/assets/` while Shopify CLI serves the theme
+- `src/` contains project-specific CSS and JavaScript source.
+- `shopifytheme/` contains the Shopify theme and Dawn's authored assets.
+- Vite compiles `src/` to the ignored
+  `shopifytheme/assets/custom.css` and `custom.js` files.
+- Do not edit generated custom assets directly or treat all Dawn assets as Vite
+  output.
 
 ## Development Workflow
 
-**Critical**: Always run both terminals simultaneously:
+Use the repository-pinned Node and npm versions, then start both processes:
 
 ```bash
-# Terminal 1: Shopify theme development server
-cd shopifytheme
-shopify theme dev --store <your-shopify-url>
-
-# Terminal 2: Vite asset compilation
-yarn dev  # runs: cross-env NODE_ENV=development vite + vite build --watch
+nvm use
+npm ci
+npm run dev
 ```
+
+For the initial store selection, use
+`npm run dev:theme -- --store your-store.myshopify.com`. The two underlying
+commands are `npm run dev:theme` and `npm run dev:assets`.
 
 ## CSS Architecture & Conventions
 
-This project uses **CSS**, not SASS/SCSS. Follow these conventions: 
+This project uses **CSS**, not SASS/SCSS. Follow these conventions:
 
 ### BEM + Logical Properties Standard
 
 All components follow **strict BEM methodology** with **CSS logical properties**:
 
 ```css
-/* ✅ Correct Pattern */
+/* Correct pattern */
 .featured-campaign__bg {
   inline-size: 100%; /* not width */
   block-size: 100vh; /* not height */
@@ -50,7 +55,8 @@ All components follow **strict BEM methodology** with **CSS logical properties**
 
 ### CSS Custom Properties System
 
-Use the established design token system from `src/css/theme/variables.css`:
+Prefer existing Dawn tokens and define project-specific tokens in the custom CSS
+source when needed:
 
 ```css
 :root {
@@ -108,37 +114,41 @@ All custom sections follow this naming and schema pattern:
 ### Vite Configuration Specifics
 
 - **Entry Point**: `src/js/index.js`
-- **Output**: Single bundle → `shopifytheme/assets/main.js`
+- **Output**: `shopifytheme/assets/custom.js` and `custom.css`
 - **CSS Processing**: Lightning CSS with logical properties support
-- **Proxy**: Development server proxies to Shopify CLI (port 9292)
+- **Preview/Reload**: Shopify CLI owns the storefront server and reload behavior
 
 ### File Watching
 
-Vite watches `src/**/*` and Shopify CLI watches `shopifytheme/**/*` - changes trigger appropriate rebuilds.
+Vite watches `src/**/*` and Shopify CLI watches `shopifytheme/**/*`. Do not add a
+second Vite proxy or live-reload layer.
 
 ## Environment & Deployment
 
-### Multi-Environment Setup
+### Deployment Setup
 
-The theme uses Shopify environment settings for script loading:
-
-1. Add Developer schema to Shopify admin (not deployed via Git)
-2. Set environment in theme customizer: Development/Staging/Production
-3. Follow branching strategy: develop → staging → main
+- Pull requests to `develop` and `main` run `npm run check`.
+- Pushes to `develop` deploy through the `development` GitHub Environment.
+- Pushes to `main` deploy through the `production` GitHub Environment.
+- Deployment-only Shopify flags and ignore patterns live in
+  `shopifytheme/shopify.theme.toml`.
+- Do not run `shopify theme pull` unless explicitly requested.
 
 ### Key Secrets Required
 
 - `SHOPIFY_CLI_THEME_TOKEN`
-- `SHOPIFY_STORE_URL`
+- `SHOPIFY_STORE_URL` in each GitHub Environment
+- `SHOPIFY_CLI_THEME_TOKEN` in each GitHub Environment
 
-Refer to `docs/deployment.png` for branching workflow.
+Use the same secret names in both environments; environment scoping supplies the
+correct values.
 
 ## Critical File Dependencies
 
 - `vite.config.js` - Build configuration with LightningCSS
 - `src/css/index.css` - CSS entry point and import order
 - `src/js/index.js` - JavaScript entry point
-- `shopifytheme/layout/theme.liquid` - Include built assets
+- `shopifytheme/layout/theme.liquid` and `password.liquid` - Include built assets
 
 ## Common Patterns to Follow
 
@@ -146,3 +156,4 @@ Refer to `docs/deployment.png` for branching workflow.
 2. **Logical Properties**: Always use `inline-size`, `block-size`, `padding-block`, etc.
 3. **Web Components**: Prefer for complex interactive elements
 4. **Schema Consistency**: Follow project naming conventions and include proper presets
+5. **Validation**: Run `npm run check` before handoff

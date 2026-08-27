@@ -1,0 +1,11 @@
+[environments.deployment]
+live = true
+allow-live = true
+strict = true
+ignore = [
+  "templates/*",
+  "config/*",
+  "snippets/*.json",
+  "sections/*.json",
+  "locales/*",
+]
