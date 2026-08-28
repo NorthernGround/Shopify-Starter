@@ -1,0 +1,26 @@
+:root {
+  --color-neutral-0: #fff;
+  --color-neutral-50: #f7f7f5;
+  --color-neutral-200: #deded9;
+  --color-neutral-600: #666662;
+  --color-neutral-900: #171715;
+  --color-success: #217a4a;
+  --color-warning: #9a6700;
+  --color-error: #b42318;
+
+  --color-neutral-0-rgb: 255, 255, 255;
+  --color-neutral-50-rgb: 247, 247, 245;
+  --color-neutral-200-rgb: 222, 222, 217;
+  --color-neutral-600-rgb: 102, 102, 98;
+  --color-neutral-900-rgb: 23, 23, 21;
+
+  --color-canvas: var(--color-neutral-0);
+  --color-surface: var(--color-neutral-0);
+  --color-surface-muted: var(--color-neutral-50);
+  --color-text: var(--color-neutral-900);
+  --color-text-muted: var(--color-neutral-600);
+  --color-border: var(--color-neutral-200);
+  --color-action: var(--color-neutral-900);
+  --color-on-action: var(--color-neutral-0);
+  --color-focus: var(--color-neutral-900);
+}

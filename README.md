@@ -52,20 +52,28 @@ compiled assets; Vite watches files under `src/`.
 
 ## Asset Ownership
 
-- `src/css/` and `src/js/` contain project-specific source files.
-- Vite writes `shopifytheme/assets/custom.css` and
-  `shopifytheme/assets/custom.js`.
-- The generated custom files are ignored by Git and must not be edited directly.
-- Existing Dawn files in `shopifytheme/assets/` remain authored theme assets.
-- Both theme layouts load the custom files after Dawn's assets.
+- `src/css/` owns the theme's design tokens, custom visual system, and retained
+  Dawn CSS source under `src/css/vendor/dawn/`.
+- `src/js/` contains project-specific JavaScript.
+- Vite writes `shopifytheme/assets/main.css`, `main.js`, and route- or
+  section-owned CSS bundles.
+- Generated bundle files are ignored by Git and must not be edited directly.
+- Retained Dawn runtime assets provide storefront behavior and compatibility;
+  Vite compiles retained Dawn CSS from `src/css/vendor/dawn/`.
+- Storefront, password, and gift-card pages load the custom stylesheet.
 
-Import new CSS from `src/css/index.css` and new JavaScript from
-`src/js/index.js`.
+Import new CSS from `src/css/main.css` and new JavaScript from
+`src/js/main.js`.
+
+The theme uses a browser-default 16px rem baseline. See
+`docs/css-architecture.md` for the layer order, token contract, and Theme Editor
+setting policy.
 
 ## Checks
 
 ```bash
 npm run format:check
+npm run lint:css
 npm run theme:check
 npm run build
 npm run check
@@ -97,10 +105,11 @@ Configure required reviewers on the `production` environment to add a production
 approval gate. Deployments run the full check suite, serialize per environment,
 and push to the live theme with Shopify CLI's strict validation enabled.
 
-Deployment intentionally excludes `templates/*`, `config/*`, `locales/*`,
-`snippets/*.json`, and `sections/*.json`. Those files remain managed in Shopify;
-the policy is defined only in the `deployment` environment in
-`shopifytheme/shopify.theme.toml`, so it does not affect local development.
+Deployment ships `config/settings_schema.json` and locale/schema translations,
+but excludes merchant-owned `config/settings_data.json`, `templates/*`,
+`snippets/*.json`, and `sections/*.json`. The policy is defined only in the
+`deployment` environment in `shopifytheme/shopify.theme.toml`, so it does not
+affect local development.
 
 Do not run `shopify theme pull` unless you intend to reconcile remote theme data
 with the local repository.

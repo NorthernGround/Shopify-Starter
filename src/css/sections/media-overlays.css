@@ -1,0 +1,8 @@
+.email-signup-banner::after,
+.slideshow .banner__media::after {
+  opacity: 0;
+}
+
+.image-banner::after {
+  opacity: 0.4;
+}

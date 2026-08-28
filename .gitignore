@@ -17,6 +17,15 @@ coverage/
 .vite/
 *.local
 
-# Generated custom theme assets
-shopifytheme/assets/custom.css
-shopifytheme/assets/custom.js
+# Generated theme bundles
+shopifytheme/assets/cart.css
+shopifytheme/assets/cart-drawer.css
+shopifytheme/assets/cart-notification.css
+shopifytheme/assets/collection.css
+shopifytheme/assets/collection-hero.css
+shopifytheme/assets/facets.css
+shopifytheme/assets/gift-card.css
+shopifytheme/assets/main.css
+shopifytheme/assets/main.js
+shopifytheme/assets/password.css
+shopifytheme/assets/product.css

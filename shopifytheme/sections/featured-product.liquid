@@ -1,3 +1,5 @@
+{{ 'product.css' | asset_url | stylesheet_tag }}
+
 {%- liquid
   assign product = section.settings.product
   if product == null
@@ -14,29 +16,19 @@
     data-zoom-on-hover
   {% endif %}
 >
-  {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-  {{ 'section-featured-product.css' | asset_url | stylesheet_tag }}
-  {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
-  {{ 'component-price.css' | asset_url | stylesheet_tag }}
-  {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
-  {{ 'component-rating.css' | asset_url | stylesheet_tag }}
-  {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
   {% unless section.settings.product.has_only_default_variant %}
-    {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
-    {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
-    {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
   {% endunless %}
 
   {%- style -%}
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      padding-top: var(--layout-section-gap);
+      padding-bottom: var(--layout-section-gap);
     }
 
     @media screen and (min-width: 750px) {
       .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
+        padding-top: var(--layout-section-gap);
+        padding-bottom: var(--layout-section-gap);
       }
     }
   {%- endstyle -%}
@@ -49,7 +41,6 @@
 
   {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
   {%- if first_3d_model -%}
-    {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
     <link
       id='ModelViewerStyle'
       rel='stylesheet'
@@ -57,20 +48,13 @@
       media='print'
       onload="this.media='all'"
     >
-    <link
-      id='ModelViewerOverride'
-      rel='stylesheet'
-      href='{{ 'component-model-viewer-ui.css' | asset_url }}'
-      media='print'
-      onload="this.media='all'"
-    >
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
 
-  <section class='color-{{ section.settings.color_scheme }} {% if section.settings.secondary_background %}background-secondary{% else %}gradient{% endif %}'>
-    <div class='page-width section-{{ section.id }}-padding{% if section.settings.secondary_background %} isolate{% endif %}'>
-      <div class='featured-product product product--{{ section.settings.media_size }} grid grid--1-col gradient color-{{ section.settings.color_scheme }} product--{{ section.settings.media_position }}{% if section.settings.secondary_background == false %} isolate{% endif %} {% if product.media.size > 0 or section.settings.product == blank %}grid--2-col-tablet{% else %}product--no-media{% endif %}'>
+  <section class='gradient'>
+    <div class='page-width section-{{ section.id }}-padding'>
+      <div class='featured-product product product--{{ section.settings.media_size }} grid grid--1-col gradient product--{{ section.settings.media_position }} isolate {% if product.media.size > 0 or section.settings.product == blank %}grid--2-col-tablet{% else %}product--no-media{% endif %}'>
         <div class='grid__item product__media-wrapper'>
           {%- unless placeholder -%}
             {% render 'product-media-gallery', product: product, variant_images: variant_images, limit: 1 %}
@@ -100,13 +84,13 @@
                   {% render block %}
                 {%- when 'text' -%}
                   <p
-                    class='product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}'
+                    class='product__text product__text--eyebrow inline-richtext'
                     {{ block.shopify_attributes }}
                   >
                     {{- block.settings.text -}}
                   </p>
                 {%- when 'title' -%}
-                  <h2 class='product__title {{ block.settings.heading_size }}' {{ block.shopify_attributes }}>
+                  <h2 class='product__title' {{ block.shopify_attributes }}>
                     {%- unless placeholder -%}
                       {{ product.title | escape }}
                     {%- else -%}
@@ -152,7 +136,7 @@
                   {%- endunless -%}
                 {%- when 'sku' -%}
                   <p
-                    class='product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}'
+                    class='product__sku product__sku--metadata{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}'
                     id='Sku-{{ section.id }}'
                     role='status'
                     {{ block.shopify_attributes }}
@@ -163,7 +147,7 @@
                 {%- when 'quantity_selector' -%}
                   <div
                     id='Quantity-Form-{{ section.id }}'
-                    class='product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}'
+                    class='product-form__input product-form__quantity{% if 0 != 0 and 0 < 0 %} product-form__quantity-top{% endif %}'
                     {{ block.shopify_attributes }}
                   >
                     {% comment %} TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter {% endcomment %}
@@ -522,26 +506,6 @@
           "id": "text",
           "default": "t:sections.featured-product.blocks.text.settings.text.default",
           "label": "t:sections.featured-product.blocks.text.settings.text.label"
-        },
-        {
-          "type": "select",
-          "id": "text_style",
-          "options": [
-            {
-              "value": "body",
-              "label": "t:sections.featured-product.blocks.text.settings.text_style.options__1.label"
-            },
-            {
-              "value": "subtitle",
-              "label": "t:sections.featured-product.blocks.text.settings.text_style.options__2.label"
-            },
-            {
-              "value": "uppercase",
-              "label": "t:sections.featured-product.blocks.text.settings.text_style.options__3.label"
-            }
-          ],
-          "default": "body",
-          "label": "t:sections.featured-product.blocks.text.settings.text_style.label"
         }
       ]
     },
@@ -549,36 +513,7 @@
       "type": "title",
       "name": "t:sections.featured-product.blocks.title.name",
       "limit": 1,
-      "settings": [
-        {
-          "type": "select",
-          "id": "heading_size",
-          "options": [
-            {
-              "value": "h2",
-              "label": "t:sections.all.heading_size.options__1.label"
-            },
-            {
-              "value": "h1",
-              "label": "t:sections.all.heading_size.options__2.label"
-            },
-            {
-              "value": "h0",
-              "label": "t:sections.all.heading_size.options__3.label"
-            },
-            {
-              "value": "hxl",
-              "label": "t:sections.all.heading_size.options__4.label"
-            },
-            {
-              "value": "hxxl",
-              "label": "t:sections.all.heading_size.options__5.label"
-            }
-          ],
-          "default": "h1",
-          "label": "t:sections.all.heading_size.label"
-        }
-      ]
+      "settings": []
     },
     {
       "type": "price",
@@ -589,28 +524,7 @@
       "type": "sku",
       "name": "t:sections.featured-product.blocks.sku.name",
       "limit": 1,
-      "settings": [
-        {
-          "type": "select",
-          "id": "text_style",
-          "options": [
-            {
-              "value": "body",
-              "label": "t:sections.featured-product.blocks.sku.settings.text_style.options__1.label"
-            },
-            {
-              "value": "subtitle",
-              "label": "t:sections.featured-product.blocks.sku.settings.text_style.options__2.label"
-            },
-            {
-              "value": "uppercase",
-              "label": "t:sections.featured-product.blocks.sku.settings.text_style.options__3.label"
-            }
-          ],
-          "default": "body",
-          "label": "t:sections.featured-product.blocks.sku.settings.text_style.label"
-        }
-      ]
+      "settings": []
     },
     {
       "type": "quantity_selector",
@@ -1341,18 +1255,6 @@
       "label": "t:sections.featured-product.settings.product.label"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "checkbox",
-      "id": "secondary_background",
-      "default": false,
-      "label": "t:sections.featured-product.settings.secondary_background.label"
-    },
-    {
       "type": "header",
       "content": "t:sections.featured-product.settings.header.content"
     },
@@ -1449,26 +1351,6 @@
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
     }
   ],
   "presets": [
@@ -1478,8 +1360,7 @@
         {
           "type": "text",
           "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
+            "text": "{{ section.settings.product.vendor }}"
           }
         },
         {

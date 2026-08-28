@@ -4,8 +4,7 @@ allow-live = true
 strict = true
 ignore = [
   "templates/*",
-  "config/*",
+  "config/settings_data.json",
   "snippets/*.json",
   "sections/*.json",
-  "locales/*",
 ]

@@ -4,8 +4,7 @@
       "type": "main-list-collections",
       "settings": {
         "title": "Collections",
-        "sort": "alphabetical",
-        "image_ratio": "square"
+        "sort": "alphabetical"
       }
     }
   },

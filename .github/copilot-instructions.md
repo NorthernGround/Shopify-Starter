@@ -11,6 +11,8 @@ Vite for project-specific assets:
   `shopifytheme/assets/custom.css` and `custom.js` files.
 - Do not edit generated custom assets directly or treat all Dawn assets as Vite
   output.
+- The custom CSS system owns visual design; retained Dawn assets provide
+  storefront behavior and compatibility during migration.
 
 ## Development Workflow
 
@@ -55,13 +57,21 @@ All components follow **strict BEM methodology** with **CSS logical properties**
 
 ### CSS Custom Properties System
 
-Prefer existing Dawn tokens and define project-specific tokens in the custom CSS
-source when needed:
+Use semantic project tokens from `src/css/tokens/`. New CSS must not reference
+Theme Editor visual settings or introduce component-specific raw colors:
 
 ```css
 :root {
+  --color-surface: var(--color-neutral-0);
 }
 ```
+
+The root font size is `100%`; author rem values against the browser-default 16px
+baseline. Do not restore Dawn's `62.5%` root convention.
+
+Declare all CSS through the layer order in `src/css/index.css`. New components
+belong in the `components` or `sections` layer. Dawn compatibility aliases are
+only for retained Dawn selectors.
 
 ## JavaScript Patterns
 
@@ -149,6 +159,7 @@ correct values.
 - `src/css/index.css` - CSS entry point and import order
 - `src/js/index.js` - JavaScript entry point
 - `shopifytheme/layout/theme.liquid` and `password.liquid` - Include built assets
+- `docs/css-architecture.md` - CSS ownership and Theme Editor setting policy
 
 ## Common Patterns to Follow
 
@@ -156,4 +167,5 @@ correct values.
 2. **Logical Properties**: Always use `inline-size`, `block-size`, `padding-block`, etc.
 3. **Web Components**: Prefer for complex interactive elements
 4. **Schema Consistency**: Follow project naming conventions and include proper presets
-5. **Validation**: Run `npm run check` before handoff
+5. **Theme Settings**: Keep content, structure, accessibility, and behavior controls; visual decisions belong in CSS
+6. **Validation**: Run `npm run check` before handoff

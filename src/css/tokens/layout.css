@@ -1,0 +1,16 @@
+:root {
+  --layout-content-max: 75rem;
+  --layout-gutter: var(--space-4);
+  --layout-section-gap: var(--space-16);
+  --layout-grid-gap: var(--space-4);
+  --z-index-header: 20;
+  --z-index-overlay: 30;
+  --z-index-modal: 40;
+}
+
+@media (--md) {
+  :root {
+    --layout-gutter: var(--space-8);
+    --layout-section-gap: var(--space-20);
+  }
+}

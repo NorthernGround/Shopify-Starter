@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  block-size: 100%;
+  font-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  margin: 0;
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  font-style: normal;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0;
+  line-height: var(--line-height-body);
+}
+
+body:not(.password, .gift-card) {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: 100%;
+}

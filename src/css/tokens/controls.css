@@ -1,0 +1,12 @@
+:root {
+  --border-width: 0.0625rem;
+  --border-radius-sm: 0.125rem;
+  --border-radius-md: 0.25rem;
+  --control-block-size: 3rem;
+  --control-padding-inline: var(--space-5);
+  --focus-outline-width: 0.125rem;
+  --focus-outline-offset: 0.125rem;
+  --focus-outline: var(--focus-outline-width) solid var(--color-focus);
+  --elevation-raised: 0 0.5rem 1.5rem rgb(23 23 21 / 12%);
+  --elevation-overlay: 0 1rem 3rem rgb(23 23 21 / 18%);
+}

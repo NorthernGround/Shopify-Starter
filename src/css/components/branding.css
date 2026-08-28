@@ -1,0 +1,5 @@
+.header__heading-logo-wrapper,
+.password-logo,
+.footer-block__brand-image {
+  inline-size: min(100%, 6.25rem);
+}

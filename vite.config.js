@@ -4,18 +4,34 @@ import { browserslistToTargets } from 'lightningcss';
 import browserslist from 'browserslist';
 
 export default defineConfig({
-  input: { custom: resolve(import.meta.dirname, 'src/js/index.js') },
+  input: {
+    main: resolve(import.meta.dirname, 'src/js/main.js'),
+    cart: resolve(import.meta.dirname, 'src/css/cart.css'),
+    'cart-drawer': resolve(import.meta.dirname, 'src/css/cart-drawer.css'),
+    'cart-notification': resolve(
+      import.meta.dirname,
+      'src/css/cart-notification.css',
+    ),
+    collection: resolve(import.meta.dirname, 'src/css/collection.css'),
+    'collection-hero': resolve(
+      import.meta.dirname,
+      'src/css/collection-hero.css',
+    ),
+    facets: resolve(import.meta.dirname, 'src/css/facets.css'),
+    'gift-card': resolve(import.meta.dirname, 'src/css/gift-card.css'),
+    password: resolve(import.meta.dirname, 'src/css/password.css'),
+    product: resolve(import.meta.dirname, 'src/css/product.css'),
+  },
 
   build: {
     outDir: resolve(import.meta.dirname, 'shopifytheme/assets'),
     emptyOutDir: false,
-    cssCodeSplit: false,
+    cssCodeSplit: true,
     rolldownOptions: {
       output: {
         entryFileNames: '[name].js',
         chunkFileNames: '[name].js',
-        assetFileNames: (assetInfo) =>
-          assetInfo.name?.endsWith('.css') ? 'custom.css' : '[name].[ext]',
+        assetFileNames: '[name].[ext]',
       },
     },
   },
