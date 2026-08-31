@@ -174,10 +174,6 @@
           "label": "国家/地区选择器",
           "info": "[管理国家/地区](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "语言选择器",
-          "info": "[管理语言](/admin/settings/languages)"
-        },
         "heading_utilities": {
           "content": "公共设施"
         },
@@ -464,10 +460,6 @@
           "label": "国家/地区选择器",
           "info": "[管理国家/地区](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "语言选择器",
-          "info": "[管理语言](/admin/settings/languages)"
-        },
         "payment_enable": {
           "label": "付款方式图标"
         },
@@ -490,18 +482,6 @@
         "menu": {
           "label": "菜单"
         },
-        "menu_type_desktop": {
-          "label": "﻿菜单类型",
-          "options__1": {
-            "label": "下拉菜单"
-          },
-          "options__2": {
-            "label": "超级菜单"
-          },
-          "options__3": {
-            "label": "抽屉"
-          }
-        },
         "sticky_header_type": {
           "label": "粘性标头",
           "options__1": {
@@ -521,16 +501,8 @@
           "label": "国家/地区选择器",
           "info": "[管理国家/地区](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "语言选择器",
-          "info": "[管理语言](/admin/settings/languages)"
-        },
         "header__1": {
           "content": "颜色"
-        },
-        "enable_customer_avatar": {
-          "label": "﻿客户账户头像﻿﻿",
-          "info": "仅在客户使用 Shop 登录时显示。[管理客户账户](/admin/settings/customer_accounts)"
         },
         "header__utilities": {
           "content": "公共设施"

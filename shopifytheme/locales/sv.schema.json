@@ -174,10 +174,6 @@
           "label": "Land-/regionväljare",
           "info": "[Hantera länder/regioner](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Språkväljare",
-          "info": "[Hantera språk](/admin/settings/languages)"
-        },
         "heading_utilities": {
           "content": "Verktyg"
         },
@@ -464,10 +460,6 @@
           "label": "Land-/regionväljare",
           "info": "[Hantera länder/regioner](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Språkväljare",
-          "info": "[Hantera språk](/admin/settings/languages)"
-        },
         "payment_enable": {
           "label": "Ikoner för betalningsmetoder"
         },
@@ -490,18 +482,6 @@
         "menu": {
           "label": "Meny"
         },
-        "menu_type_desktop": {
-          "label": "Menytyp",
-          "options__1": {
-            "label": "Rullgardinsmeny"
-          },
-          "options__2": {
-            "label": "Megameny"
-          },
-          "options__3": {
-            "label": "Låda"
-          }
-        },
         "sticky_header_type": {
           "label": "Fast sidhuvud",
           "options__1": {
@@ -521,16 +501,8 @@
           "label": "Land-/regionväljare",
           "info": "[Hantera länder/regioner](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Språkväljare",
-          "info": "[Hantera språk](/admin/settings/languages)"
-        },
         "header__1": {
           "content": "Färg"
-        },
-        "enable_customer_avatar": {
-          "label": "Avatar för kundkonto",
-          "info": "Visas endast när kunder är inloggade med Shop. [Hantera kundkonton](/admin/settings/customer_accounts)"
         },
         "header__utilities": {
           "content": "Verktyg"

@@ -174,10 +174,6 @@
           "label": "Kiezer voor land/regio",
           "info": "[Landen/regio's beheren](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Taalkiezer",
-          "info": "[Talen beheren](/admin/settings/languages)"
-        },
         "heading_utilities": {
           "content": "Nutsbedrijven"
         },
@@ -464,10 +460,6 @@
           "label": "Kiezer voor land/regio",
           "info": "[Landen/regio's beheren](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Taalkiezer",
-          "info": "[Talen beheren](/admin/settings/languages)"
-        },
         "payment_enable": {
           "label": "Pictogrammen betaalmethoden"
         },
@@ -490,18 +482,6 @@
         "menu": {
           "label": "Menu"
         },
-        "menu_type_desktop": {
-          "label": "Menutype",
-          "options__1": {
-            "label": "Vervolgkeuzelijst"
-          },
-          "options__2": {
-            "label": "Megamenu"
-          },
-          "options__3": {
-            "label": "Lade"
-          }
-        },
         "sticky_header_type": {
           "label": "Sticky header",
           "options__1": {
@@ -521,16 +501,8 @@
           "label": "Kiezer voor land/regio",
           "info": "[Landen/regio's beheren](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Taalkiezer",
-          "info": "[Talen beheren](/admin/settings/languages)"
-        },
         "header__1": {
           "content": "Kleur"
-        },
-        "enable_customer_avatar": {
-          "label": "Avatar klantaccount",
-          "info": "Alleen zichtbaar als klanten zijn ingelogd met Shop. [Klantaccounts beheren](/admin/settings/customer_accounts)"
         },
         "header__utilities": {
           "content": "Hulpprogramma's"

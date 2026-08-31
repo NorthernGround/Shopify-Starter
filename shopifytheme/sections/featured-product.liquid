@@ -52,9 +52,9 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
 
-  <section class='gradient'>
+  <section>
     <div class='page-width section-{{ section.id }}-padding'>
-      <div class='featured-product product product--{{ 'medium' }} grid grid--1-col gradient product--{{ 'left' }} isolate {% if product.media.size > 0 or section.settings.product == blank %}grid--2-col-tablet{% else %}product--no-media{% endif %}'>
+      <div class='featured-product product product--{{ 'medium' }} grid grid--1-col product--{{ 'left' }} isolate {% if product.media.size > 0 or section.settings.product == blank %}grid--2-col-tablet{% else %}product--no-media{% endif %}'>
         <div class='grid__item product__media-wrapper'>
           {%- unless placeholder -%}
             {% render 'product-media-gallery',
@@ -68,7 +68,7 @@
           {%- else -%}
             <div class='product__media-item'>
               <div
-                class='product-media-container global-media-settings gradient{% if true %} constrain-height{% endif %}'
+                class='product-media-container global-media-settings{% if true %} constrain-height{% endif %}'
                 style='--ratio: 1.0; --preview-ratio: 1.0;'
               >
                 {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}

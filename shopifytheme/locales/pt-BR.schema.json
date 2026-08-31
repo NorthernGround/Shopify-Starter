@@ -174,10 +174,6 @@
           "label": "Seletor de país/região",
           "info": "[Gerenciar países/regiões](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Seletor de idioma",
-          "info": "[Gerenciar idiomas](/admin/settings/languages)"
-        },
         "heading_utilities": {
           "content": "Serviços públicos"
         },
@@ -464,10 +460,6 @@
           "label": "Seletor de país/região",
           "info": "[Gerenciar países/regiões](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Seletor de idioma",
-          "info": "[Gerenciar idiomas](/admin/settings/languages)"
-        },
         "payment_enable": {
           "label": "Ícones de forma de pagamento"
         },
@@ -490,18 +482,6 @@
         "menu": {
           "label": "Menu"
         },
-        "menu_type_desktop": {
-          "label": "Tipo de menu",
-          "options__1": {
-            "label": "Menu suspenso"
-          },
-          "options__2": {
-            "label": "Megamenu"
-          },
-          "options__3": {
-            "label": "Deslizante"
-          }
-        },
         "sticky_header_type": {
           "label": "Cabeçalho fixo",
           "options__1": {
@@ -521,16 +501,8 @@
           "label": "Seletor de país/região",
           "info": "[Gerenciar países/regiões](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Seletor de idioma",
-          "info": "[Gerenciar idiomas](/admin/settings/languages)"
-        },
         "header__1": {
           "content": "Cor"
-        },
-        "enable_customer_avatar": {
-          "label": "Avatar de conta de cliente",
-          "info": "Visível apenas quando os clientes fizerem login com o Shop. [Gerenciar contas de cliente](/admin/settings/customer_accounts)"
         },
         "header__utilities": {
           "content": "Serviços públicos"

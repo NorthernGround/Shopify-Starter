@@ -20,7 +20,7 @@
   endif
 -%}
 
-<div class='multicolumn gradient{% if section.settings.title == blank %} no-heading{% endif %}'>
+<div class='multicolumn{% if section.settings.title == blank %} no-heading{% endif %}'>
   <div
     class='page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
     {% if settings.animations_reveal_on_scroll %}

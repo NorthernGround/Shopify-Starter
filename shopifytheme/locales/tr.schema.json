@@ -174,10 +174,6 @@
           "label": "Ülke/bölge seçici",
           "info": "[Ülkeleri/bölgeleri yönet](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Dil seçici",
-          "info": "[Dilleri yönet](/admin/settings/languages)"
-        },
         "heading_utilities": {
           "content": "Yardımcı araçlar"
         },
@@ -464,10 +460,6 @@
           "label": "Ülke/bölge seçici",
           "info": "[Ülkeleri/bölgeleri yönet](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Dil seçici",
-          "info": "[Dilleri yönet](/admin/settings/languages)"
-        },
         "payment_enable": {
           "label": "Ödeme yöntemi simgeleri"
         },
@@ -490,18 +482,6 @@
         "menu": {
           "label": "Menü"
         },
-        "menu_type_desktop": {
-          "label": "Menü türü",
-          "options__1": {
-            "label": "Açılır menü"
-          },
-          "options__2": {
-            "label": "Mega menü"
-          },
-          "options__3": {
-            "label": "Çekmece"
-          }
-        },
         "sticky_header_type": {
           "label": "Sabit üstbilgi",
           "options__1": {
@@ -521,16 +501,8 @@
           "label": "Ülke/bölge seçici",
           "info": "[Ülkeleri/bölgeleri yönet](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Dil seçici",
-          "info": "[Dilleri yönet](/admin/settings/languages)"
-        },
         "header__1": {
           "content": "Renk"
-        },
-        "enable_customer_avatar": {
-          "label": "Müşteri hesabı avatarı",
-          "info": "Yalnızca müşteriler Shop ile oturum açtığında görünür [Müşteri hesaplarını yönet](/admin/settings/customer_accounts)"
         },
         "header__utilities": {
           "content": "Yardımcı araçlar"

@@ -12,7 +12,7 @@
   }
 {%- endstyle -%}
 
-<div class=' gradient'>
+<div>
   <product-recommendations
     class='related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
     data-url='{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}'

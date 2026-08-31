@@ -174,10 +174,6 @@
           "label": "国/地域セレクター",
           "info": "[国/地域の管理](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "言語セレクター",
-          "info": "[言語の管理](/admin/settings/languages)"
-        },
         "heading_utilities": {
           "content": "ユーティリティー"
         },
@@ -464,10 +460,6 @@
           "label": "国/地域セレクター",
           "info": "[国/地域の管理](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "言語セレクター",
-          "info": "[言語の管理](/admin/settings/languages)"
-        },
         "payment_enable": {
           "label": "決済方法アイコン"
         },
@@ -490,18 +482,6 @@
         "menu": {
           "label": "メニュー"
         },
-        "menu_type_desktop": {
-          "label": "メニュータイプ",
-          "options__1": {
-            "label": "ドロップダウン"
-          },
-          "options__2": {
-            "label": "メガメニュー"
-          },
-          "options__3": {
-            "label": "ドロワー"
-          }
-        },
         "sticky_header_type": {
           "label": "常時表示のヘッダー",
           "options__1": {
@@ -521,16 +501,8 @@
           "label": "国/地域セレクター",
           "info": "[国/地域の管理](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "言語セレクター",
-          "info": "[言語の管理](/admin/settings/languages)"
-        },
         "header__1": {
           "content": "色"
-        },
-        "enable_customer_avatar": {
-          "label": "お客様アカウントAvatar",
-          "info": "お客様がShopにサインインしている場合にのみ表示されます。お客様アカウントの管理](/admin/settings/customer_accounts)"
         },
         "header__utilities": {
           "content": "ユーティリティー"

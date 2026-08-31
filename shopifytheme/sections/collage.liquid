@@ -12,7 +12,7 @@
   }
 {%- endstyle -%}
 
-<div class=' gradient isolate'>
+<div class='isolate'>
   <div class='page-width section-{{ section.id }}-padding'>
     {%- if section.settings.heading != blank -%}
       <h2 class='collage-wrapper-title inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
@@ -33,7 +33,7 @@
           {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
           {%- case block.type -%}
             {%- when 'image' -%}
-              <div class='collage-card card-wrapper product-card-wrapper gradient'>
+              <div class='collage-card card-wrapper product-card-wrapper'>
                 <div
                   class='media media--transparent ratio'
                   {% if block.settings.image != blank %}
@@ -101,7 +101,7 @@
                 placeholder_image: placeholder_image
               %}
             {%- when 'video' -%}
-              <div class='collage-card product-card-wrapper gradient'>
+              <div class='collage-card product-card-wrapper'>
                 <modal-opener data-modal='#PopupModal-{{ block.id }}'>
                   <div class='deferred-media'>
                     <button

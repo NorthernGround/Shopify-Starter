@@ -174,10 +174,6 @@
           "label": "Selektor země/oblasti",
           "info": "[Spravovat země/oblasti](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Selektor jazyka",
-          "info": "[Spravovat jazyky](/admin/settings/languages)"
-        },
         "heading_utilities": {
           "content": "Veřejné služby"
         },
@@ -464,10 +460,6 @@
           "label": "Selektor země/oblasti",
           "info": "[Spravovat země/oblasti](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Selektor jazyka",
-          "info": "[Spravovat jazyky](/admin/settings/languages)"
-        },
         "payment_enable": {
           "label": "Ikony platebních metod"
         },
@@ -490,18 +482,6 @@
         "menu": {
           "label": "Nabídka"
         },
-        "menu_type_desktop": {
-          "label": "Typ nabídky",
-          "options__1": {
-            "label": "Rozevírací nabídka"
-          },
-          "options__2": {
-            "label": "Mega nabídka"
-          },
-          "options__3": {
-            "label": "Výsuvný panel"
-          }
-        },
         "sticky_header_type": {
           "label": "Plovoucí záhlaví",
           "options__1": {
@@ -521,16 +501,8 @@
           "label": "Selektor země/oblasti",
           "info": "[Spravovat země/oblasti](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Selektor jazyka",
-          "info": "[Spravovat jazyky](/admin/settings/languages)"
-        },
         "header__1": {
           "content": "Barva"
-        },
-        "enable_customer_avatar": {
-          "label": "Avatar zákaznického účtu",
-          "info": "Viditelné pouze v případě, kdy jsou zákazníci přihlášeni přes Shop. [Spravovat zákaznické účty](/admin/settings/customer_accounts)"
         },
         "header__utilities": {
           "content": "Veřejné služby"

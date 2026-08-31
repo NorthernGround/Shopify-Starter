@@ -30,7 +30,7 @@
   (min-width: 1200px) 1100px, (min-width: 750px) calc(100vw - 6.25rem), 100vw
 {%- endcapture -%}
 
-<div class=' gradient'>
+<div>
   <div class='video-section isolate page-width section-{{ section.id }}-padding'>
     <div>
       {%- unless section.settings.heading == blank -%}
@@ -40,7 +40,7 @@
       {%- endunless -%}
     </div>
     <deferred-media
-      class='video-section__media deferred-media gradient global-media-settings{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+      class='video-section__media deferred-media global-media-settings{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
       data-media-id='{{ video_id }}'
       {% if poster != null %}
         style='--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;'

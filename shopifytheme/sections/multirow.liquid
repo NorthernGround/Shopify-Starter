@@ -20,7 +20,7 @@
   endif
 -%}
 
-<div class='multirow section-{{ section.id }}-padding gradient'>
+<div class='multirow section-{{ section.id }}-padding'>
   <div class='multirow__inner page-width'>
     {%- for block in section.blocks -%}
       <div
@@ -30,7 +30,7 @@
         <div class='image-with-text__grid grid grid--gapless grid--1-col grid--2-col-tablet{% cycle odd_class, even_class %}'>
           <div class='image-with-text__media-item image-with-text__media-item--medium image-with-text__media-item--middle grid__item'>
             <div
-              class='image-with-text__media image-with-text__media--medium gradient global-media-settings{% if block.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}'
+              class='image-with-text__media image-with-text__media--medium global-media-settings{% if block.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}'
             >
               {%- if block.settings.image != blank -%}
                 {%- capture sizes -%}
@@ -48,7 +48,7 @@
             </div>
           </div>
           <div class='image-with-text__text-item grid__item'>
-            <div class='image-with-text__content image-with-text__content--middle image-with-text__content--desktop-left image-with-text__content--mobile-left image-with-text__content--medium content-container gradient'>
+            <div class='image-with-text__content image-with-text__content--middle image-with-text__content--desktop-left image-with-text__content--mobile-left image-with-text__content--medium content-container'>
               {%- if block.settings.caption -%}
                 <p class='image-with-text__text image-with-text__text--caption caption-with-letter-spacing caption-with-letter-spacing--medium'>
                   {{ block.settings.caption | escape }}

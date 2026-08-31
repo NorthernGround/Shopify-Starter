@@ -174,10 +174,6 @@
           "label": "國家/地區選擇器",
           "info": "[管理國家/地區](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "語言選擇器",
-          "info": "[管理語言](/admin/settings/languages)"
-        },
         "heading_utilities": {
           "content": "公用事業"
         },
@@ -464,10 +460,6 @@
           "label": "國家/地區選擇器",
           "info": "[管理國家/地區](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "語言選擇器",
-          "info": "[管理語言](/admin/settings/languages)"
-        },
         "payment_enable": {
           "label": "付款方式圖示"
         },
@@ -490,18 +482,6 @@
         "menu": {
           "label": "選單"
         },
-        "menu_type_desktop": {
-          "label": "選單類型",
-          "options__1": {
-            "label": "下拉式選單"
-          },
-          "options__2": {
-            "label": "大型選單"
-          },
-          "options__3": {
-            "label": "隱藏式選單"
-          }
-        },
         "sticky_header_type": {
           "label": "固定式頁首",
           "options__1": {
@@ -521,16 +501,8 @@
           "label": "國家/地區選擇器",
           "info": "[管理國家/地區](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "語言選擇器",
-          "info": "[管理語言](/admin/settings/languages)"
-        },
         "header__1": {
           "content": "顏色"
-        },
-        "enable_customer_avatar": {
-          "label": "顧客帳號大頭貼",
-          "info": "僅在顧客登入 Shop 時可見。[管理顧客帳號](/admin/settings/customer_accounts)"
         },
         "header__utilities": {
           "content": "公用事業"

@@ -174,10 +174,6 @@
           "label": "국가/지역 선택기",
           "info": "[국가/지역 관리하기](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "언어 선택기",
-          "info": "[언어 관리하기](/admin/settings/languages)"
-        },
         "heading_utilities": {
           "content": "유틸리티"
         },
@@ -464,10 +460,6 @@
           "label": "국가/지역 선택기",
           "info": "[국가/지역 관리하기](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "언어 선택기",
-          "info": "[언어 관리하기](/admin/settings/languages)"
-        },
         "payment_enable": {
           "label": "결제 방법 아이콘"
         },
@@ -490,18 +482,6 @@
         "menu": {
           "label": "메뉴"
         },
-        "menu_type_desktop": {
-          "label": "메뉴 유형",
-          "options__1": {
-            "label": "드롭다운"
-          },
-          "options__2": {
-            "label": "메가 메뉴"
-          },
-          "options__3": {
-            "label": "서랍"
-          }
-        },
         "sticky_header_type": {
           "label": "고정 머리글",
           "options__1": {
@@ -521,16 +501,8 @@
           "label": "국가/지역 선택기",
           "info": "[국가/지역 관리하기](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "언어 선택기",
-          "info": "[언어 관리하기](/admin/settings/languages)"
-        },
         "header__1": {
           "content": "색상"
-        },
-        "enable_customer_avatar": {
-          "label": "고객 계정 아바타",
-          "info": "고객이 Shop에 로그인한 경우에만 표시됩니다. [고객 계정 관리하기](/admin/settings/customer_accounts)"
         },
         "header__utilities": {
           "content": "유틸리티"

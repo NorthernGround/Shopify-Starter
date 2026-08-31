@@ -174,10 +174,6 @@
           "label": "ตัวเลือกประเทศ/ภูมิภาค",
           "info": "[จัดการประเทศ/ภูมิภาค](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "ตัวเลือกภาษา",
-          "info": "[จัดการภาษา](/admin/settings/languages)"
-        },
         "heading_utilities": {
           "content": "สาธารณูปโภค"
         },
@@ -464,10 +460,6 @@
           "label": "ตัวเลือกประเทศ/ภูมิภาค",
           "info": "[จัดการประเทศ/ภูมิภาค](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "ตัวเลือกภาษา",
-          "info": "[จัดการภาษา](/admin/settings/languages)"
-        },
         "payment_enable": {
           "label": "ไอคอนวิธีการชำระเงิน"
         },
@@ -490,18 +482,6 @@
         "menu": {
           "label": "เมนู"
         },
-        "menu_type_desktop": {
-          "label": "ประเภทเมนู",
-          "options__1": {
-            "label": "ดรอปดาวน์"
-          },
-          "options__2": {
-            "label": "เมกะเมนู"
-          },
-          "options__3": {
-            "label": "แถบตัวเลือกแบบซ่อนได้"
-          }
-        },
         "sticky_header_type": {
           "label": "ส่วนหัวแบบยึดตำแหน่ง",
           "options__1": {
@@ -521,16 +501,8 @@
           "label": "ตัวเลือกประเทศ/ภูมิภาค",
           "info": "[จัดการประเทศ/ภูมิภาค](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "ตัวเลือกภาษา",
-          "info": "[จัดการภาษา](/admin/settings/languages)"
-        },
         "header__1": {
           "content": "สี"
-        },
-        "enable_customer_avatar": {
-          "label": "ตัวแทนบัญชีผู้ใช้ของลูกค้า",
-          "info": "แสดงผลเมื่อลูกค้าลงชื่อเข้าใช้ใน Shop เท่านั้น [จัดการบัญชีผู้ใช้ของลูกค้า](/admin/settings/customer_accounts)"
         },
         "header__utilities": {
           "content": "สาธารณูปโภค"

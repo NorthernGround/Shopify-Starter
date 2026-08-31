@@ -174,10 +174,6 @@
           "label": "Land-/områdevelger",
           "info": "[Administrer land/regioner](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Språkvelger",
-          "info": "[Administrer språk](/admin/settings/languages)"
-        },
         "heading_utilities": {
           "content": "Verktøy"
         },
@@ -464,10 +460,6 @@
           "label": "Land-/områdevelger",
           "info": "[Administrer land/regioner](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Språkvelger",
-          "info": "[Administrer språk](/admin/settings/languages)"
-        },
         "payment_enable": {
           "label": "Ikoner for betalingsmåter"
         },
@@ -490,18 +482,6 @@
         "menu": {
           "label": "Meny"
         },
-        "menu_type_desktop": {
-          "label": "Menytype",
-          "options__1": {
-            "label": "Rullegardin"
-          },
-          "options__2": {
-            "label": "Megameny"
-          },
-          "options__3": {
-            "label": "Skuff"
-          }
-        },
         "sticky_header_type": {
           "label": "Festet overskrift",
           "options__1": {
@@ -521,16 +501,8 @@
           "label": "Land-/områdevelger",
           "info": "[Administrer land/regioner](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Språkvelger",
-          "info": "[Administrer språk](/admin/settings/languages)"
-        },
         "header__1": {
           "content": "Farge"
-        },
-        "enable_customer_avatar": {
-          "label": "Avatar for kundekonto",
-          "info": "Kun synlig når kunder er logget inn med Shop. [Administrer kundekontoer](/admin/settings/customer_accounts)"
         },
         "header__utilities": {
           "content": "Verktøy"

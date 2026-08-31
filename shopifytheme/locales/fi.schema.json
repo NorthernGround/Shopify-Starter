@@ -174,10 +174,6 @@
           "label": "Maa-/aluevalitsin",
           "info": "[Hallinnoi maita/alueita](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Kielivalitsin",
-          "info": "[Hallinnoi kieliä](/admin/settings/languages)"
-        },
         "heading_utilities": {
           "content": "Apuohjelmat"
         },
@@ -464,10 +460,6 @@
           "label": "Maa-/aluevalitsin",
           "info": "[Hallinnoi maita/alueita](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Kielivalitsin",
-          "info": "[Hallinnoi kieliä](/admin/settings/languages)"
-        },
         "payment_enable": {
           "label": "Maksutapakuvakkeet"
         },
@@ -490,18 +482,6 @@
         "menu": {
           "label": "Valikko"
         },
-        "menu_type_desktop": {
-          "label": "Valikkotyyppi",
-          "options__1": {
-            "label": "Pudotusvalikko"
-          },
-          "options__2": {
-            "label": "Mega-valikko"
-          },
-          "options__3": {
-            "label": "Laatikko"
-          }
-        },
         "sticky_header_type": {
           "label": "Paikallaan pysyvä ylätunniste",
           "options__1": {
@@ -521,16 +501,8 @@
           "label": "Maa-/aluevalitsin",
           "info": "[Hallinnoi maita/alueita](/admin/settings/markets)"
         },
-        "enable_language_selector": {
-          "label": "Kielivalitsin",
-          "info": "[Hallinnoi kieliä](/admin/settings/languages)"
-        },
         "header__1": {
           "content": "Väri"
-        },
-        "enable_customer_avatar": {
-          "label": "Asiakastilin avatar",
-          "info": "Näkyvissä vain, kun asiakkaat ovat kirjautuneet Shopiin. [Hallinnoi asiakastilejä](/admin/settings/customer_accounts)"
         },
         "header__utilities": {
           "content": "Apuohjelmat"
