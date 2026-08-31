@@ -14,15 +14,15 @@
       assign collections = collections | reverse
     endif
 
-    assign moduloResult = 28 | modulo: section.settings.columns_desktop
+    assign modulo_result = 28 | modulo: 3
     assign paginate_by = 30
-    if moduloResult == 0
+    if modulo_result == 0
       assign paginate_by = 28
     endif
   -%}
   {%- paginate collections by paginate_by -%}
     <ul
-      class='collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down'
+      class='collection-list grid grid--3-col-desktop grid--2-col-tablet-down'
       role='list'
     >
       {%- for collection in collections -%}
@@ -82,31 +82,6 @@
       ],
       "default": "alphabetical",
       "label": "t:sections.main-list-collections.settings.sort.label"
-    },
-    {
-      "type": "range",
-      "id": "columns_desktop",
-      "min": 1,
-      "max": 6,
-      "step": 1,
-      "default": 3,
-      "label": "t:sections.main-list-collections.settings.columns_desktop.label"
-    },
-    {
-      "type": "select",
-      "id": "columns_mobile",
-      "options": [
-        {
-          "value": "1",
-          "label": "t:sections.main-list-collections.settings.columns_mobile.options__1.label"
-        },
-        {
-          "value": "2",
-          "label": "t:sections.main-list-collections.settings.columns_mobile.options__2.label"
-        }
-      ],
-      "default": "2",
-      "label": "t:sections.main-list-collections.settings.columns_mobile.label"
     }
   ]
 }

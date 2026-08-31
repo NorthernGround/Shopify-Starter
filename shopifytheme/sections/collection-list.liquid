@@ -1,19 +1,19 @@
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: var(--layout-section-gap);
-    padding-bottom: var(--layout-section-gap);
+    padding-block-start: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-block-end: calc({{ section.settings.padding_bottom }}px * 0.75);
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: var(--layout-section-gap);
-      padding-bottom: var(--layout-section-gap);
+      padding-block-start: {{ section.settings.padding_top }}px;
+      padding-block-end: {{ section.settings.padding_bottom }}px;
     }
   }
 {%- endstyle -%}
 
 {%- liquid
-  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+  assign columns_mobile_int = '1' | plus: 0
   assign show_mobile_slider = false
   if section.settings.swipe_on_mobile and section.blocks.size > columns_mobile_int
     assign show_mobile_slider = true
@@ -46,7 +46,7 @@
 
     <slider-component class='slider-mobile-gutter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
       <ul
-        class='collection-list contains-card contains-card--collection contains-card--standard grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down{% if section.settings.swipe_on_mobile %} slider slider--tablet grid--peek{% endif %} collection-list--{{ section.blocks.size }}-items'
+        class='collection-list contains-card contains-card--collection contains-card--standard grid grid--3-col-desktop grid--1-col-tablet-down{% if section.settings.swipe_on_mobile %} slider slider--tablet grid--peek{% endif %} collection-list--{{ section.blocks.size }}-items'
         id='Slider-{{ section.id }}'
         role='list'
       >
@@ -150,15 +150,6 @@
       "content": "t:sections.collection-list.settings.header_layout.content"
     },
     {
-      "type": "range",
-      "id": "columns_desktop",
-      "min": 1,
-      "max": 6,
-      "step": 1,
-      "default": 3,
-      "label": "t:sections.collection-list.settings.columns_desktop.label"
-    },
-    {
       "type": "checkbox",
       "id": "show_view_all",
       "default": false,
@@ -170,22 +161,6 @@
       "content": "t:sections.collection-list.settings.header_mobile.content"
     },
     {
-      "type": "select",
-      "id": "columns_mobile",
-      "options": [
-        {
-          "value": "1",
-          "label": "t:sections.collection-list.settings.columns_mobile.options__1.label"
-        },
-        {
-          "value": "2",
-          "label": "t:sections.collection-list.settings.columns_mobile.options__2.label"
-        }
-      ],
-      "default": "1",
-      "label": "t:sections.collection-list.settings.columns_mobile.label"
-    },
-    {
       "type": "checkbox",
       "id": "swipe_on_mobile",
       "default": false,
@@ -194,6 +169,26 @@
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
     }
   ],
   "blocks": [

@@ -1,14 +1,14 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: var(--layout-section-gap);
-    padding-bottom: var(--layout-section-gap);
+    padding-block-start: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-block-end: calc({{ section.settings.padding_bottom }}px * 0.75);
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: var(--layout-section-gap);
-      padding-bottom: var(--layout-section-gap);
+      padding-block-start: {{ section.settings.padding_top }}px;
+      padding-block-end: {{ section.settings.padding_bottom }}px;
     }
   }
 {%- endstyle -%}
@@ -137,6 +137,26 @@
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
     }
   ],
   "blocks": [

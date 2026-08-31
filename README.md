@@ -105,9 +105,10 @@ Configure required reviewers on the `production` environment to add a production
 approval gate. Deployments run the full check suite, serialize per environment,
 and push to the live theme with Shopify CLI's strict validation enabled.
 
-Deployment ships `config/settings_schema.json` and locale/schema translations,
-but excludes merchant-owned `config/settings_data.json`, `templates/*`,
-`snippets/*.json`, and `sections/*.json`. The policy is defined only in the
+Deployment ships `config/settings_schema.json`, locale/schema translations, and
+the fixed `templates/product.json`, but excludes merchant-owned
+`config/settings_data.json`, other templates, `snippets/*.json`, and
+`sections/*.json`. The policy is defined only in the
 `deployment` environment in `shopifytheme/shopify.theme.toml`, so it does not
 affect local development.
 

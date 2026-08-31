@@ -2,38 +2,52 @@
   Renders product buy-buttons.
   Accepts:
   - product: {Object} product object.
-  - block: {Object} passing the block information.
+  - block: {Object} passing the block information (optional).
   - product_form_id: {String} product form id.
   - section_id: {String} id of section to which this snippet belongs.
   - show_pickup_availability: {Boolean} for the pickup availability. If true the pickup availability is rendered, false - not rendered (optional).
+  - show_dynamic_checkout: {Boolean} renders accelerated checkout (optional).
+  - show_gift_card_recipient: {Boolean} renders gift card recipient fields (optional).
 
   Usage:
   {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true %}
 {% endcomment %}
-<div {{ block.shopify_attributes }}>
+{%- liquid
+  if show_dynamic_checkout == null
+    assign show_dynamic_checkout = block.settings.show_dynamic_checkout
+  endif
+  if show_gift_card_recipient == null
+    assign show_gift_card_recipient = block.settings.show_gift_card_recipient
+  endif
+-%}
+<div
+  {% if block %}
+    {{ block.shopify_attributes -}}
+  {% endif %}
+>
   {%- if product != blank -%}
     {%- liquid
       assign gift_card_recipient_feature_active = false
-      if block.settings.show_gift_card_recipient and product.gift_card?
+      if show_gift_card_recipient and product.gift_card?
         assign gift_card_recipient_feature_active = true
       endif
 
-      assign show_dynamic_checkout = false
-      if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
-        assign show_dynamic_checkout = true
+      assign render_dynamic_checkout = false
+      if show_dynamic_checkout and gift_card_recipient_feature_active == false
+        assign render_dynamic_checkout = true
       endif
     -%}
 
     <product-form
-      class="product-form"
-      data-hide-errors="{{ gift_card_recipient_feature_active }}"
-      data-section-id="{{ section.id }}"
+      class='product-form'
+      data-hide-errors='{{ gift_card_recipient_feature_active }}'
+      data-section-id='{{ section.id }}'
     >
-      <div class="product-form__error-message-wrapper" role="alert" hidden>
-        <span class="svg-wrapper">
+      <div class='product-form__error-message-wrapper' role='alert' hidden>
+        <span class='svg-wrapper'>
           {{- 'icon-error.svg' | inline_asset_content -}}
         </span>
-        <span class="product-form__error-message"></span>
+        <span class='product-form__error-message'></span>
       </div>
 
       {%- form 'product',
@@ -44,23 +58,23 @@
         data-type: 'add-to-cart-form'
       -%}
         <input
-          type="hidden"
-          name="id"
-          value="{{ product.selected_or_first_available_variant.id }}"
+          type='hidden'
+          name='id'
+          value='{{ product.selected_or_first_available_variant.id }}'
           {% if product.selected_or_first_available_variant.available == false
             or quantity_rule_soldout
             or product.selected_or_first_available_variant == null
           %}
             disabled
           {% endif %}
-          class="product-variant-id"
+          class='product-variant-id'
         >
 
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
 
-        <div class="product-form__buttons">
+        <div class='product-form__buttons'>
           {%- liquid
             assign check_against_inventory = true
             if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
@@ -71,10 +85,10 @@
             endif
           -%}
           <button
-            id="ProductSubmitButton-{{ section_id }}"
-            type="submit"
-            name="add"
-            class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+            id='ProductSubmitButton-{{ section_id }}'
+            type='submit'
+            name='add'
+            class='product-form__submit button button--full-width {% if render_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}'
             {% if product.selected_or_first_available_variant.available == false
               or quantity_rule_soldout
               or product.selected_or_first_available_variant == null
@@ -93,19 +107,19 @@
             </span>
             {%- render 'loading-spinner' -%}
           </button>
-          {%- if show_dynamic_checkout -%}
+          {%- if render_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}
         </div>
       {%- endform -%}
     </product-form>
   {%- else -%}
-    <div class="product-form">
-      <div class="product-form__buttons form">
+    <div class='product-form'>
+      <div class='product-form__buttons form'>
         <button
-          type="submit"
-          name="add"
-          class="product-form__submit button button--full-width button--primary"
+          type='submit'
+          name='add'
+          class='product-form__submit button button--full-width button--primary'
           disabled
         >
           {{ 'products.product.sold_out' | t }}
@@ -115,29 +129,28 @@
   {%- endif -%}
 
   {%- if show_pickup_availability -%}
-
     {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities
       | where: 'pick_up_enabled', true
     -%}
 
     <pickup-availability
-      class="product__pickup-availabilities quick-add-hidden"
+      class='product__pickup-availabilities quick-add-hidden'
       {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %}
         available
       {% endif %}
-      data-root-url="{{ routes.root_url }}"
-      data-variant-id="{{ product.selected_or_first_available_variant.id }}"
-      data-has-only-default-variant="{{ product.has_only_default_variant }}"
-      data-product-page-color-scheme="gradient"
+      data-root-url='{{ routes.root_url }}'
+      data-variant-id='{{ product.selected_or_first_available_variant.id }}'
+      data-has-only-default-variant='{{ product.has_only_default_variant }}'
+      data-product-page-color-scheme='gradient'
     >
       <template>
-        <pickup-availability-preview class="pickup-availability-preview">
-          <span class="svg-wrapper">
+        <pickup-availability-preview class='pickup-availability-preview'>
+          <span class='svg-wrapper'>
             {{- 'icon-unavailable.svg' | inline_asset_content -}}
           </span>
-          <div class="pickup-availability-info">
-            <p class="caption-large">{{ 'products.product.pickup_availability.unavailable' | t }}</p>
-            <button class="pickup-availability-button link link--text underlined-link">
+          <div class='pickup-availability-info'>
+            <p class='caption-large'>{{ 'products.product.pickup_availability.unavailable' | t }}</p>
+            <button class='pickup-availability-button link link--text underlined-link'>
               {{ 'products.product.pickup_availability.refresh' | t }}
             </button>
           </div>
@@ -145,6 +158,6 @@
       </template>
     </pickup-availability>
 
-    <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+    <script src='{{ 'pickup-availability.js' | asset_url }}' defer='defer'></script>
   {%- endif -%}
 </div>

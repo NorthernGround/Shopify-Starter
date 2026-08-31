@@ -7,8 +7,8 @@ Vite for project-specific assets:
 
 - `src/` contains project-specific CSS and JavaScript source.
 - `shopifytheme/` contains the Shopify theme and Dawn's authored assets.
-- Vite compiles `src/` to the ignored
-  `shopifytheme/assets/custom.css` and `custom.js` files.
+- Vite compiles `src/` to ignored `main.css`, `main.js`, and route bundles in
+  `shopifytheme/assets/`.
 - Do not edit generated custom assets directly or treat all Dawn assets as Vite
   output.
 - The custom CSS system owns visual design; retained Dawn assets provide
@@ -53,7 +53,8 @@ All components follow **strict BEM methodology** with **CSS logical properties**
 - **Liquid**: `shopifytheme/sections/[component-name].liquid`
 - **JS**: `src/js/components/[component-name].js` (if needed)
 
-**Import Pattern**: All CSS imported through `src/css/index.css` - add new components there.
+**Import Pattern**: Shared CSS is imported through `src/css/main.css`; route and
+section bundles are direct entries in `vite.config.js`.
 
 ### CSS Custom Properties System
 
@@ -69,7 +70,7 @@ Theme Editor visual settings or introduce component-specific raw colors:
 The root font size is `100%`; author rem values against the browser-default 16px
 baseline. Do not restore Dawn's `62.5%` root convention.
 
-Declare all CSS through the layer order in `src/css/index.css`. New components
+Declare shared CSS through the layer order in `src/css/main.css`. New components
 belong in the `components` or `sections` layer. Dawn compatibility aliases are
 only for retained Dawn selectors.
 
@@ -91,7 +92,7 @@ class ComponentName extends HTMLElement {
 customElements.define('component-name', ComponentName);
 ```
 
-Import and initialize in `src/js/index.js`.
+Import and initialize in `src/js/main.js`.
 
 ## Shopify Section Patterns
 
@@ -123,8 +124,8 @@ All custom sections follow this naming and schema pattern:
 
 ### Vite Configuration Specifics
 
-- **Entry Point**: `src/js/index.js`
-- **Output**: `shopifytheme/assets/custom.js` and `custom.css`
+- **Entry Point**: `src/js/main.js` plus route CSS entries in `vite.config.js`
+- **Output**: `shopifytheme/assets/main.js`, `main.css`, and route CSS bundles
 - **CSS Processing**: Lightning CSS with logical properties support
 - **Preview/Reload**: Shopify CLI owns the storefront server and reload behavior
 
@@ -156,8 +157,8 @@ correct values.
 ## Critical File Dependencies
 
 - `vite.config.js` - Build configuration with LightningCSS
-- `src/css/index.css` - CSS entry point and import order
-- `src/js/index.js` - JavaScript entry point
+- `src/css/main.css` - shared CSS entry point and import order
+- `src/js/main.js` - JavaScript entry point
 - `shopifytheme/layout/theme.liquid` and `password.liquid` - Include built assets
 - `docs/css-architecture.md` - CSS ownership and Theme Editor setting policy
 

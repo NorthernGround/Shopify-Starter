@@ -1,4 +1,5 @@
 node_modules/
 shopifytheme/assets/
 shopifytheme/config/settings_data.json
+src/css/vendor/dawn/
 package-lock.json

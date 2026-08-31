@@ -31,7 +31,6 @@
         "button"
       ],
       "settings": {
-        "show_text_box": false,
         "stack_images_on_mobile": false,
         "show_text_below": false
       }
@@ -56,9 +55,7 @@
         "heading",
         "text"
       ],
-      "settings": {
-        "full_width": true
-      }
+      "settings": {}
     },
     "featured_collection": {
       "type": "featured-collection",
@@ -66,13 +63,11 @@
         "title": "Featured products",
         "collection": "all",
         "products_to_show": 8,
-        "columns_desktop": 4,
         "show_view_all": false,
         "swipe_on_mobile": false,
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2"
+        "show_rating": false
       }
     },
     "collage": {
@@ -104,9 +99,7 @@
         "collection-1"
       ],
       "settings": {
-        "heading": "Multimedia collage",
-        "desktop_layout": "left",
-        "mobile_layout": "collage"
+        "heading": "Multimedia collage"
       }
     },
     "video": {
@@ -114,8 +107,7 @@
       "settings": {
         "heading": "",
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": false
+        "description": ""
       }
     },
     "multicolumn": {
@@ -156,13 +148,9 @@
       ],
       "settings": {
         "title": "",
-        "image_width": "third",
-        "columns_desktop": 3,
-        "column_alignment": "center",
         "button_label": "",
         "button_link": "",
-        "swipe_on_mobile": false,
-        "columns_mobile": "1"
+        "swipe_on_mobile": false
       }
     }
   },
