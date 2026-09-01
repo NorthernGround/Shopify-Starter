@@ -17,7 +17,7 @@
           {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
       </button>
-      <div class='slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}'>
+      <div class='slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual =='counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}'>
         {%- if section.settings.slider_visual == 'counter' -%}
           <span class='slider-counter--current'>1</span>
           <span aria-hidden='true'> / </span>
@@ -166,7 +166,7 @@
           {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
       </button>
-      <div class='slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}'>
+      <div class='slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual =='counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}'>
         {%- if section.settings.slider_visual == 'counter' -%}
           <span class='slider-counter--current'>1</span>
           <span aria-hidden='true'> / </span>

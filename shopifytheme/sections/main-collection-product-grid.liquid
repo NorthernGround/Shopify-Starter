@@ -95,12 +95,12 @@
         </facet-filters-form>
       {%- endif -%}
 
-      <div class='{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}'>
+      <div class='{% if section.settings.filter_type =='vertical' %} facets-vertical page-width{% endif %}'>
         <script src='{{ 'facets.js' | asset_url }}' defer='defer'></script>
         {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
           <aside
             aria-labelledby='verticalTitle'
-            class='facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}'
+            class='facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type !='vertical' %} page-width{% endif %}'
             id='main-collection-filters'
             data-id='{{ section.id }}'
           >
@@ -137,16 +137,15 @@
             </div>
           {%- else -%}
             <div
-              class='collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}'
+              class='collection{% if section.settings.filter_type !='vertical' %} page-width{% endif %}'
             >
               <div class='loading-overlay'></div>
               <ul
                 id='product-grid'
                 data-id='{{ section.id }}'
-                class='
-                  grid product-grid grid--2-col-tablet-down
-                  grid--{{ 4 }}-col-desktop
-                  {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}
+                class='grid product-grid grid--2-col-tablet-down
+ grid--{{ 4 }}-col-desktop
+ {% if section.settings.quick_add =='bulk' %} collection-quick-add-bulk{% endif %}
                 '
               >
                 {% assign skip_card_product_styles = false %}

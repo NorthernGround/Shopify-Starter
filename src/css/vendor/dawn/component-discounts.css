@@ -9,7 +9,7 @@
 }
 
 .discounts__discount svg {
-  color: rgba(var(--color-action-rgb), var(--alpha-button-background));
+  color: rgba(var(--color-action-rgb), var(--action-background-opacity));
 }
 
 .discounts__discount--position {

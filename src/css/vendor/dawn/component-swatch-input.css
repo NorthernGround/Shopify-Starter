@@ -9,7 +9,7 @@
   outline-color: transparent;
   outline-style: solid;
   transition-property: outline-color, outline-width, box-shadow;
-  transition-duration: var(--duration-short);
+  transition-duration: var(--duration-fast);
   transition-timing-function: ease;
   forced-color-adjust: none;
 }

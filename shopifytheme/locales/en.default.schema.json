@@ -123,12 +123,6 @@
         "padding_top": "Top",
         "padding_bottom": "Bottom"
       },
-      "heading_size": {
-        "label": "Heading size",
-        "options__1": { "label": "Small" },
-        "options__2": { "label": "Medium" },
-        "options__3": { "label": "Large" }
-      },
       "colors": { "label": "Color scheme" },
       "spacing": "Spacing"
     },

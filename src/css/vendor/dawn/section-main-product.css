@@ -99,7 +99,7 @@ product-info {
 .shopify-payment-button__button [role='button'].focused {
   outline: 0.125rem solid rgba(var(--color-text-rgb), 0.5) !important;
   outline-offset: 0.1875rem;
-  box-shadow: 0 0 0 0.0625rem rgba(var(--color-action-rgb), var(--alpha-button-border)),
+  box-shadow: 0 0 0 0.0625rem rgba(var(--color-action-rgb), var(--action-border-opacity)),
     0 0 0 0.1875rem rgb(var(--color-canvas-rgb)), 0 0 0.3125rem 0.25rem rgba(var(--color-text-rgb), 0.3) !important;
 }
 
@@ -110,12 +110,12 @@ product-info {
 
 .shopify-payment-button__button [role='button']:focus-visible {
   outline: 0.125rem solid rgba(var(--color-text-rgb), 0.5) !important;
-  box-shadow: 0 0 0 0.0625rem rgba(var(--color-action-rgb), var(--alpha-button-border)),
+  box-shadow: 0 0 0 0.0625rem rgba(var(--color-action-rgb), var(--action-border-opacity)),
     0 0 0 0.1875rem rgb(var(--color-canvas-rgb)), 0 0 0.3125rem 0.25rem rgba(var(--color-text-rgb), 0.3) !important;
 }
 
 .shopify-payment-button__button--unbranded {
-  background-color: rgba(var(--color-action-rgb), var(--alpha-button-background));
+  background-color: rgba(var(--color-action-rgb), var(--action-background-opacity));
   color: rgb(var(--color-on-action-rgb));
   font-size: 0.875rem;
   line-height: 1.2;
@@ -128,7 +128,7 @@ product-info {
 
 .shopify-payment-button__button--unbranded:hover,
 .shopify-payment-button__button--unbranded:hover:not([disabled]) {
-  background-color: rgba(var(--color-action-rgb), var(--alpha-button-background));
+  background-color: rgba(var(--color-action-rgb), var(--action-background-opacity));
 }
 
 .shopify-payment-button__more-options {
@@ -471,7 +471,7 @@ a.product__text {
   left: 0.75rem;
   top: 0.75rem;
   z-index: 1;
-  transition: color var(--duration-short) ease, opacity var(--duration-short) ease;
+  transition: color var(--duration-fast) ease, opacity var(--duration-fast) ease;
 }
 
 .product__media-video .product__media-icon {
@@ -847,7 +847,7 @@ a.product__text {
   min-height: 2.75rem;
   text-underline-offset: 0.1875rem;
   text-decoration-thickness: 0.0625rem;
-  transition: text-decoration-thickness var(--duration-short) ease;
+  transition: text-decoration-thickness var(--duration-fast) ease;
 }
 
 .product-popup-modal__button:hover {
@@ -1380,7 +1380,7 @@ a.product__text {
 
 .recipient-form > input[type='checkbox']:checked ~ .recipient-fields {
   display: block;
-  animation: animateMenuOpen var(--duration-default) ease;
+  animation: animateMenuOpen var(--duration-standard) ease;
 }
 .recipient-form > input[type='checkbox']:not(:checked, :disabled) ~ .recipient-fields,
 .recipient-email-label {

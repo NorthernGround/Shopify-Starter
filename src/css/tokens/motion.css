@@ -2,6 +2,12 @@
   --duration-fast: 150ms;
   --duration-standard: 250ms;
   --duration-slow: 500ms;
+  --duration-reveal: 600ms;
+  --duration-progress: 750ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-reveal: cubic-bezier(0, 0, 0.3, 1);
   --transition-standard: var(--duration-standard) var(--ease-standard);
+  --animation-reveal-slide: slideIn var(--duration-reveal) var(--ease-reveal)
+    forwards;
+  --animation-reveal-fade: fadeIn var(--duration-reveal) var(--ease-reveal);
 }

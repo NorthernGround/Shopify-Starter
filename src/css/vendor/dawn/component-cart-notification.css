@@ -54,12 +54,12 @@
 }
 
 .cart-notification.animate {
-  transition: transform var(--duration-short) ease, visibility 0s var(--duration-short) ease;
+  transition: transform var(--duration-fast) ease, visibility 0s var(--duration-fast) ease;
 }
 
 .cart-notification.active {
   transform: translateY(0);
-  transition: transform var(--duration-default) ease, visibility 0s;
+  transition: transform var(--duration-standard) ease, visibility 0s;
   visibility: visible;
 }
 
@@ -129,7 +129,7 @@
 }
 
 .cart-notification-product__title .cart-item__disclosure {
-  font-size: calc(var(--font-scale-heading) * 0.9375rem);
+  font-size: 0.9375rem;
 }
 
 .cart-notification-product__name {

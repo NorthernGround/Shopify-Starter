@@ -70,7 +70,7 @@ variant-selects {
   letter-spacing: 0.0625rem;
   line-height: 1;
   text-align: center;
-  transition: border var(--duration-short) ease;
+  transition: border var(--duration-fast) ease;
   cursor: pointer;
   position: relative;
 }

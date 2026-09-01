@@ -75,7 +75,7 @@
         view-event-payload='{{ cart | standard_event_data: 'view', context: 'dialog' | escape }}'
         view-event-trigger='manual'
         {% if cart == empty %}
-          class=' is-empty'
+          class='is-empty'
         {% endif %}
       >
         <form

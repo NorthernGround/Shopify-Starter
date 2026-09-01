@@ -25,14 +25,12 @@
   endif
 -%}
 
-<div class='card-wrapper animate-arrow {% if wrapper_class and wrapper_class != 'none' %}{{ wrapper_class }}{% else %}collection-card-wrapper{% endif %}'>
+<div class='card-wrapper animate-arrow {% if wrapper_class and wrapper_class !='none' %}{{ wrapper_class }}{% else %}collection-card-wrapper{% endif %}'>
   <div
-    class='
-      card
-      card--standard
-      {% if card_collection.featured_image %} card--media{% else %} card--text{% endif %}
-      {% if extend_height %} card--extend-height{% endif %}
-    '
+    class='card
+ card--standard
+ {% if card_collection.featured_image %} card--media{% else %} card--text{% endif %}
+ {% if extend_height %} card--extend-height{% endif %}'
     style='--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;'
   >
     <div

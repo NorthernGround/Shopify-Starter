@@ -2,18 +2,25 @@
 
 ## Ownership
 
-`src/css/main.css` is the authored CSS entry point. Vite compiles it to the
-ignored `shopifytheme/assets/main.css`; never edit that generated file.
+`src/css/main.css` is the primary storefront entry point. Vite compiles it to
+the ignored `shopifytheme/assets/main.css`; never edit that generated file.
+
+`src/css/foundation.css` contains only contracts shared by the storefront,
+password, and gift-card documents: layers, tokens, document defaults,
+typography, branding, text helpers, and core utilities. Components belong to
+the entry graphs that use them. The password and gift-card entries import their
+required project components explicitly instead of carrying the full storefront.
 
 Route- and section-owned entries live beside `main.css`. Load section bundles
 from every section that owns their markup; load global behavior bundles from
 the layout condition that enables that behavior.
 
 Retained Dawn CSS source lives in `src/css/vendor/dawn/` and is compiled through
-the entry graph. It is excluded from project formatting and linting. Dawn
-selectors and JavaScript hooks may remain where Shopify behavior depends on
-them. New visual rules belong outside the vendor directory, use BEM names, and
-prefer logical properties.
+the entry graph. It is excluded from project formatting and linting. There is
+no Dawn global or standalone base stylesheet; global foundations and shared
+components are project-owned. Dawn selectors and JavaScript hooks may remain
+where Shopify behavior depends on them. New visual rules belong outside the
+vendor directory, use BEM names, and prefer logical properties.
 
 ## Layers
 
@@ -25,7 +32,7 @@ The cascade order is:
 
 - `tokens`: raw and semantic design values
 - `dawn`: retained structural and behavioral Dawn CSS
-- `base`: document, typography, media, and layout defaults
+- `base`: document, typography, and layout defaults
 - `components`: reusable controls and content patterns
 - `sections`: Shopify section-specific presentation
 - `pages`: template-level presentation
@@ -43,6 +50,12 @@ family hooks in `tokens/typography.css`.
 
 The root font size is `100%`, normally 16px. All new rem values use that baseline.
 Do not use the former Dawn assumption that `1rem` equals 10px.
+
+Typography uses fixed project tokens. Do not add body or heading scale custom
+properties or merchant heading-size settings. The `.h1` through `.h5` classes
+mirror their semantic heading levels; do not extend that heading utility set.
+Semantic heading elements are styled by `base/typography.css`; component
+typography belongs to the component that owns it.
 
 Retained Dawn CSS consumes the same semantic tokens as project-owned CSS. Keep
 visual decisions in the owning token file rather than adding compatibility

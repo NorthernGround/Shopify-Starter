@@ -1,0 +1,35 @@
+.list-unstyled {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.full-width-link {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+}
+
+.break {
+  overflow-wrap: anywhere;
+}
+
+.left {
+  text-align: start;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: end;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.light {
+  opacity: 0.7;
+}

@@ -1,0 +1,25 @@
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow-wrap: normal !important;
+}
+
+.visually-hidden--inline {
+  block-size: 1em;
+  margin: 0;
+}
+
+.skip-to-content-link:focus {
+  position: inherit;
+  z-index: 9999;
+  overflow: auto;
+  inline-size: auto;
+  block-size: auto;
+  clip: auto;
+}

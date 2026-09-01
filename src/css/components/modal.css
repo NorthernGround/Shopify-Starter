@@ -1,0 +1,45 @@
+/* component-modal */
+.modal__toggle {
+  list-style-type: none;
+}
+
+.modal__toggle-close {
+  display: none;
+}
+
+.modal__toggle-open {
+  display: flex;
+}
+
+.modal__close-button.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 2.75rem;
+  width: 2.75rem;
+  background-color: transparent;
+}
+
+.modal__close-button .icon {
+  width: 1.0625rem;
+  height: 1.0625rem;
+}
+
+.modal__content {
+  position: absolute;
+  inset: 0;
+  background: rgb(var(--color-canvas-rgb));
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-modal {
+  cursor: zoom-out;
+}
+
+.media-modal .deferred-media {
+  cursor: initial;
+}

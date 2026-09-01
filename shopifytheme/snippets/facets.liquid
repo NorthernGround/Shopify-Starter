@@ -25,7 +25,7 @@
 -%}
 
 <div
-  class='facets-container{% if filter_type == 'drawer' %} facets-container-drawer{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}'
+  class='facets-container{% if filter_type =='drawer' %} facets-container-drawer{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}'
   data-collection-id='{{ results.id }}'
   data-collection-handle='{{ results.handle }}'
   data-template='{{ template.name }}'
@@ -34,7 +34,7 @@
     <facet-filters-form class='facets small-hide'>
       <form
         id='FacetFiltersForm'
-        class='{% if filter_type == 'horizontal' %}facets__form{% else %}facets__form-vertical{% endif %}'
+        class='{% if filter_type =='horizontal' %}facets__form{% else %}facets__form-vertical{% endif %}'
       >
         {%- if results.terms -%}
           <input type='hidden' name='q' value='{{ results.terms | escape }}'>
@@ -128,7 +128,7 @@
                 {% when 'boolean', 'list' %}
                   <details
                     id='Details-{{ filter.param_name | escape }}-{{ section.id }}'
-                    class='{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter'
+                    class='{% if filter_type =='horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter'
                     data-index='{{ forloop.index }}'
                     {% if filter_type == 'vertical' and forloop.index == 1 %}
                       open
@@ -157,7 +157,7 @@
                     </summary>
                     <div
                       id='Facet-{{ forloop.index }}-{{ section.id }}'
-                      class='parent-display {% if filter_type == 'horizontal' %}facets__display{% else %}facets__display-vertical{% endif %}'
+                      class='parent-display {% if filter_type =='horizontal' %}facets__display{% else %}facets__display-vertical{% endif %}'
                     >
                       {%- if filter_type != 'vertical' -%}
                         <div class='facets__header'>
@@ -178,7 +178,7 @@
                           </facet-remove>
                         </div>
                       {%- endif -%}
-                      <fieldset class='facets-wrap parent-wrap {% if filter_type == 'vertical' %} facets-wrap-vertical{% endif %}'>
+                      <fieldset class='facets-wrap parent-wrap {% if filter_type =='vertical' %} facets-wrap-vertical{% endif %}'>
                         <legend class='visually-hidden'>{{ filter.label | escape }}</legend>
                         {%- liquid
                           assign sorted_values = filter.values
@@ -190,7 +190,7 @@
                           endif
                         -%}
                         <ul
-                          class='{{ visual_layout_class }}{% if filter_type == 'vertical' %} facets__list--vertical{% else %} facets__list{% endif %} list-unstyled'
+                          class='{{ visual_layout_class }}{% if filter_type =='vertical' %} facets__list--vertical{% else %} facets__list{% endif %} list-unstyled'
                           role='list'
                         >
                           {%- for value in sorted_values -%}
@@ -220,7 +220,7 @@
                               </span>
                             {%- endcapture -%}
 
-                            <li class='list-menu__item facets__item{% if forloop.index > show_more_number and filter_type == 'vertical' %} show-more-item hidden{% endif %}'>
+                            <li class='list-menu__item facets__item{% if forloop.index > show_more_number and filter_type =='vertical' %} show-more-item hidden{% endif %}'>
                               {%- if presentation == 'swatch' -%}
                                 <div class='{{ label_class }}'>
                                   <div class='swatch-input-wrapper'>
@@ -299,7 +299,7 @@
                 {% when 'price_range' %}
                   <details
                     id='Details-{{ filter.param_name | escape }}-{{ section.id }}'
-                    class='{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter'
+                    class='{% if filter_type =='horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical{% endif %} js-filter'
                     data-index='{{ forloop.index }}'
                     {% if filter_type == 'vertical' and forloop.index == 1 %}
                       open
@@ -313,9 +313,9 @@
                     </summary>
                     <div
                       id='Facet-{{ forloop.index }}-{{ section.id }}'
-                      class='{% if filter_type == 'horizontal' %}facets__display{% else %}facets__display-vertical{% endif %}'
+                      class='{% if filter_type =='horizontal' %}facets__display{% else %}facets__display-vertical{% endif %}'
                     >
-                      <div class='{% if filter_type == 'horizontal' %}facets__header{% else %}facets__header-vertical{% endif %}'>
+                      <div class='{% if filter_type =='horizontal' %}facets__header{% else %}facets__header-vertical{% endif %}'>
                         {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
                         <span class='facets__selected'>
                           {{- 'products.facets.max_price' | t: price: max_price_amount -}}
@@ -441,12 +441,12 @@
   {%- endif -%}
   {% comment %}  Drawer and mobile filter {% endcomment %}
   <menu-drawer
-    class='mobile-facets__wrapper{% if filter_type == 'horizontal' or filter_type == 'vertical' %} medium-hide large-up-hide{% endif %}'
+    class='mobile-facets__wrapper{% if filter_type =='horizontal' or filter_type == 'vertical' %} medium-hide large-up-hide{% endif %}'
     data-breakpoint='mobile'
   >
     <details class='mobile-facets__disclosure disclosure-has-popup'>
       <summary class='mobile-facets__open-wrapper focus-offset'>
-        <span class='mobile-facets__open{% if filter_type == 'drawer' and enable_filtering == false %} medium-hide large-up-hide{% endif %}'>
+        <span class='mobile-facets__open{% if filter_type =='drawer' and enable_filtering == false %} medium-hide large-up-hide{% endif %}'>
           <span class='svg-wrapper'>
             {{- 'icon-filter.svg' | inline_asset_content -}}
           </span>
@@ -720,7 +720,7 @@
               {%- if enable_sorting -%}
                 <div
                   id='Details-Mobile-SortBy-{{ section.id }}'
-                  class='mobile-facets__details js-filter{% if filter_type == 'drawer' %} medium-hide large-up-hide{% endif %}'
+                  class='mobile-facets__details js-filter{% if filter_type =='drawer' %} medium-hide large-up-hide{% endif %}'
                   data-index='mobile-{{ forloop.index }}'
                 >
                   <div class='mobile-facets__summary'>
@@ -870,7 +870,7 @@
     </facet-filters-form>
   {%- endif -%}
   <div
-    class='product-count light{% if filter_type == 'vertical' or filter_type == 'horizontal' %} medium-hide large-up-hide{% endif %}'
+    class='product-count light{% if filter_type =='vertical' or filter_type == 'horizontal' %} medium-hide large-up-hide{% endif %}'
     role='status'
   >
     <h2 class='product-count__text text-body'>

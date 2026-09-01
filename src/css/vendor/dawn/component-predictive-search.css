@@ -211,10 +211,10 @@ predictive-search[loading] .predictive-search__results-groups-wrapper ~ .predict
 }
 
 .predictive-search__item--term .icon-arrow {
-  width: calc(var(--font-scale-heading) * 0.875rem);
-  height: calc(var(--font-scale-heading) * 0.875rem);
+  width: 0.875rem;
+  height: 0.875rem;
   flex-shrink: 0;
-  margin-left: calc(var(--font-scale-heading) * 1.25rem);
+  margin-left: 1.25rem;
   color: rgb(var(--color-link-rgb));
 }
 

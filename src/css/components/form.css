@@ -1,0 +1,268 @@
+/* stylelint-disable no-descending-specificity */
+.field__input,
+.select__select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgb(var(--color-canvas-rgb));
+  color: rgb(var(--color-text-rgb));
+  font-family: var(--font-family-body);
+  font-style: var(--font-style-body);
+  font-weight: var(--font-weight-regular);
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: box-shadow var(--duration-fast) ease;
+  border-radius: var(--input-radius);
+  height: 2.8125rem;
+  min-height: calc(var(--input-border-width) * 2);
+  min-width: calc(4.375rem + (var(--input-border-width) * 2));
+  position: relative;
+  border: 0;
+}
+
+.select__select {
+  cursor: pointer;
+  font-family: var(--font-family-body);
+  font-style: var(--font-style-body);
+  font-weight: var(--font-weight-regular);
+  font-size: 0.75rem;
+  color: rgb(var(--color-text-rgb), 0.75);
+  line-height: 1.6;
+  padding: 0 calc(var(--input-border-width) + 1.875rem) 0 1.25rem;
+  margin: var(--input-border-width);
+  min-height: calc(var(--input-border-width) * 2);
+}
+
+.field:before,
+.select:before,
+.localization-form__select:before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--input-radius-outset);
+  box-shadow: var(--input-shadow-horizontal-offset)
+    var(--input-shadow-vertical-offset) var(--input-shadow-blur-radius)
+    rgb(var(--color-shadow-rgb), var(--input-shadow-opacity));
+  z-index: -1;
+}
+
+.field:after,
+.select:after,
+.localization-form__select:after {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  inset: var(--input-border-width) var(--input-border-width)
+    var(--input-border-width) var(--input-border-width);
+  border: 0.0625rem solid transparent;
+  border-radius: var(--input-radius);
+  box-shadow: 0 0 0 var(--input-border-width)
+    rgb(var(--color-text-rgb), var(--input-border-opacity));
+  transition: box-shadow var(--duration-fast) ease;
+  z-index: 1;
+}
+
+.field:hover.field:after,
+.select:hover.select:after,
+.select__select:hover.select__select:after,
+.localization-form__select:hover.localization-form__select:after {
+  box-shadow: 0 0 0 calc(0.0625rem + var(--input-border-width))
+    rgb(var(--color-text-rgb), var(--input-border-opacity));
+  outline: 0;
+  border-radius: var(--input-radius);
+}
+
+.field__input:focus-visible,
+.select__select:focus-visible,
+.localization-form__select:focus-visible.localization-form__select:after {
+  box-shadow: 0 0 0 calc(0.0625rem + var(--input-border-width))
+    rgb(var(--color-text-rgb));
+  outline: 0;
+  border-radius: var(--input-radius);
+}
+
+.field__input:focus,
+.select__select:focus,
+.localization-form__select:focus.localization-form__select:after {
+  box-shadow: 0 0 0 calc(0.0625rem + var(--input-border-width))
+    rgb(var(--color-text-rgb));
+  outline: 0;
+  border-radius: var(--input-radius);
+}
+
+.localization-form__select:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.text-area,
+.select {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+/* Select */
+
+.select .svg-wrapper {
+  height: 0.375rem;
+  width: 0.625rem;
+  pointer-events: none;
+  position: absolute;
+  top: calc(50% - 0.125rem);
+  right: 0;
+}
+
+/* Field */
+
+.field {
+  position: relative;
+  width: 100%;
+  display: flex;
+  transition: box-shadow var(--duration-fast) ease;
+}
+
+.field--with-error {
+  flex-wrap: wrap;
+}
+
+.field__input {
+  flex-grow: 1;
+  text-align: left;
+  padding: 0.9375rem;
+  margin: var(--input-border-width);
+  transition: box-shadow var(--duration-fast) ease;
+}
+
+.field__label {
+  font-size: 1rem;
+  left: calc(var(--input-border-width) + 1.25rem);
+  top: calc(0.625rem + var(--input-border-width));
+  margin-bottom: 0;
+  pointer-events: none;
+  position: absolute;
+  transition:
+    top var(--duration-fast) ease,
+    font-size var(--duration-fast) ease;
+  color: rgb(var(--color-text-rgb), 0.75);
+  letter-spacing: 0.0625rem;
+  line-height: 1.5;
+}
+
+.field__input:focus ~ .field__label,
+.field__input:not(:placeholder-shown) ~ .field__label,
+.field__input:-webkit-autofill ~ .field__label {
+  font-size: 0.625rem;
+  top: calc(var(--input-border-width) + 0.3125rem);
+  left: calc(var(--input-border-width) + 1.25rem);
+  letter-spacing: 0.025rem;
+}
+
+.field__input:focus,
+.field__input:not(:placeholder-shown),
+.field__input:-webkit-autofill {
+  padding: 1.375rem 0.9375rem 0.5rem 1.25rem;
+  margin: var(--input-border-width);
+}
+
+.field__input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.field__input::placeholder {
+  opacity: 0;
+}
+
+.field__button {
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  color: currentColor;
+  cursor: pointer;
+  display: flex;
+  height: 2.75rem;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2.75rem;
+}
+
+.field__button > .svg-wrapper {
+  height: 1.5625rem;
+  width: 1.5625rem;
+}
+
+.field__input:-webkit-autofill ~ .field__button,
+.field__input:-webkit-autofill ~ .field__label {
+  color: rgb(0 0 0);
+}
+
+/* Text area */
+
+.text-area {
+  font-family: var(--font-family-body);
+  font-style: var(--font-style-body);
+  font-weight: var(--font-weight-regular);
+  min-height: 6.25rem;
+  resize: none;
+}
+
+input[type='checkbox'] {
+  display: inline-block;
+  width: auto;
+  margin-right: 0.3125rem;
+}
+
+/* Form global */
+
+.form__label {
+  display: block;
+  margin-bottom: 0.375rem;
+}
+
+.form__message {
+  align-items: center;
+  display: flex;
+  font-size: 0.875rem;
+  line-height: 1;
+  margin-top: 0.625rem;
+}
+
+.form__message--large {
+  font-size: 1rem;
+}
+
+.form__message .icon {
+  flex-shrink: 0;
+  height: 0.8125rem;
+  margin-right: 0.3125rem;
+  width: 0.8125rem;
+}
+
+.form__message--large .icon {
+  height: 0.9375rem;
+  width: 0.9375rem;
+  margin-right: 0.625rem;
+}
+
+.form-status {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.form-status-list {
+  padding: 0;
+  margin: 1.25rem 0 2.5rem;
+}
+
+.form-status-list li {
+  list-style-position: inside;
+}
+
+.form-status-list .link::first-letter {
+  text-transform: capitalize;
+}

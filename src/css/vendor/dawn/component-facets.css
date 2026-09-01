@@ -217,11 +217,11 @@
 
 .facets__disclosure[open] .facets__display,
 .facets__disclosure-vertical[open] .facets__display-vertical {
-  animation: animateMenuOpen var(--duration-default) ease;
+  animation: animateMenuOpen var(--duration-standard) ease;
 }
 
 .facets__summary span:first-of-type {
-  transition: text-decoration var(--duration-short) ease;
+  transition: text-decoration var(--duration-fast) ease;
 }
 
 .facets__summary:hover .facets__summary-label {
@@ -231,14 +231,14 @@
 
 .facets__and-helptext {
   color: rgba(var(--color-text-rgb), 0.5);
-  font-size: calc(var(--font-scale-heading) * 0.75rem);
-  line-height: calc(var(--font-scale-heading) * 0.75rem);
+  font-size: 0.75rem;
+  line-height: 0.75rem;
 }
 
 @media only screen and (min-width: 750px) {
   .facets__and-helptext {
-    font-size: calc(var(--font-scale-heading) * 0.8125rem);
-    line-height: calc(var(--font-scale-heading) * 0.8125rem);
+    font-size: 0.8125rem;
+    line-height: 0.8125rem;
   }
 }
 
@@ -362,7 +362,7 @@
   outline-style: solid;
   outline-color: transparent;
   transition-property: outline-color, outline-width, box-shadow;
-  transition-duration: var(--duration-short);
+  transition-duration: var(--duration-fast);
   transition-timing-function: ease;
 }
 
@@ -774,7 +774,7 @@ a.active-facets__button.focused .active-facets__button-inner {
   height: 100%;
   overflow-y: auto;
   pointer-events: all;
-  transition: transform var(--duration-default) ease;
+  transition: transform var(--duration-standard) ease;
   max-width: 23.4375rem;
   display: flex;
   flex-direction: column;
@@ -815,7 +815,7 @@ a.active-facets__button.focused .active-facets__button-inner {
 }
 
 .mobile-facets__heading {
-  font-size: calc(var(--font-scale-heading) * 0.875rem);
+  font-size: 0.875rem;
   margin: 0;
 }
 
@@ -837,7 +837,7 @@ a.active-facets__button.focused .active-facets__button-inner {
   padding-bottom: 0.3125rem;
   display: flex;
   align-items: center;
-  color: rgba(var(--color-link-rgb), var(--alpha-link));
+  color: rgba(var(--color-link-rgb), var(--link-opacity));
 }
 
 .mobile-facets__open:hover {
@@ -850,7 +850,7 @@ a.active-facets__button.focused .active-facets__button-inner {
 }
 
 .mobile-facets__open-label {
-  transition: text-decoration var(--duration-short) ease;
+  transition: text-decoration var(--duration-fast) ease;
 }
 
 .mobile-facets__open:hover .mobile-facets__open-label {
@@ -868,7 +868,7 @@ a.active-facets__button.focused .active-facets__button-inner {
 
 .mobile-facets__open line,
 .mobile-facets__open circle {
-  stroke: rgba(var(--color-link-rgb), var(--alpha-link));
+  stroke: rgba(var(--color-link-rgb), var(--link-opacity));
 }
 
 .mobile-facets__close {
@@ -882,7 +882,7 @@ a.active-facets__button.focused .active-facets__button-inner {
   height: 2.75rem;
   z-index: 101;
   opacity: 0;
-  transition: opacity var(--duration-short) ease;
+  transition: opacity var(--duration-fast) ease;
 }
 
 .mobile-facets__close .svg-wrapper {

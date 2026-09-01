@@ -1,0 +1,32 @@
+*:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+*:focus-visible,
+.focused {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+  box-shadow: var(--focus-ring-shadow);
+}
+
+.focus-inset:focus-visible,
+.focused.focus-inset {
+  outline: var(--focus-outline);
+  outline-offset: calc(-1 * var(--focus-outline-width));
+  box-shadow: 0 0 0.125rem rgb(var(--color-text-rgb), 30%);
+}
+
+.focus-none {
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+.focus-offset:focus-visible,
+.focus-offset.focused {
+  outline: var(--focus-outline);
+  outline-offset: var(--space-2);
+  box-shadow:
+    0 0 0 var(--space-2) var(--color-canvas),
+    0 0 0.125rem 0.75rem rgb(var(--color-text-rgb), 30%);
+}

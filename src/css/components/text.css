@@ -1,0 +1,32 @@
+.text-body {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-style: var(--font-style-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+}
+
+.caption {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-body);
+}
+
+.caption-with-letter-spacing {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-heading);
+  text-transform: uppercase;
+}
+
+.caption-with-letter-spacing--medium {
+  font-size: var(--font-size-sm);
+}
+
+.caption-with-letter-spacing--large,
+.caption-large {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-body);
+}
+
+.color-foreground {
+  color: var(--color-text);
+}

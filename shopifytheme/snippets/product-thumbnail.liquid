@@ -61,7 +61,7 @@
     data-modal='#ProductModal-{{ modal_id }}'
   >
     <span
-      class='product__media-icon motion-reduce quick-add-hidden{% if media.media_type == 'image' %} product__media-icon--{{ resolved_image_zoom }}{% endif %}'
+      class='product__media-icon motion-reduce quick-add-hidden{% if media.media_type =='image' %} product__media-icon--{{ resolved_image_zoom }}{% endif %}'
       aria-hidden='true'
     >
       {% case media.media_type %}

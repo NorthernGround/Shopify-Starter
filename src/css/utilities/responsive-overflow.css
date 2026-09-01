@@ -1,0 +1,17 @@
+.overflow-hidden-mobile,
+.overflow-hidden-tablet,
+.overflow-hidden-desktop {
+  overflow: hidden;
+}
+
+@media screen and (width >= 750px) {
+  .overflow-hidden-mobile {
+    overflow: auto;
+  }
+}
+
+@media screen and (width >= 990px) {
+  .overflow-hidden-tablet {
+    overflow: auto;
+  }
+}

@@ -7,6 +7,13 @@
   --focus-outline-width: 0.125rem;
   --focus-outline-offset: 0.125rem;
   --focus-outline: var(--focus-outline-width) solid var(--color-focus);
+  --focus-ring-shadow:
+    0 0 0 0.1875rem var(--color-canvas),
+    0 0 0.3125rem 0.25rem rgb(var(--color-text-rgb), 30%);
+  --action-background-opacity: 1;
+  --action-border-opacity: 1;
+  --link-opacity: 0.85;
+  --badge-border-opacity: 0.1;
   --elevation-raised: 0 0.5rem 1.5rem rgb(23 23 21 / 12%);
   --elevation-overlay: 0 1rem 3rem rgb(23 23 21 / 18%);
 

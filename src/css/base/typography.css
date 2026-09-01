@@ -1,4 +1,4 @@
-:where(h1, h2, h3, h4, h5, h6) {
+:where(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5) {
   margin-block: 0;
   color: var(--color-text);
   font-family: var(--font-family-heading);
@@ -7,18 +7,49 @@
   text-wrap: balance;
 }
 
-h1 {
+:where(h1, .h1) {
   font-size: var(--font-size-3xl);
 }
 
-h2 {
+:where(h2, .h2) {
   font-size: var(--font-size-2xl);
 }
 
-h3 {
+:where(h3, .h3) {
   font-size: var(--font-size-xl);
 }
 
-:where(h4, h5, h6) {
+:where(h4, h5, h6, .h4, .h5) {
   font-size: var(--font-size-lg);
+}
+
+::selection {
+  background-color: rgb(var(--color-text-rgb), 20%);
+}
+
+blockquote {
+  padding-inline-start: var(--space-3);
+  border-inline-start: var(--border-width) solid rgb(var(--color-text-rgb), 20%);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+table:not([class]) {
+  border-collapse: collapse;
+  border-style: hidden;
+  table-layout: fixed;
+  box-shadow: 0 0 0 var(--border-width) rgb(var(--color-text-rgb), 20%);
+  font-size: var(--font-size-sm);
+}
+
+table:not([class]) :is(td, th) {
+  padding: 1em;
+  border: var(--border-width) solid rgb(var(--color-text-rgb), 20%);
+}
+
+hr {
+  block-size: var(--border-width);
+  margin-block: var(--space-16);
+  border: 0;
+  background-color: rgb(var(--color-text-rgb), 20%);
 }

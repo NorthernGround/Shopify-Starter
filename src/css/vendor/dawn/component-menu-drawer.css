@@ -22,7 +22,7 @@
 menu-drawer > details[open] > summary::before {
   visibility: visible;
   opacity: 1;
-  transition: opacity var(--duration-default) ease, visibility var(--duration-default) ease;
+  transition: opacity var(--duration-standard) ease, visibility var(--duration-standard) ease;
 }
 
 .menu-drawer {
@@ -49,7 +49,7 @@ menu-drawer > details[open] > summary::before {
 
 .js details[open] > .menu-drawer,
 .js details[open] > .menu-drawer__submenu {
-  transition: transform var(--duration-default) ease, visibility var(--duration-default) ease;
+  transition: transform var(--duration-standard) ease, visibility var(--duration-standard) ease;
 }
 
 .js details[open].menu-opening > .menu-drawer,

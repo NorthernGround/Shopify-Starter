@@ -23,8 +23,13 @@
   in `vite.config.js`; keep their source in `src/css/`.
 - Vite only builds configured entries and files reachable from their import
   graphs.
+- Keep `src/css/foundation.css` limited to styles shared by the storefront,
+  password, and gift-card documents. Import components explicitly from each
+  entry that uses them.
 - Retained Dawn CSS source lives in `src/css/vendor/dawn/`; do not add raw CSS
   source to `shopifytheme/assets/`.
+- Do not reintroduce Dawn global or standalone base stylesheets. Project base,
+  component, section, and utility folders own those extracted contracts.
 - Treat non-CSS files in `shopifytheme/assets/` as retained Dawn runtime assets
   unless they correspond to a Vite output.
 - Do not bulk-format retained Dawn source; vendor CSS is intentionally excluded
@@ -45,6 +50,9 @@
   compatibility aliases for vendor variable names.
 - The root font size is `100%`. Author rem values against the browser-default
   16px baseline; do not restore Dawn's former 62.5% convention.
+- Do not add body or heading font-scale tokens or merchant heading-size
+  settings. `.h1` through `.h5` mirror their semantic heading levels using the
+  fixed typography tokens; do not add additional heading-size utilities.
 - Preserve the cascade order declared in `src/css/main.css`. Explicitly import
   new component and section styles into the matching `components` or `sections`
   layer; directory placement alone does not assign a layer.
