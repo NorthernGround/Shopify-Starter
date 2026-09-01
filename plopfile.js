@@ -45,14 +45,8 @@ export default function configurePlop(plop) {
         name: 'cssPlacement',
         message: 'How should its CSS load?',
         choices: [
-          {
-            name: 'Shared main.css bundle',
-            value: 'shared',
-          },
-          {
-            name: 'Only when this section renders',
-            value: 'bundle',
-          },
+          { name: 'Shared main.css bundle', value: 'shared' },
+          { name: 'Only when this section renders', value: 'bundle' },
         ],
         default: 'shared',
       },
