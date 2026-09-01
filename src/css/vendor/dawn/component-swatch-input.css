@@ -21,26 +21,26 @@
 /* Active state */
 .swatch-input__input:active + .swatch-input__label,
 .swatch-input__input:checked + .swatch-input__label {
-  outline: 0.0625rem solid rgb(var(--color-foreground));
+  outline: 0.0625rem solid rgb(var(--color-text-rgb));
 }
 
 /* Hover state */
 .swatch-input__input + .swatch-input__label:hover,
 .swatch-input__input:hover + .swatch-input__label {
-  outline: 0.125rem solid rgba(var(--color-foreground), 0.4);
+  outline: 0.125rem solid rgba(var(--color-text-rgb), 0.4);
 }
 
 /* Focus visible */
 .swatch-input__input:focus-visible + .swatch-input__label {
-  outline: 0.125rem solid rgba(var(--color-foreground), 0.5);
-  box-shadow: 0 0 0 0.125rem rgb(var(--color-background)), 0 0 0.0625rem 0.3125rem rgba(var(--color-foreground), 0.25);
+  outline: 0.125rem solid rgba(var(--color-text-rgb), 0.5);
+  box-shadow: 0 0 0 0.125rem rgb(var(--color-canvas-rgb)), 0 0 0.0625rem 0.3125rem rgba(var(--color-text-rgb), 0.25);
 }
 
 /* Active and focused */
 .swatch-input__input:active:focus-visible + .swatch-input__label,
 .swatch-input__input:checked:focus-visible + .swatch-input__label {
-  outline: 0.0625rem solid rgb(var(--color-foreground));
-  box-shadow: 0 0 0 0.125rem rgb(var(--color-background)), 0 0 0.0625rem 0.25rem rgba(var(--color-foreground), 0.25);
+  outline: 0.0625rem solid rgb(var(--color-text-rgb));
+  box-shadow: 0 0 0 0.125rem rgb(var(--color-canvas-rgb)), 0 0 0.0625rem 0.25rem rgba(var(--color-text-rgb), 0.25);
 }
 
 /* Visually disabled */
@@ -81,7 +81,7 @@
   left: 0;
   width: var(--diagonal--size);
   height: var(--crossed-line--size);
-  background-color: rgb(var(--color-foreground));
+  background-color: rgb(var(--color-text-rgb));
   transform: rotate(-45deg);
   transform-origin: left;
 }

@@ -23,7 +23,7 @@ The cascade order is:
 @layer reset, tokens, dawn, base, components, sections, pages, utilities;
 ```
 
-- `tokens`: raw and semantic design values plus temporary Dawn aliases
+- `tokens`: raw and semantic design values
 - `dawn`: retained structural and behavioral Dawn CSS
 - `base`: document, typography, media, and layout defaults
 - `components`: reusable controls and content patterns
@@ -44,8 +44,9 @@ family hooks in `tokens/typography.css`.
 The root font size is `100%`, normally 16px. All new rem values use that baseline.
 Do not use the former Dawn assumption that `1rem` equals 10px.
 
-`tokens/dawn.css` maps the semantic system to variables still consumed by
-retained Dawn CSS. Do not use those aliases in new components.
+Retained Dawn CSS consumes the same semantic tokens as project-owned CSS. Keep
+visual decisions in the owning token file rather than adding compatibility
+aliases.
 
 ## Theme Editor
 

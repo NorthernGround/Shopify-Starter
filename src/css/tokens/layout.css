@@ -1,5 +1,7 @@
 :root {
   --layout-content-max: 75rem;
+  --layout-content-narrow-max: 45.375rem;
+  --layout-content-margin: 0rem;
   --layout-gutter: var(--space-4);
   --layout-section-gap: var(--space-16);
   --layout-grid-gap: var(--space-4);

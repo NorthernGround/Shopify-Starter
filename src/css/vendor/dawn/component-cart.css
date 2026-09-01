@@ -58,7 +58,7 @@ cart-items {
 .cart__items {
   position: relative;
   padding-bottom: 1.875rem;
-  border-bottom: 0.0625rem solid rgba(var(--color-foreground), 0.08);
+  border-bottom: 0.0625rem solid rgba(var(--color-text-rgb), 0.08);
 }
 
 .cart__items--disabled {
@@ -93,13 +93,13 @@ cart-items {
   line-height: 1;
   height: 1.125rem;
   top: -1.875rem;
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-text-rgb), 0.75);
 }
 
 .cart__note .field__input {
   height: 100%;
   position: relative;
-  border-radius: var(--inputs-radius);
+  border-radius: var(--input-radius);
   padding: 0.625rem 1.25rem;
 }
 
@@ -179,7 +179,7 @@ cart-items {
 .cart-note__label {
   display: inline-block;
   margin-bottom: 0.625rem;
-  line-height: calc(1 + 1 / var(--font-body-scale));
+  line-height: 2;
 }
 
 .tax-note {

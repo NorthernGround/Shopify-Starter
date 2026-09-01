@@ -4,7 +4,7 @@
 
 @media screen and (min-width: 750px) {
   .article-template > *:first-child:not(.article-template__hero-container) {
-    margin-top: calc(3.125rem + var(--page-width-margin));
+    margin-top: calc(3.125rem + var(--layout-content-margin));
   }
 }
 
@@ -56,7 +56,7 @@
 .article-template header {
   margin-top: 2.75rem;
   margin-bottom: 1.25rem;
-  line-height: calc(0.8 / var(--font-body-scale));
+  line-height: 0.8;
 }
 
 @media screen and (min-width: 750px) {
@@ -132,8 +132,8 @@
 }
 
 .article-template__comments-comment {
-  color: rgba(var(--color-foreground), 0.75);
-  background-color: rgb(var(--color-background));
+  color: rgba(var(--color-text-rgb), 0.75);
+  background-color: rgb(var(--color-canvas-rgb));
   margin-bottom: 0.9375rem;
   padding: 1.25rem 1.25rem 0.9375rem;
 }

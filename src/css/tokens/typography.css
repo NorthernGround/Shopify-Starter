@@ -2,6 +2,9 @@
   --font-family-body: 'Helvetica Neue', Helvetica, sans-serif;
   --font-family-heading: var(--font-family-body);
   --font-family-mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --font-style-body: normal;
+  --font-style-heading: normal;
+  --font-scale-heading: 1;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-body: 1rem;
@@ -14,4 +17,5 @@
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
+  --font-weight-heading: var(--font-weight-bold);
 }

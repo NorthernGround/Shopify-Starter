@@ -17,8 +17,8 @@
 
 @media screen and (max-width: 749px) {
   .collage {
-    grid-column-gap: var(--grid-mobile-horizontal-spacing);
-    grid-row-gap: var(--grid-mobile-vertical-spacing);
+    grid-column-gap: var(--layout-grid-gap);
+    grid-row-gap: var(--layout-grid-gap);
   }
 
   .collage--mobile {
@@ -57,8 +57,8 @@
 @media screen and (min-width: 750px) {
   .collage {
     grid-auto-flow: column;
-    grid-column-gap: var(--grid-desktop-horizontal-spacing);
-    grid-row-gap: var(--grid-desktop-vertical-spacing);
+    grid-column-gap: var(--layout-grid-gap);
+    grid-row-gap: var(--layout-grid-gap);
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -114,7 +114,7 @@
   height: 100%;
   position: relative;
   border-radius: var(--border-radius);
-  border: var(--border-width) solid rgba(var(--color-foreground), var(--border-opacity));
+  border: var(--border-width) solid rgba(var(--color-text-rgb), var(--border-opacity));
   padding: var(--image-padding);
 }
 
@@ -124,7 +124,7 @@
   z-index: -1;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-horizontal-offset) var(--shadow-vertical-offset) var(--shadow-blur-radius)
-    rgba(var(--color-shadow), var(--shadow-opacity));
+    rgba(var(--color-shadow-rgb), var(--shadow-opacity));
   width: calc(var(--border-width) * 2 + 100%);
   height: calc(var(--border-width) * 2 + 100%);
   top: calc(var(--border-width) * -1);
@@ -176,13 +176,13 @@
 }
 
 .collage-card .deferred-media__poster:focus:after {
-  box-shadow: 0 0 0 0.1875rem rgb(var(--color-background)), 0 0 0.3125rem 0.25rem rgba(var(--color-foreground), 0.3);
-  outline: 0.125rem solid rgba(var(--color-foreground), 0.5);
+  box-shadow: 0 0 0 0.1875rem rgb(var(--color-canvas-rgb)), 0 0 0.3125rem 0.25rem rgba(var(--color-text-rgb), 0.3);
+  outline: 0.125rem solid rgba(var(--color-text-rgb), 0.5);
 }
 
 .collage-card .deferred-media__poster:focus-visible:after {
-  box-shadow: 0 0 0 0.1875rem rgb(var(--color-background)), 0 0 0.3125rem 0.25rem rgba(var(--color-foreground), 0.3);
-  outline: 0.125rem solid rgba(var(--color-foreground), 0.5);
+  box-shadow: 0 0 0 0.1875rem rgb(var(--color-canvas-rgb)), 0 0 0.3125rem 0.25rem rgba(var(--color-text-rgb), 0.3);
+  outline: 0.125rem solid rgba(var(--color-text-rgb), 0.5);
 }
 
 .collage-card .deferred-media__poster:focus:not(:focus-visible),

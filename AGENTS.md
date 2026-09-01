@@ -41,7 +41,8 @@
   `margin-inline`, and logical inset properties.
 - Consume semantic tokens from `src/css/tokens/`. Keep raw palette values in
   `tokens/color.css`; do not introduce component-specific raw colors.
-- Do not use Dawn compatibility aliases from `tokens/dawn.css` in new CSS.
+- Retained Dawn CSS consumes project semantic tokens directly; do not add
+  compatibility aliases for vendor variable names.
 - The root font size is `100%`. Author rem values against the browser-default
   16px baseline; do not restore Dawn's former 62.5% convention.
 - Preserve the cascade order declared in `src/css/main.css`. Explicitly import

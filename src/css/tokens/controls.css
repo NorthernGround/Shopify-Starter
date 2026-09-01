@@ -9,4 +9,110 @@
   --focus-outline: var(--focus-outline-width) solid var(--color-focus);
   --elevation-raised: 0 0.5rem 1.5rem rgb(23 23 21 / 12%);
   --elevation-overlay: 0 1rem 3rem rgb(23 23 21 / 18%);
+
+  --media-padding: 0rem;
+  --media-border-opacity: 1;
+  --media-border-width: var(--border-width);
+  --media-radius: var(--border-radius-md);
+  --media-shadow-opacity: 0;
+  --media-shadow-horizontal-offset: 0rem;
+  --media-shadow-vertical-offset: 0rem;
+  --media-shadow-blur-radius: 0rem;
+  --media-shadow-visible: 0;
+
+  --product-card-image-padding: 0rem;
+  --product-card-corner-radius: var(--border-radius-md);
+  --product-card-text-alignment: left;
+  --product-card-border-width: var(--border-width);
+  --product-card-border-opacity: 1;
+  --product-card-shadow-opacity: 0;
+  --product-card-shadow-visible: 0;
+  --product-card-shadow-horizontal-offset: 0rem;
+  --product-card-shadow-vertical-offset: 0rem;
+  --product-card-shadow-blur-radius: 0rem;
+
+  --collection-card-image-padding: var(--product-card-image-padding);
+  --collection-card-corner-radius: var(--product-card-corner-radius);
+  --collection-card-text-alignment: var(--product-card-text-alignment);
+  --collection-card-border-width: var(--product-card-border-width);
+  --collection-card-border-opacity: var(--product-card-border-opacity);
+  --collection-card-shadow-opacity: var(--product-card-shadow-opacity);
+  --collection-card-shadow-visible: var(--product-card-shadow-visible);
+  --collection-card-shadow-horizontal-offset: var(
+    --product-card-shadow-horizontal-offset
+  );
+  --collection-card-shadow-vertical-offset: var(
+    --product-card-shadow-vertical-offset
+  );
+  --collection-card-shadow-blur-radius: var(--product-card-shadow-blur-radius);
+
+  --blog-card-image-padding: var(--product-card-image-padding);
+  --blog-card-corner-radius: var(--product-card-corner-radius);
+  --blog-card-text-alignment: var(--product-card-text-alignment);
+  --blog-card-border-width: var(--product-card-border-width);
+  --blog-card-border-opacity: var(--product-card-border-opacity);
+  --blog-card-shadow-opacity: var(--product-card-shadow-opacity);
+  --blog-card-shadow-visible: var(--product-card-shadow-visible);
+  --blog-card-shadow-horizontal-offset: var(
+    --product-card-shadow-horizontal-offset
+  );
+  --blog-card-shadow-vertical-offset: var(
+    --product-card-shadow-vertical-offset
+  );
+  --blog-card-shadow-blur-radius: var(--product-card-shadow-blur-radius);
+
+  --text-box-border-opacity: 1;
+  --text-box-border-width: var(--border-width);
+  --text-box-radius: var(--border-radius-md);
+  --text-box-shadow-opacity: 0;
+  --text-box-shadow-visible: 0;
+  --text-box-shadow-horizontal-offset: 0rem;
+  --text-box-shadow-vertical-offset: 0rem;
+  --text-box-shadow-blur-radius: 0rem;
+
+  --button-radius: var(--border-radius-sm);
+  --button-radius-outset: var(--border-radius-sm);
+  --button-border-width: var(--border-width);
+  --button-border-opacity: 1;
+  --button-shadow-opacity: 0;
+  --button-shadow-visible: 0;
+  --button-shadow-horizontal-offset: 0rem;
+  --button-shadow-vertical-offset: 0rem;
+  --button-shadow-blur-radius: 0rem;
+  --button-border-offset: 0rem;
+
+  --input-radius: var(--border-radius-sm);
+  --input-radius-outset: var(--border-radius-sm);
+  --input-border-width: var(--border-width);
+  --input-border-opacity: 1;
+  --input-shadow-opacity: 0;
+  --input-shadow-horizontal-offset: 0rem;
+  --input-shadow-vertical-offset: 0rem;
+  --input-shadow-blur-radius: 0rem;
+  --input-margin-offset: 0rem;
+
+  --variant-pill-radius: var(--border-radius-sm);
+  --variant-pill-border-width: var(--border-width);
+  --variant-pill-border-opacity: 1;
+  --variant-pill-shadow-opacity: 0;
+  --variant-pill-shadow-horizontal-offset: 0rem;
+  --variant-pill-shadow-vertical-offset: 0rem;
+  --variant-pill-shadow-blur-radius: 0rem;
+
+  --popup-border-width: var(--border-width);
+  --popup-border-opacity: 1;
+  --popup-corner-radius: var(--border-radius-md);
+  --popup-shadow-opacity: 0.18;
+  --popup-shadow-horizontal-offset: 0rem;
+  --popup-shadow-vertical-offset: var(--space-2);
+  --popup-shadow-blur-radius: var(--space-6);
+
+  --drawer-border-width: var(--border-width);
+  --drawer-border-opacity: 1;
+  --drawer-shadow-opacity: 0.18;
+  --drawer-shadow-horizontal-offset: 0rem;
+  --drawer-shadow-vertical-offset: 0rem;
+  --drawer-shadow-blur-radius: var(--space-8);
+
+  --badge-radius: var(--border-radius-sm);
 }

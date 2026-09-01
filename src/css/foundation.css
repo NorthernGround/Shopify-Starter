@@ -7,7 +7,6 @@
 @import url('./tokens/layout.css') layer(tokens);
 @import url('./tokens/controls.css') layer(tokens);
 @import url('./tokens/motion.css') layer(tokens);
-@import url('./tokens/dawn.css') layer(tokens);
 @import url('./base/document.css') layer(base);
 @import url('./base/typography.css') layer(base);
 @import url('./components/branding.css') layer(components);

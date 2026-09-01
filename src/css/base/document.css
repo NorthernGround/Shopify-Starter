@@ -13,8 +13,8 @@ html {
 body {
   min-block-size: 100%;
   margin: 0;
-  background: rgb(var(--color-background));
-  color: rgb(var(--color-foreground));
+  background: var(--color-canvas);
+  color: var(--color-text);
   font-family: var(--font-family-body);
   font-size: var(--font-size-body);
   font-style: normal;

@@ -3,17 +3,17 @@
 }
 
 .search__button {
-  right: var(--inputs-border-width);
-  top: var(--inputs-border-width);
+  right: var(--input-border-width);
+  top: var(--input-border-width);
 }
 
 .reset__button {
-  right: calc(var(--inputs-border-width) + 2.75rem);
-  top: var(--inputs-border-width);
+  right: calc(var(--input-border-width) + 2.75rem);
+  top: var(--input-border-width);
 }
 
 .reset__button:not(:focus-visible)::after {
-  border-right: 0.0625rem solid rgba(var(--color-foreground), 0.08);
+  border-right: 0.0625rem solid rgba(var(--color-text-rgb), 0.08);
   display: block;
   height: calc(100% - 1rem);
   content: '';
@@ -22,7 +22,7 @@
 }
 
 .reset__button:not(:focus)::after {
-  border-right: 0.0625rem solid rgba(var(--color-foreground), 0.08);
+  border-right: 0.0625rem solid rgba(var(--color-text-rgb), 0.08);
   display: block;
   height: calc(100% - 1.125rem);
   content: '';
@@ -32,13 +32,13 @@
 
 .search__button:focus-visible,
 .reset__button:focus-visible {
-  background-color: rgb(var(--color-background));
+  background-color: rgb(var(--color-canvas-rgb));
   z-index: 4;
 }
 
 .search__button:focus,
 .reset__button:focus {
-  background-color: rgb(var(--color-background));
+  background-color: rgb(var(--color-canvas-rgb));
   z-index: 4;
 }
 

@@ -15,12 +15,26 @@
   --color-neutral-900-rgb: 23, 23, 21;
 
   --color-canvas: var(--color-neutral-0);
+  --color-canvas-rgb: var(--color-neutral-0-rgb);
+  --color-canvas-gradient: rgb(var(--color-canvas-rgb));
   --color-surface: var(--color-neutral-0);
+  --color-surface-rgb: var(--color-neutral-0-rgb);
   --color-surface-muted: var(--color-neutral-50);
+  --color-surface-muted-rgb: var(--color-neutral-50-rgb);
   --color-text: var(--color-neutral-900);
+  --color-text-rgb: var(--color-neutral-900-rgb);
   --color-text-muted: var(--color-neutral-600);
   --color-border: var(--color-neutral-200);
+  --color-border-rgb: var(--color-neutral-200-rgb);
   --color-action: var(--color-neutral-900);
+  --color-action-rgb: var(--color-neutral-900-rgb);
   --color-on-action: var(--color-neutral-0);
+  --color-on-action-rgb: var(--color-neutral-0-rgb);
+  --color-link-rgb: var(--color-action-rgb);
+  --color-shadow-rgb: var(--color-neutral-900-rgb);
+  --color-badge-text-rgb: var(--color-text-rgb);
+  --color-badge-surface-rgb: var(--color-surface-rgb);
+  --color-badge-border-rgb: var(--color-border-rgb);
   --color-focus: var(--color-neutral-900);
+  --payment-terms-background-color: var(--color-canvas);
 }

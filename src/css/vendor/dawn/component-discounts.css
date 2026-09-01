@@ -5,11 +5,11 @@
 .discounts__discount {
   display: flex;
   align-items: center;
-  line-height: calc(1 + 0.5 / var(--font-body-scale));
+  line-height: 1.5;
 }
 
 .discounts__discount svg {
-  color: rgba(var(--color-button), var(--alpha-button-background));
+  color: rgba(var(--color-action-rgb), var(--alpha-button-background));
 }
 
 .discounts__discount--position {
@@ -23,7 +23,7 @@
 }
 
 .discounts__discount > .icon {
-  color: rgb(var(--color-foreground));
+  color: rgb(var(--color-text-rgb));
   width: 0.75rem;
   height: 0.75rem;
   margin-right: 0.4375rem;
