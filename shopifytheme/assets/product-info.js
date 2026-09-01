@@ -69,10 +69,12 @@ if (!customElements.get('product-info')) {
         this.pendingRequestUrl = productUrl;
         const shouldSwapProduct = this.dataset.url !== productUrl;
         const shouldFetchFullPage = this.dataset.updateUrl === 'true' && shouldSwapProduct;
+        const selectDeferred = this.variantSelectors?.takePendingSelectPromise();
 
         this.renderProductInfo({
           requestUrl: this.buildRequestUrlWithParams(productUrl, selectedOptionValues, shouldFetchFullPage),
           targetId: target.id,
+          selectDeferred,
           callback: shouldSwapProduct
             ? this.handleSwapProduct(productUrl, shouldFetchFullPage)
             : this.handleUpdateProductInfo(productUrl),
@@ -86,11 +88,17 @@ if (!customElements.get('product-info')) {
       }
 
       handleSwapProduct(productUrl, updateFullPage) {
-        return (html) => {
+        return (html, selectDeferred) => {
           this.productModal?.remove();
 
           const selector = updateFullPage ? "product-info[id^='MainProduct']" : 'product-info';
-          const variant = this.getSelectedVariant(html.querySelector(selector));
+          const sourceProductInfo = html.querySelector(selector);
+          const variant = this.getSelectedVariant(sourceProductInfo);
+          this.variantSelectors?.resolveSelectPromise(
+            selectDeferred,
+            variant,
+            this.getVariantSelects(sourceProductInfo)
+          );
           this.updateURL(productUrl, variant?.id);
 
           if (updateFullPage) {
@@ -113,7 +121,7 @@ if (!customElements.get('product-info')) {
         };
       }
 
-      renderProductInfo({ requestUrl, targetId, callback }) {
+      renderProductInfo({ requestUrl, targetId, selectDeferred, callback }) {
         this.abortController?.abort();
         this.abortController = new AbortController();
 
@@ -122,9 +130,7 @@ if (!customElements.get('product-info')) {
           .then((responseText) => {
             this.pendingRequestUrl = null;
             const html = new DOMParser().parseFromString(responseText, 'text/html');
-            callback(html);
-          })
-          .then(() => {
+            callback(html, selectDeferred);
             // set focus to last clicked option value
             document.querySelector(`#${targetId}`)?.focus();
           })
@@ -134,12 +140,24 @@ if (!customElements.get('product-info')) {
             } else {
               console.error(error);
             }
+            this.variantSelectors?.rejectSelectPromise(selectDeferred, error);
           });
       }
 
+      parseJsonScript(parent, selector) {
+        try {
+          return JSON.parse(parent?.querySelector(selector)?.textContent);
+        } catch {
+          return null;
+        }
+      }
+
+      getVariantSelects(queryRoot) {
+        return queryRoot?.querySelector('variant-selects');
+      }
+
       getSelectedVariant(productInfoNode) {
-        const selectedVariant = productInfoNode.querySelector('variant-selects [data-selected-variant]')?.innerHTML;
-        return !!selectedVariant ? JSON.parse(selectedVariant) : null;
+        return this.parseJsonScript(this.getVariantSelects(productInfoNode), '[data-selected-variant]');
       }
 
       buildRequestUrlWithParams(url, optionValues, shouldFetchFullPage = false) {
@@ -162,8 +180,10 @@ if (!customElements.get('product-info')) {
       }
 
       handleUpdateProductInfo(productUrl) {
-        return (html) => {
+        return (html, selectDeferred) => {
+          const sourceVariantSelects = this.getVariantSelects(html);
           const variant = this.getSelectedVariant(html);
+          this.variantSelectors?.resolveSelectPromise(selectDeferred, variant, sourceVariantSelects);
 
           this.pickupAvailability?.update(variant);
           this.updateOptionValues(html);

@@ -17,7 +17,8 @@
       "settings": {
         "menu": "main-menu",
         "sticky_header_type": "on-scroll-up",
-        "enable_country_selector": true
+        "enable_country_selector": true,
+        "enable_language_selector": true
       }
     }
   },

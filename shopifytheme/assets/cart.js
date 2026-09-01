@@ -12,7 +12,7 @@ class CartRemoveButton extends HTMLElement {
 
 customElements.define('cart-remove-button', CartRemoveButton);
 
-class CartItems extends HTMLElement {
+class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement) {
   constructor() {
     super();
     this.lineItemStatusElement =
@@ -27,13 +27,31 @@ class CartItems extends HTMLElement {
 
   cartUpdateUnsubscriber = undefined;
 
+  static pendingCartDataPromise = null;
+
   connectedCallback() {
+    super.connectedCallback();
+
     this.cartUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.cartUpdate, (event) => {
       if (event.source === 'cart-items') {
         return;
       }
       return this.onCartUpdate();
     });
+  }
+
+  static fetchCartData() {
+    if (!CartItems.pendingCartDataPromise) {
+      const pendingCartDataPromise = fetch(`${routes.cart_url}.json`)
+        .then((response) => response.json())
+        .catch(() => null)
+        .finally(() => {
+          if (CartItems.pendingCartDataPromise === pendingCartDataPromise) CartItems.pendingCartDataPromise = null;
+        });
+
+      CartItems.pendingCartDataPromise = pendingCartDataPromise;
+    }
+    return CartItems.pendingCartDataPromise;
   }
 
   disconnectedCallback() {
@@ -150,10 +168,18 @@ class CartItems extends HTMLElement {
 
     this.enableLoading(line);
 
+    const action = quantity === 0 ? 'remove' : 'update';
+    const quantityInput =
+      this.querySelector(`#Quantity-${line}`) || this.querySelector(`#Drawer-quantity-${line}`);
+    const lineVariantId = variantId || quantityInput?.dataset.quantityVariantId;
+    const lineKey = quantityInput?.dataset.quantityLineKey;
+    const linesUpdateDeferred = this.createCartLinesUpdateEvent(action, lineVariantId, quantity, lineKey);
+    const sectionsToRender = this.getSectionsToRender();
+
     const body = JSON.stringify({
       line,
       quantity,
-      sections: this.getSectionsToRender().map((section) => section.section),
+      sections: sectionsToRender.map((section) => section.section),
       sections_url: window.location.pathname,
     });
 
@@ -163,6 +189,13 @@ class CartItems extends HTMLElement {
       })
       .then((state) => {
         const parsedState = JSON.parse(state);
+
+        if (parsedState.errors) {
+          this.dispatchCartErrorEvent(parsedState.errors, 'INVALID');
+          linesUpdateDeferred?.reject(new Error(parsedState.errors));
+        } else {
+          this.resolveCartLinesUpdate(linesUpdateDeferred, parsedState);
+        }
 
         CartPerformance.measure(`${eventTarget}:paint-updated-sections`, () => {
           const quantityElement =
@@ -182,7 +215,7 @@ class CartItems extends HTMLElement {
           if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
           if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', parsedState.item_count === 0);
 
-          this.getSectionsToRender().forEach((section) => {
+          sectionsToRender.forEach((section) => {
             const elementToReplace =
               document.getElementById(section.id).querySelector(section.selector) ||
               document.getElementById(section.id);
@@ -208,7 +241,7 @@ class CartItems extends HTMLElement {
             cartDrawerWrapper
               ? trapFocus(cartDrawerWrapper, lineItem.querySelector(`[name="${name}"]`))
               : lineItem.querySelector(`[name="${name}"]`).focus();
-          } else if (parsedState.item_count === 0 && cartDrawerWrapper) {
+          } else if (parsedState.item_count === 0 && cartDrawerWrapper?.querySelector('.drawer__inner-empty')) {
             trapFocus(cartDrawerWrapper.querySelector('.drawer__inner-empty'), cartDrawerWrapper.querySelector('a'));
           } else if (document.querySelector('.cart-item') && cartDrawerWrapper) {
             trapFocus(cartDrawerWrapper, document.querySelector('.cart-item__name'));
@@ -217,15 +250,47 @@ class CartItems extends HTMLElement {
 
         publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId: variantId });
       })
-      .catch(() => {
+      .catch((error) => {
         this.querySelectorAll('.loading__spinner').forEach((overlay) => overlay.classList.add('hidden'));
         const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
-        errors.textContent = window.cartStrings.error;
+        if (errors) errors.textContent = window.cartStrings.error;
+        this.dispatchCartErrorEvent(window.cartStrings.error, 'SERVICE_UNAVAILABLE');
+        linesUpdateDeferred?.reject(error);
       })
       .finally(() => {
         this.disableLoading(line);
         CartPerformance.measureFromMarker(`${eventTarget}:user-action`, cartPerformanceUpdateMarker);
       });
+  }
+
+  createCartLinesUpdateEvent(action, variantId, quantity, lineKey) {
+    const { CartLinesUpdateEvent } = window.StandardEvents || {};
+    if (!CartLinesUpdateEvent || !variantId || !lineKey) return null;
+
+    const deferred = CartLinesUpdateEvent.createPromise();
+    this.dispatchEvent(
+      new CartLinesUpdateEvent({
+        action,
+        context: 'cart',
+        lines: [{ id: lineKey, quantity }],
+        promise: deferred.promise,
+      })
+    );
+    return deferred;
+  }
+
+  resolveCartLinesUpdate(deferred, parsedState) {
+    if (!deferred) return;
+    const { CartLinesUpdateEvent } = window.StandardEvents || {};
+    if (!CartLinesUpdateEvent) return;
+
+    deferred.resolve({ cart: CartLinesUpdateEvent.createCartFromAjaxResponse(parsedState) });
+  }
+
+  dispatchCartErrorEvent(message, code) {
+    const { CartErrorEvent } = window.StandardEvents || {};
+    if (!CartErrorEvent) return;
+    this.dispatchEvent(new CartErrorEvent({ error: message, code }));
   }
 
   updateLiveRegions(line, message) {
@@ -237,6 +302,7 @@ class CartItems extends HTMLElement {
 
     const cartStatus =
       document.getElementById('cart-live-region-text') || document.getElementById('CartDrawer-LiveRegionText');
+    if (!cartStatus) return;
     cartStatus.setAttribute('aria-hidden', false);
 
     setTimeout(() => {
@@ -285,12 +351,57 @@ if (!customElements.get('cart-note')) {
         this.addEventListener(
           'input',
           debounce((event) => {
-            const body = JSON.stringify({ note: event.target.value });
-            fetch(`${routes.cart_update_url}`, { ...fetchConfig(), ...{ body } }).then(() =>
-              CartPerformance.measureFromEvent('note-update:user-action', event)
-            );
+            const newNote = event.target.value;
+            const noteDeferred = this.dispatchNoteUpdateEvent(newNote);
+            const body = JSON.stringify({ note: newNote });
+
+            fetch(`${routes.cart_update_url}`, { ...fetchConfig(), ...{ body } })
+              .then((response) => response.json())
+              .then((cart) => {
+                if (!cart || cart.errors) {
+                  throw Object.assign(new Error(cart?.errors), { code: 'INVALID' });
+                }
+
+                if (noteDeferred) {
+                  const { CartNoteUpdateEvent } = window.StandardEvents || {};
+                  if (CartNoteUpdateEvent) {
+                    noteDeferred.resolve({ cart: CartNoteUpdateEvent.createCartFromAjaxResponse(cart) });
+                  }
+                }
+                CartPerformance.measureFromEvent('note-update:user-action', event);
+              })
+              .catch((error) => {
+                noteDeferred?.reject(error);
+                const { CartErrorEvent } = window.StandardEvents || {};
+                if (CartErrorEvent) {
+                  this.dispatchEvent(
+                    new CartErrorEvent({
+                      error: error.message || 'Note update failed',
+                      code: error.code || 'SERVICE_UNAVAILABLE',
+                    })
+                  );
+                }
+              });
           }, ON_CHANGE_DEBOUNCE_TIMER)
         );
+      }
+
+      dispatchNoteUpdateEvent(newNote) {
+        const { CartNoteUpdateEvent } = window.StandardEvents || {};
+        if (!CartNoteUpdateEvent) return null;
+
+        const context = this.closest('dialog') || this.closest('cart-drawer') ? 'dialog' : 'cart';
+        const deferred = CartNoteUpdateEvent.createPromise();
+
+        this.dispatchEvent(
+          new CartNoteUpdateEvent({
+            context,
+            note: newNote,
+            promise: deferred.promise,
+          })
+        );
+
+        return deferred;
       }
     }
   );

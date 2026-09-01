@@ -1,3 +1,8 @@
+product-component,
+collection-component {
+  display: block;
+}
+
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
@@ -2518,8 +2523,28 @@ input[type='checkbox'] {
   background: rgba(var(--color-foreground), 0.5);
 }
 
-.header__icon--account shop-user-avatar {
-  --shop-avatar-size: 1.75rem;
+shopify-account.header__icon {
+  --shopify-account-font-heading: var(--font-heading-family);
+  --shopify-account-font-heading-weight: var(--font-heading-weight);
+  --shopify-account-font-body: var(--font-body-family);
+  --shopify-account-font-body-weight: var(--font-body-weight);
+  --shopify-account-radius-base: var(--popup-corner-radius);
+  --shopify-account-radius-button: var(--buttons-radius);
+  --shopify-account-radius-button-small: var(--buttons-radius);
+  --shopify-account-radius-input: var(--inputs-radius);
+  --shopify-account-color-background: rgb(var(--color-background));
+  --shopify-account-color-text: rgb(var(--color-foreground));
+  --shopify-account-color-accent: rgb(var(--color-button));
+  --shopify-account-color-accent-text: rgb(var(--color-button-text));
+  --shopify-account-dialog-position-top: var(--account-dialog-top, var(--header-height, 0px));
+}
+
+shopify-account.header__icon:not(:defined) {
+  align-items: center;
+  block-size: 2.75rem;
+  display: flex;
+  justify-content: center;
+  min-inline-size: 2.75rem;
 }
 
 details .header__icon-close {
@@ -2528,10 +2553,6 @@ details .header__icon-close {
 
 details[open] .header__icon-close {
   display: inline-block;
-}
-
-account-icon {
-  display: flex;
 }
 
 /* Search */

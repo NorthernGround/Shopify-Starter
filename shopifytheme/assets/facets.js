@@ -32,6 +32,7 @@ class FacetFiltersForm extends HTMLElement {
   static renderPage(searchParams, event, updateURLHash = true) {
     FacetFiltersForm.searchParamsPrev = searchParams;
     const sections = FacetFiltersForm.getSections();
+    const updateEvent = FacetFiltersForm.startUpdateEvent(searchParams);
     const countContainer = document.getElementById('ProductCount');
     const countContainerDesktop = document.getElementById('ProductCountDesktop');
     const loadingSpinners = document.querySelectorAll(
@@ -51,31 +52,85 @@ class FacetFiltersForm extends HTMLElement {
       const filterDataUrl = (element) => element.url === url;
 
       FacetFiltersForm.filterData.some(filterDataUrl)
-        ? FacetFiltersForm.renderSectionFromCache(filterDataUrl, event)
-        : FacetFiltersForm.renderSectionFromFetch(url, event);
+        ? FacetFiltersForm.renderSectionFromCache(filterDataUrl, event, updateEvent)
+        : FacetFiltersForm.renderSectionFromFetch(url, event, updateEvent);
     });
 
     if (updateURLHash) FacetFiltersForm.updateURLHash(searchParams);
   }
 
-  static renderSectionFromFetch(url, event) {
+  static startUpdateEvent(searchParams) {
+    const { SearchUpdateEvent, CollectionUpdateEvent } = window.StandardEvents || {};
+    const facetsForm = document.querySelector('facet-filters-form');
+    const facetsContainer = document.querySelector('.facets-container');
+    if (!facetsContainer) return null;
+
+    const urlSearchParams = new URLSearchParams(searchParams);
+    const currentCount = parseInt(document.getElementById('ProductCount')?.dataset.productCount, 10) || 0;
+    const dispatchTarget = facetsForm || document;
+    let deferred;
+    let resultKey;
+
+    if (facetsContainer.dataset.template === 'search' && SearchUpdateEvent) {
+      deferred = SearchUpdateEvent.createPromise();
+      resultKey = 'totalCount';
+      dispatchTarget.dispatchEvent(
+        new SearchUpdateEvent({
+          search: {
+            query: urlSearchParams.get('q') || '',
+            productFilters: SearchUpdateEvent.parseProductFilters(urlSearchParams),
+            sortKey: SearchUpdateEvent.getSortKey(urlSearchParams),
+          },
+          promise: deferred.promise,
+        })
+      );
+    } else if (facetsContainer.dataset.template === 'collection' && CollectionUpdateEvent) {
+      deferred = CollectionUpdateEvent.createPromise();
+      resultKey = 'productsCount';
+      dispatchTarget.dispatchEvent(
+        new CollectionUpdateEvent({
+          collection: {
+            id: facetsContainer.dataset.collectionId || null,
+            handle: facetsContainer.dataset.collectionHandle || '',
+            productsCount: currentCount,
+          },
+          productFilters: CollectionUpdateEvent.parseProductFilters(urlSearchParams),
+          sortKey: CollectionUpdateEvent.getSortKey(urlSearchParams),
+          promise: deferred.promise,
+        })
+      );
+    }
+
+    if (!deferred) return null;
+
+    return {
+      resolve: (filteredCount) => deferred.resolve({ [resultKey]: filteredCount }),
+      reject: (error) => deferred.reject(error),
+    };
+  }
+
+  static renderSectionFromFetch(url, event, updateEvent) {
     fetch(url)
       .then((response) => response.text())
-      .then((responseText) => {
-        const html = responseText;
+      .then((html) => {
         FacetFiltersForm.filterData = [...FacetFiltersForm.filterData, { html, url }];
-        FacetFiltersForm.renderFilters(html, event);
-        FacetFiltersForm.renderProductGridContainer(html);
-        FacetFiltersForm.renderProductCount(html);
-        if (typeof initializeScrollAnimationTrigger === 'function') initializeScrollAnimationTrigger(html.innerHTML);
+        FacetFiltersForm.renderSection(html, event, updateEvent);
+      })
+      .catch((error) => {
+        console.error(error);
+        updateEvent?.reject(error);
       });
   }
 
-  static renderSectionFromCache(filterDataUrl, event) {
+  static renderSectionFromCache(filterDataUrl, event, updateEvent) {
     const html = FacetFiltersForm.filterData.find(filterDataUrl).html;
+    FacetFiltersForm.renderSection(html, event, updateEvent);
+  }
+
+  static renderSection(html, event, updateEvent) {
     FacetFiltersForm.renderFilters(html, event);
     FacetFiltersForm.renderProductGridContainer(html);
-    FacetFiltersForm.renderProductCount(html);
+    FacetFiltersForm.renderProductCount(html, updateEvent);
     if (typeof initializeScrollAnimationTrigger === 'function') initializeScrollAnimationTrigger(html.innerHTML);
   }
 
@@ -92,11 +147,14 @@ class FacetFiltersForm extends HTMLElement {
       });
   }
 
-  static renderProductCount(html) {
-    const count = new DOMParser().parseFromString(html, 'text/html').getElementById('ProductCount').innerHTML;
+  static renderProductCount(html, updateEvent) {
+    const sourceCount = new DOMParser().parseFromString(html, 'text/html').getElementById('ProductCount');
+    const count = sourceCount.innerHTML;
     const container = document.getElementById('ProductCount');
     const containerDesktop = document.getElementById('ProductCountDesktop');
     container.innerHTML = count;
+    container.dataset.productCount = sourceCount.dataset.productCount || '';
+    container.dataset.totalCount = sourceCount.dataset.totalCount || '';
     container.classList.remove('loading');
     if (containerDesktop) {
       containerDesktop.innerHTML = count;
@@ -106,6 +164,8 @@ class FacetFiltersForm extends HTMLElement {
       '.facets-container .loading__spinner, facet-filters-form .loading__spinner'
     );
     loadingSpinners.forEach((spinner) => spinner.classList.add('hidden'));
+
+    updateEvent?.resolve(parseInt(sourceCount.dataset.productCount, 10) || 0);
   }
 
   static renderFilters(html, event) {
@@ -164,14 +224,22 @@ class FacetFiltersForm extends HTMLElement {
         FacetFiltersForm.renderMobileCounts(countsToRender, document.getElementById(closestJSFilterID));
 
         const newFacetDetailsElement = document.getElementById(closestJSFilterID);
-        const newElementSelector = newFacetDetailsElement.classList.contains('mobile-facets__details')
-          ? `.mobile-facets__close-button`
-          : `.facets__summary`;
-        const newElementToActivate = newFacetDetailsElement.querySelector(newElementSelector);
-
         const isTextInput = event.target.getAttribute('type') === 'text';
 
-        if (newElementToActivate && !isTextInput) newElementToActivate.focus();
+        if (!isTextInput) {
+          const matchingInput = event.target.id
+            ? newFacetDetailsElement.querySelector(`#${CSS.escape(event.target.id)}`)
+            : null;
+
+          if (matchingInput) {
+            matchingInput.focus();
+          } else {
+            const fallbackSelector = newFacetDetailsElement.classList.contains('mobile-facets__details')
+              ? '.mobile-facets__close-button'
+              : '.facets__summary';
+            newFacetDetailsElement.querySelector(fallbackSelector)?.focus();
+          }
+        }
       }
     }
   }

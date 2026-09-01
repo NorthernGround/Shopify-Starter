@@ -203,5 +203,20 @@
         "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
       }
     ]
+  },
+  {
+    "name": "t:settings_schema.customer_accounts.name",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.customer_accounts.settings.paragraph.content"
+      },
+      {
+        "type": "link_list",
+        "id": "customer_account_menu",
+        "default": "customer-account-main-menu",
+        "label": "t:settings_schema.customer_accounts.settings.customer_account_menu.label"
+      }
+    ]
   }
 ]

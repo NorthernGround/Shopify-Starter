@@ -3,6 +3,8 @@
 A Dawn-based Shopify theme with a small Vite pipeline for project-specific CSS
 and JavaScript.
 
+Upstream compatibility baseline: Shopify Dawn 16.0.0.
+
 ## Requirements
 
 - Node.js 24.14.x

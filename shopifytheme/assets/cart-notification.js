@@ -25,6 +25,28 @@ class CartNotification extends HTMLElement {
     );
 
     document.body.addEventListener('click', this.onBodyClick);
+
+    this.dispatchCartViewEvent();
+  }
+
+  async dispatchCartViewEvent() {
+    const { CartViewEvent } = window.StandardEvents || {};
+    if (!CartViewEvent) return;
+
+    try {
+      const response = await fetch(`${routes.cart_url}.json`);
+      const cart = await response.json();
+      if (!cart?.currency) return;
+
+      this.dispatchEvent(
+        new CartViewEvent({
+          context: 'dialog',
+          cart: CartViewEvent.createCartFromAjaxResponse(cart),
+        })
+      );
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   close() {
