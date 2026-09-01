@@ -8,11 +8,11 @@
 @import url('./tokens/controls.css') layer(tokens);
 @import url('./tokens/motion.css') layer(tokens);
 @import url('./base/document.css') layer(base);
-@import url('./base/layout.css') layer(base);
+@import url('./base/layout.css') layer(dawn);
 @import url('./base/typography.css') layer(base);
 @import url('./components/branding.css') layer(components);
-@import url('./components/text.css') layer(components);
-@import url('./utilities/accessibility.css') layer(utilities);
-@import url('./utilities/content.css') layer(utilities);
-@import url('./utilities/focus.css') layer(utilities);
-@import url('./utilities/visibility.css') layer(utilities);
+@import url('./components/text.css') layer(dawn);
+@import url('./utilities/accessibility.css') layer(dawn);
+@import url('./utilities/content.css') layer(dawn);
+@import url('./utilities/focus.css') layer(dawn);
+@import url('./utilities/visibility.css') layer(dawn);

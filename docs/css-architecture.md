@@ -31,12 +31,20 @@ The cascade order is:
 ```
 
 - `tokens`: raw and semantic design values
-- `dawn`: retained structural and behavioral Dawn CSS
-- `base`: document, typography, and layout defaults
+- `dawn`: migrated Dawn foundations followed by retained structural and
+  behavioral Dawn CSS
+- `base`: project document and typography defaults
 - `components`: reusable controls and content patterns
 - `sections`: Shopify section-specific presentation
 - `pages`: template-level presentation
 - `utilities`: narrow state and accessibility helpers
+
+File ownership and cascade placement are separate concerns. Rules extracted
+from Dawn's former base stylesheets live in project `base`, `components`,
+`sections`, and `utilities` directories, but remain in the `dawn` layer before
+retained Dawn imports. This preserves the original specificity relationship:
+retained component selectors can override generic helpers. New project styling
+uses the later layer matching its ownership.
 
 Custom media definitions live outside a layer. The `--md` and `--lg`
 breakpoints match Dawn's 750px and 990px JavaScript contracts.

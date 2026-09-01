@@ -1,7 +1,7 @@
 @import url('./foundation.css');
-@import url('./components/button.css') layer(components);
-@import url('./components/content-containers.css') layer(components);
-@import url('./components/form.css') layer(components);
-@import url('./components/primitives.css') layer(components);
-@import url('./utilities/forced-colors.css') layer(utilities);
+@import url('./components/button.css') layer(dawn);
+@import url('./components/content-containers.css') layer(dawn);
+@import url('./components/form.css') layer(dawn);
+@import url('./components/primitives.css') layer(dawn);
+@import url('./utilities/forced-colors.css') layer(dawn);
 @import url('./vendor/gift-card.css') layer(dawn);

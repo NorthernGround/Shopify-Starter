@@ -56,6 +56,9 @@
 - Preserve the cascade order declared in `src/css/main.css`. Explicitly import
   new component and section styles into the matching `components` or `sections`
   layer; directory placement alone does not assign a layer.
+- Keep rules extracted from Dawn's former base stylesheets in the `dawn` layer
+  before retained Dawn imports. Their project-owned directory does not move
+  them above the retained selectors they were designed to yield to.
 - Keep visual decisions such as colors, typography, spacing, borders, radii,
   and shadows in CSS. Theme Editor settings for new work should control merchant
   content, information structure, accessibility, or storefront behavior.

@@ -1,21 +1,21 @@
 @import url('./foundation.css');
+@import url('./components/media.css') layer(dawn);
+@import url('./components/button.css') layer(dawn);
+@import url('./components/cart-count.css') layer(dawn);
+@import url('./components/content-containers.css') layer(dawn);
+@import url('./components/form.css') layer(dawn);
+@import url('./components/grid.css') layer(dawn);
+@import url('./components/loading-spinner.css') layer(dawn);
+@import url('./components/modal.css') layer(dawn);
+@import url('./components/primitives.css') layer(dawn);
+@import url('./components/progress-bar.css') layer(dawn);
+@import url('./components/quantity.css') layer(dawn);
+@import url('./components/rte.css') layer(dawn);
+@import url('./components/section-title.css') layer(dawn);
+@import url('./utilities/forced-colors.css') layer(dawn);
+@import url('./utilities/responsive-overflow.css') layer(dawn);
+@import url('./utilities/reveal.css') layer(dawn);
 @import url('./vendor/dawn.css') layer(dawn);
-@import url('./components/button.css') layer(components);
-@import url('./components/cart-count.css') layer(components);
-@import url('./components/content-containers.css') layer(components);
-@import url('./components/form.css') layer(components);
-@import url('./components/grid.css') layer(components);
-@import url('./components/loading-spinner.css') layer(components);
-@import url('./components/media.css') layer(components);
-@import url('./components/modal.css') layer(components);
-@import url('./components/primitives.css') layer(components);
-@import url('./components/progress-bar.css') layer(components);
-@import url('./components/quantity.css') layer(components);
-@import url('./components/rte.css') layer(components);
-@import url('./components/section-title.css') layer(components);
-@import url('./utilities/forced-colors.css') layer(utilities);
-@import url('./utilities/responsive-overflow.css') layer(utilities);
-@import url('./utilities/reveal.css') layer(utilities);
 
 /* plop: components */
 @import url('./components/product-details.css') layer(components);
