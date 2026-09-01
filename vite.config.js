@@ -6,6 +6,7 @@ import browserslist from 'browserslist';
 export default defineConfig({
   input: {
     main: resolve(import.meta.dirname, 'src/js/main.js'),
+    // plop: vite-entry
     cart: resolve(import.meta.dirname, 'src/css/cart.css'),
     'cart-drawer': resolve(import.meta.dirname, 'src/css/cart-drawer.css'),
     'cart-notification': resolve(

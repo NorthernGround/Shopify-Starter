@@ -13,6 +13,8 @@
 - Run the storefront and asset watchers together with `npm run dev`. For the
   initial store selection, use
   `npm run dev:theme -- --store your-store.myshopify.com`.
+- Use `npm run new` to scaffold project sections and components, and preserve
+  the `plop:` registration markers in shared entry files.
 - Author project CSS and JavaScript in `src/`.
 - Never edit generated files in `shopifytheme/assets/` that correspond to Vite
   entries in `src/css/` or `src/js/`.

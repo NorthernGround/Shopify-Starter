@@ -1,4 +1,8 @@
 @import url('./foundation.css');
 @import url('./vendor/dawn.css') layer(dawn);
+
+/* plop: components */
 @import url('./components/product-details.css') layer(components);
+
+/* plop: sections */
 @import url('./sections/media-overlays.css') layer(sections);

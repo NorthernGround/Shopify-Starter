@@ -1,3 +1,4 @@
+extends: theme-check:recommended
 MatchingTranslations:
   enabled: false
 TemplateLength:

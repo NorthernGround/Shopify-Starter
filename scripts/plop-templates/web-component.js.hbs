@@ -1,0 +1,9 @@
+if (!customElements.get('theme-{{name}}')) {
+  class Theme{{pascalCase name}} extends HTMLElement {
+    connectedCallback() {}
+
+    disconnectedCallback() {}
+  }
+
+  customElements.define('theme-{{name}}', Theme{{pascalCase name}});
+}

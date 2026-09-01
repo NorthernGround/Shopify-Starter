@@ -24,6 +24,9 @@ npm ci
 npm run dev
 ```
 
+Use `npm run new` to scaffold project sections and components. Preserve the
+`plop:` registration markers in shared entry files.
+
 For the initial store selection, use
 `npm run dev:theme -- --store your-store.myshopify.com`. The two underlying
 commands are `npm run dev:theme` and `npm run dev:assets`.

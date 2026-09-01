@@ -67,6 +67,26 @@ compiled assets; Vite watches files under `src/`.
 Import new CSS from `src/css/main.css` and new JavaScript from
 `src/js/main.js`.
 
+Scaffold and register a new project section or component interactively:
+
+```bash
+npm run new
+```
+
+The section generator can add styles to the shared bundle or create a Vite
+bundle loaded only when that section renders. It can also register an optional
+custom element. The component generator can add an optional Liquid snippet and
+custom element.
+
+Review retained assets that have no direct reference in the theme source:
+
+```bash
+npm run audit:assets
+```
+
+The audit is report-only. Treat its output as removal candidates because some
+Shopify assets can be referenced dynamically.
+
 The theme uses a browser-default 16px rem baseline. See
 `docs/css-architecture.md` for the layer order, token contract, and Theme Editor
 setting policy.
