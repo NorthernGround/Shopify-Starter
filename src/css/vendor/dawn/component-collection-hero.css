@@ -8,13 +8,14 @@
   padding-bottom: 1.25rem;
 }
 
-@media screen and (min-width: 750px) {
-  .collection-hero.collection-hero--with-image {
+.collection-hero.collection-hero--with-image {
+  @media (--md) {
     padding: calc(2.5rem + var(--layout-content-margin)) 0 calc(2.5rem + var(--layout-content-margin));
     overflow: hidden;
   }
-
-  .collection-hero--with-image .collection-hero__inner {
+}
+.collection-hero--with-image .collection-hero__inner {
+  @media (--md) {
     padding-bottom: 0;
   }
 }
@@ -23,12 +24,13 @@
   flex-basis: 100%;
 }
 
-@media screen and (min-width: 750px) {
-  .collection-hero {
+.collection-hero {
+  @media (--md) {
     padding: 0;
   }
-
-  .collection-hero__inner {
+}
+.collection-hero__inner {
+  @media (--md) {
     align-items: center;
     flex-direction: row;
     padding-bottom: 0;
@@ -46,18 +48,20 @@
   line-height: 1.5;
 }
 
-@media screen and (min-width: 750px) {
-  .collection-hero__title + .collection-hero__description {
+.collection-hero__title + .collection-hero__description {
+  @media (--md) {
     font-size: 1.125rem;
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
   }
-
-  .collection-hero__description {
+}
+.collection-hero__description {
+  @media (--md) {
     max-width: 66.67%;
   }
-
-  .collection-hero--with-image .collection-hero__description {
+}
+.collection-hero--with-image .collection-hero__description {
+  @media (--md) {
     max-width: 100%;
   }
 }
@@ -77,19 +81,20 @@
     rgba(var(--color-shadow-rgb), var(--media-shadow-opacity));
 }
 
-@media screen and (max-width: 749px) {
-  .collection-hero__image-container {
+.collection-hero__image-container {
+  @media (--md-down) {
     height: 12.5rem;
   }
 }
 
-@media screen and (min-width: 750px) {
-  .collection-hero--with-image .collection-hero__text-wrapper {
+.collection-hero--with-image .collection-hero__text-wrapper {
+  @media (--md) {
     padding: 2.5rem 1.25rem 2.5rem 0;
     flex-basis: 50%;
   }
-
-  .collection-hero__image-container {
+}
+.collection-hero__image-container {
+  @media (--md) {
     align-self: stretch;
     flex: 1 0 50%;
     margin-left: 1.875rem;

@@ -56,8 +56,8 @@
 }
 
 /* outline styling for Windows High Contrast Mode */
-@media (forced-colors: active) {
-  .deferred-media__poster:focus {
+.deferred-media__poster:focus {
+  @media (forced-colors: active) {
     outline: transparent solid 1px;
   }
 }

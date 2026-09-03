@@ -40,8 +40,8 @@ body {
   font-weight: var(--font-weight-regular);
 }
 
-@media only screen and (min-width: 750px) {
-  body {
+body {
+  @media (--md) {
     line-height: 1.8;
   }
 }
@@ -67,9 +67,9 @@ h1,
   font-size: 1.875rem;
 }
 
-@media only screen and (min-width: 750px) {
-  h1,
+h1,
   .h1 {
+  @media (--md) {
     font-size: 2.5rem;
   }
 }
@@ -79,9 +79,9 @@ h2,
   font-size: 1.25rem;
 }
 
-@media only screen and (min-width: 750px) {
-  h2,
+h2,
   .h2 {
+  @media (--md) {
     font-size: 1.5rem;
   }
 }
@@ -128,8 +128,8 @@ h2,
   box-shadow: 0 0 0 0.125rem rgb(var(--color-text-rgb));
 }
 
-@media (forced-colors: active) {
-  .button {
+.button {
+  @media (forced-colors: active) {
     border: transparent solid 1px;
   }
 }
@@ -138,8 +138,8 @@ h2,
   padding: 1.875rem;
 }
 
-@media only screen and (min-width: 750px) {
-  .gift-card {
+.gift-card {
+  @media (--md) {
     padding: 3.125rem 3.125rem 1.875rem;
   }
 }
@@ -160,8 +160,8 @@ h2,
   max-height: 16.25rem;
 }
 
-@media only screen and (min-width: 750px) {
-  .gift-card__image {
+.gift-card__image {
+  @media (--md) {
     padding: 0;
   }
 }
@@ -311,8 +311,8 @@ h2,
   width: 0.8125rem;
 }
 
-@media print {
-  .no-print {
+.no-print {
+  @media print {
     display: none;
   }
 }

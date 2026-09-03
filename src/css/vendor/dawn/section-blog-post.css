@@ -2,8 +2,8 @@
   margin-top: 3.125rem;
 }
 
-@media screen and (min-width: 750px) {
-  .article-template > *:first-child:not(.article-template__hero-container) {
+.article-template > *:first-child:not(.article-template__hero-container) {
+  @media (--md) {
     margin-top: calc(3.125rem + var(--layout-content-margin));
   }
 }
@@ -25,30 +25,34 @@
   height: 20.625rem;
 }
 
-@media screen and (min-width: 750px) and (max-width: 989px) {
-  .article-template__hero-small {
+.article-template__hero-small {
+  @media (--md) and (--lg-down) {
     height: 13.75rem;
   }
-
-  .article-template__hero-medium {
+}
+.article-template__hero-medium {
+  @media (--md) and (--lg-down) {
     height: 27.5rem;
   }
-
-  .article-template__hero-large {
+}
+.article-template__hero-large {
+  @media (--md) and (--lg-down) {
     height: 41.25rem;
   }
 }
 
-@media screen and (min-width: 990px) {
-  .article-template__hero-small {
+.article-template__hero-small {
+  @media (--lg) {
     height: 17.1875rem;
   }
-
-  .article-template__hero-medium {
+}
+.article-template__hero-medium {
+  @media (--lg) {
     height: 34.375rem;
   }
-
-  .article-template__hero-large {
+}
+.article-template__hero-large {
+  @media (--lg) {
     height: 51.5625rem;
   }
 }
@@ -59,8 +63,8 @@
   line-height: 0.8;
 }
 
-@media screen and (min-width: 750px) {
-  .article-template header {
+.article-template header {
+  @media (--md) {
     margin-top: 3.125rem;
   }
 }
@@ -106,8 +110,8 @@
   padding: 1.6875rem 0;
 }
 
-@media screen and (min-width: 750px) {
-  .article-template__comment-wrapper {
+.article-template__comment-wrapper {
+  @media (--md) {
     margin-top: 3.75rem;
     padding: 2.25rem 0;
   }
@@ -121,8 +125,8 @@
   margin-bottom: 3.125rem;
 }
 
-@media screen and (min-width: 750px) {
-  .article-template__comments {
+.article-template__comments {
+  @media (--md) {
     margin-bottom: 4.375rem;
   }
 }
@@ -138,8 +142,8 @@
   padding: 1.25rem 1.25rem 0.9375rem;
 }
 
-@media screen and (min-width: 750px) {
-  .article-template__comments-comment {
+.article-template__comments-comment {
+  @media (--md) {
     padding: 1.25rem 1.5625rem;
   }
 }
@@ -152,8 +156,8 @@
   margin-bottom: 1.875rem;
 }
 
-@media screen and (min-width: 750px) {
-  .article-template__comment-fields {
+.article-template__comment-fields {
+  @media (--md) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2.5rem;
@@ -164,8 +168,8 @@
   margin: 1.25rem 0 1.5625rem;
 }
 
-@media screen and (min-width: 990px) {
-  .article-template__comments .pagination-wrapper {
+.article-template__comments .pagination-wrapper {
+  @media (--lg) {
     margin: 3.125rem 0 5rem;
   }
 }

@@ -184,35 +184,38 @@
   text-align: left;
 }
 
-@media screen and (min-width: 990px) {
-  .grid--6-col-desktop .card__content quick-add-bulk .quantity {
+.grid--6-col-desktop .card__content quick-add-bulk .quantity {
+  @media (--lg) {
     width: auto;
   }
-
-  .grid--6-col-desktop .card__content quick-add-bulk .quantity__button {
+}
+.grid--6-col-desktop .card__content quick-add-bulk .quantity__button {
+  @media (--lg) {
     width: 1.875rem;
   }
-
-  .grid--6-col-desktop .card__information-volume-pricing-note--button + .global-settings-popup.quantity-popover__info {
+}
+.grid--6-col-desktop .card__information-volume-pricing-note--button + .global-settings-popup.quantity-popover__info {
+  @media (--lg) {
     left: 50%;
     transform: translate(-50%);
     width: calc(100% + var(--border-width) + 2.1875rem);
   }
-
-  .grid--6-col-desktop
+}
+.grid--6-col-desktop
     .card--standard
     .card__information-volume-pricing-note--button
     + .global-settings-popup.quantity-popover__info {
+  @media (--lg) {
     width: calc(100% + var(--border-width) + 0.625rem);
   }
 }
 
-@media screen and (max-width: 749px) {
-  .grid--2-col-tablet-down .card__content quick-add-bulk .quantity__button {
+.grid--2-col-tablet-down .card__content quick-add-bulk .quantity__button {
+  @media (--md-down) {
     width: 2.1875rem;
   }
-
-  .grid--2-col-tablet-down
+}
+.grid--2-col-tablet-down
     .card--card
     .card__information-volume-pricing-note--button
     + .global-settings-popup.quantity-popover__info,
@@ -220,25 +223,29 @@
     .card--standard
     .card__information-volume-pricing-note--button
     + .global-settings-popup.quantity-popover__info {
+  @media (--md-down) {
     left: 50%;
     transform: translate(-50%);
   }
-
-  .grid--2-col-tablet-down
+}
+.grid--2-col-tablet-down
     .card--standard
     .card__information-volume-pricing-note--button
     + .global-settings-popup.quantity-popover__info {
+  @media (--md-down) {
     width: 100%;
   }
-
-  .grid--2-col-tablet-down
+}
+.grid--2-col-tablet-down
     .card--card
     .card__information-volume-pricing-note--button
     + .global-settings-popup.quantity-popover__info {
+  @media (--md-down) {
     width: calc(100% + var(--border-width) + 2.5rem);
   }
-
-  .grid--2-col-tablet-down .card__content quick-add-bulk .quantity {
+}
+.grid--2-col-tablet-down .card__content quick-add-bulk .quantity {
+  @media (--md-down) {
     width: auto;
   }
 }
@@ -247,18 +254,19 @@
   margin-top: 0;
 }
 
-@media screen and (max-width: 989px) {
-  .card-information quantity-popover .quantity__rules ~ volume-pricing {
+.card-information quantity-popover .quantity__rules ~ volume-pricing {
+  @media (--lg-down) {
     margin-top: 0;
   }
-
-  .card-information quantity-popover volume-pricing {
+}
+.card-information quantity-popover volume-pricing {
+  @media (--lg-down) {
     margin-top: 2.625rem;
   }
 }
 
-@media screen and (min-width: 750px) {
-  .card__information {
+.card__information {
+  @media (--md) {
     padding-bottom: 1.0625rem;
     padding-top: 1.0625rem;
   }
@@ -320,10 +328,10 @@
   box-shadow: none;
 }
 
-@media only screen and (min-width: 750px) {
-  .card--horizontal .card__heading,
+.card--horizontal .card__heading,
   .card--horizontal .price__container .price-item,
   .card--horizontal__quick-add {
+  @media (--md) {
     font-size: 0.8125rem;
   }
 }
@@ -374,28 +382,32 @@
   outline: 0;
 }
 
-@media screen and (min-width: 990px) {
-  .card .media.media--hover-effect > img:only-child,
+.card .media.media--hover-effect > img:only-child,
   .card-wrapper .media.media--hover-effect > img:only-child {
+  @media (--lg) {
     transition: transform var(--duration-slow) ease;
   }
-
-  .card:hover .media.media--hover-effect > img:first-child:only-child,
+}
+.card:hover .media.media--hover-effect > img:first-child:only-child,
   .card-wrapper:hover .media.media--hover-effect > img:first-child:only-child {
+  @media (--lg) {
     transform: scale(1.03);
   }
-
-  .card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
+}
+.card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
+  @media (--lg) {
     opacity: 0;
   }
-
-  .card-wrapper:hover .media.media--hover-effect > img + img {
+}
+.card-wrapper:hover .media.media--hover-effect > img + img {
+  @media (--lg) {
     opacity: 1;
     transition: transform var(--duration-slow) ease;
     transform: scale(1.03);
   }
-
-  .underline-links-hover:hover a {
+}
+.underline-links-hover:hover a {
+  @media (--lg) {
     text-decoration: underline;
     text-underline-offset: 0.1875rem;
   }

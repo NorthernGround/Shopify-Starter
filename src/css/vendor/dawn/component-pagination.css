@@ -2,8 +2,8 @@
   margin-top: 2.5rem;
 }
 
-@media screen and (min-width: 990px) {
-  .pagination-wrapper {
+.pagination-wrapper {
+  @media (--lg) {
     margin-top: 3.125rem;
   }
 }

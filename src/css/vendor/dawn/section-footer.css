@@ -11,30 +11,33 @@
   display: block;
 }
 
-@media screen and (max-width: 749px) {
-  .footer .grid {
+.footer .grid {
+  @media (--md-down) {
     display: block;
   }
-
-  .footer-block.grid__item {
+}
+.footer-block.grid__item {
+  @media (--md-down) {
     padding: 0;
     margin: 2.5rem 0;
     width: 100%;
   }
-
-  .footer-block.grid__item:first-child {
+}
+.footer-block.grid__item:first-child {
+  @media (--md-down) {
     margin-top: 0;
   }
-
-  .footer__content-top {
+}
+.footer__content-top {
+  @media (--md-down) {
     padding-bottom: 1.875rem;
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
 }
 
-@media screen and (min-width: 750px) {
-  .footer__content-top .grid {
+.footer__content-top .grid {
+  @media (--md) {
     row-gap: 3.75rem;
     margin-bottom: 0;
   }
@@ -54,22 +57,24 @@
   width: 100%;
 }
 
-@media screen and (max-width: 749px) {
-  .footer__content-bottom {
+.footer__content-bottom {
+  @media (--md-down) {
     flex-wrap: wrap;
     padding-top: 0;
     padding-left: 0;
     padding-right: 0;
     row-gap: 0.9375rem;
   }
-
-  .footer__content-bottom-wrapper {
+}
+.footer__content-bottom-wrapper {
+  @media (--md-down) {
     flex-wrap: wrap;
     row-gap: 0.9375rem;
     justify-content: center;
   }
-
-  .footer__content-bottom.scroll-trigger.animate--slide-in {
+}
+.footer__content-bottom.scroll-trigger.animate--slide-in {
+  @media (--md-down) {
     animation: none;
     opacity: 1;
     transform: inherit;
@@ -80,8 +85,8 @@
   align-items: center;
 }
 
-@media screen and (max-width: 749px) {
-  .footer__localization:empty + .footer__column {
+.footer__localization:empty + .footer__column {
+  @media (--md-down) {
     padding-top: 0.9375rem;
   }
 }
@@ -100,8 +105,8 @@
   padding-right: 1.25rem;
 }
 
-@media screen and (min-width: 750px) {
-  .footer__column--info {
+.footer__column--info {
+  @media (--md) {
     padding-left: 0;
     padding-right: 0;
     align-items: flex-end;
@@ -114,8 +119,8 @@
   margin: 0 auto;
 }
 
-@media screen and (min-width: 750px) {
-  .footer-block {
+.footer-block {
+  @media (--md) {
     display: block;
     margin-top: 0;
   }
@@ -136,14 +141,14 @@
   margin-top: 0;
 }
 
-@media screen and (max-width: 749px) {
-  .footer-block.footer-block--menu:only-child {
+.footer-block.footer-block--menu:only-child {
+  @media (--md-down) {
     text-align: left;
   }
 }
 
-@media screen and (min-width: 750px) {
-  .footer-block--newsletter {
+.footer-block--newsletter {
+  @media (--md) {
     flex-wrap: nowrap;
     justify-content: center;
   }
@@ -155,8 +160,8 @@
   font-size: 1rem;
 }
 
-@media screen and (min-width: 990px) {
-  .footer-block__heading {
+.footer-block__heading {
+  @media (--lg) {
     font-size: 1.125rem;
   }
 }
@@ -184,69 +189,77 @@
   max-width: 22.5rem;
 }
 
-@media screen and (min-width: 750px) {
-  /* Pushes other components to the right of the flexbox */
-  .footer-block__newsletter:not(:only-child) {
+/* Pushes other components to the right of the flexbox */
+.footer-block__newsletter:not(:only-child) {
+  @media (--md) {
     text-align: left;
     margin-right: auto;
   }
-
-  .footer-block__newsletter:not(:only-child) .footer__newsletter {
+}
+.footer-block__newsletter:not(:only-child) .footer__newsletter {
+  @media (--md) {
     justify-content: flex-start;
     margin: 0;
   }
-
-  .footer-block__newsletter:not(:only-child) .newsletter-form__message--success {
+}
+.footer-block__newsletter:not(:only-child) .newsletter-form__message--success {
+  @media (--md) {
     left: auto;
   }
-
-  .footer__follow-on-shop {
+}
+.footer__follow-on-shop {
+  @media (--md) {
     margin-bottom: 0.25rem;
   }
-  /* Follow on shop is the first button but it has siblings*/
-  .footer__follow-on-shop:first-child:not(:last-child) {
+}
+/* Follow on shop is the first button but it has siblings*/
+.footer__follow-on-shop:first-child:not(:last-child) {
+  @media (--md) {
     justify-content: flex-start;
     margin-right: auto;
     text-align: left;
   }
-
-  /*
+}
+/*
     All three components are present, email, Follow on Shop, and social icons.
     Moves the FoS button next to the social icons so they appear grouped together
   */
-  .footer__follow-on-shop:not(:first-child):not(:last-child) {
+.footer__follow-on-shop:not(:first-child):not(:last-child) {
+  @media (--md) {
     justify-content: flex-end;
     text-align: right;
   }
 }
 
-@media screen and (max-width: 749px) {
-  /*
+/*
     On a small screen we want all the items to be centered
     because they will be stacked.
    */
-  .footer-block--newsletter {
+.footer-block--newsletter {
+  @media (--md-down) {
     display: flex;
     flex-direction: column;
     flex: 1 1 100%;
     align-items: center;
     gap: 1.875rem;
   }
-
-  .footer__list-social.list-social,
+}
+.footer__list-social.list-social,
   .footer__follow-on-shop,
   .footer-block__newsletter {
+  @media (--md-down) {
     display: flex;
     justify-content: center;
   }
-
-  .footer-block__newsletter {
+}
+.footer-block__newsletter {
+  @media (--md-down) {
     flex-direction: column;
   }
 }
 
-@media screen and (min-width: 750px) {
-  .footer-block__newsletter + .footer__list-social {
+.footer-block__newsletter + .footer__list-social {
+  @media (--md) {
     margin-top: 0;
   }
 }
@@ -269,19 +282,20 @@
   color: rgba(var(--color-text-rgb), 0.75);
 }
 
-@media screen and (min-width: 750px) {
-  .footer__localization {
+.footer__localization {
+  @media (--md) {
     padding: 0.25rem 0;
     justify-content: flex-start;
   }
-
-  .footer__localization h2 {
+}
+.footer__localization h2 {
+  @media (--md) {
     margin: 0.625rem 0 0;
   }
 }
 
-@media screen and (min-width: 750px) {
-  .footer__payment {
+.footer__payment {
+  @media (--md) {
     margin-top: 0.9375rem;
   }
 }
@@ -295,8 +309,8 @@
   margin-top: 0.9375rem;
 }
 
-@media screen and (min-width: 750px) {
-  .footer__content-bottom-wrapper:not(.footer__content-bottom-wrapper--center) .footer__copyright {
+.footer__content-bottom-wrapper:not(.footer__content-bottom-wrapper--center) .footer__copyright {
+  @media (--md) {
     text-align: right;
   }
 }
@@ -316,21 +330,24 @@
   margin-bottom: 2.5rem;
 }
 
-@media screen and (min-width: 750px) {
-  .footer-block__details-content {
+.footer-block__details-content {
+  @media (--md) {
     margin-bottom: 0;
   }
-
-  .footer-block__details-content > p,
+}
+.footer-block__details-content > p,
   .footer-block__details-content > li {
+  @media (--md) {
     padding: 0;
   }
-
-  .footer-block:only-child li {
+}
+.footer-block:only-child li {
+  @media (--md) {
     display: inline;
   }
-
-  .footer-block__details-content > li:not(:last-child) {
+}
+.footer-block__details-content > li:not(:last-child) {
+  @media (--md) {
     margin-right: 0.9375rem;
   }
 }
@@ -345,33 +362,35 @@
   color: rgb(var(--color-text-rgb));
 }
 
-@media screen and (min-width: 750px) {
-  .footer-block__details-content .list-menu__item--link:hover,
+.footer-block__details-content .list-menu__item--link:hover,
   .copyright__content a:hover {
+  @media (--md) {
     color: rgb(var(--color-text-rgb));
     text-decoration: underline;
     text-underline-offset: 0.1875rem;
   }
-
-  .footer-block__details-content .list-menu__item--active:hover {
+}
+.footer-block__details-content .list-menu__item--active:hover {
+  @media (--md) {
     text-decoration-thickness: 0.125rem;
   }
 }
 
-@media screen and (max-width: 989px) {
-  .footer-block__details-content .list-menu__item--link {
+.footer-block__details-content .list-menu__item--link {
+  @media (--lg-down) {
     padding-top: 0.625rem;
     padding-bottom: 0.625rem;
   }
 }
 
-@media screen and (min-width: 750px) {
-  .footer-block__details-content .list-menu__item--link {
+.footer-block__details-content .list-menu__item--link {
+  @media (--md) {
     display: inline-block;
     font-size: 0.875rem;
   }
-
-  .footer-block__details-content > :first-child .list-menu__item--link {
+}
+.footer-block__details-content > :first-child .list-menu__item--link {
+  @media (--md) {
     padding-top: 0;
   }
 }
@@ -392,11 +411,11 @@
   justify-content: flex-end;
 }
 
-@media screen and (max-width: 749px) {
-  .footer-block-image,
+.footer-block-image,
   .footer-block-image.left,
   .footer-block-image.center,
   .footer-block-image.right {
+  @media (--md-down) {
     justify-content: center;
   }
 }
@@ -471,8 +490,8 @@
   display: block;
 }
 
-@media screen and (min-width: 750px) {
-  .policies li a {
+.policies li a {
+  @media (--md) {
     padding: 0;
   }
 }
@@ -490,18 +509,19 @@
 
 /* check for flexbox gap in older Safari versions */
 @supports not (inset: 10px) {
-  @media screen and (max-width: 749px) {
-    .footer .grid {
+  .footer .grid {
+    @media (--md-down) {
       margin-left: 0;
     }
   }
 
-  @media screen and (min-width: 750px) {
-    .footer__content-top .grid {
+  .footer__content-top .grid {
+    @media (--md) {
       margin-left: -1.875rem;
     }
-
-    .footer__content-top .grid__item {
+  }
+  .footer__content-top .grid__item {
+    @media (--md) {
       padding-left: 1.875rem;
     }
   }

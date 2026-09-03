@@ -69,13 +69,14 @@ quantity-popover .quick-order-list-remove-button .button {
   height: 14px;
 }
 
-@media screen and (max-width: 989px) {
-  .quantity-popover__info.global-settings-popup {
+.quantity-popover__info.global-settings-popup {
+  @media (--lg-down) {
     left: 0;
     top: 100%;
   }
-
-  .quantity-popover__info-button {
+}
+.quantity-popover__info-button {
+  @media (--lg-down) {
     padding-left: 0;
   }
 }
@@ -130,21 +131,24 @@ quantity-popover .quantity__rules span:first-of-type {
   align-items: center;
 }
 
-@media screen and (min-width: 990px) {
-  .quantity-popover-container--empty {
+.quantity-popover-container--empty {
+  @media (--lg) {
     margin-right: 1.6875rem;
   }
-
-  .quantity-popover__info.global-settings-popup {
+}
+.quantity-popover__info.global-settings-popup {
+  @media (--lg) {
     width: 12.5rem;
   }
-
-  .quantity-popover-container {
+}
+.quantity-popover-container {
+  @media (--lg) {
     width: auto;
     max-width: 12.5rem;
   }
-
-  .quantity-popover__info.global-settings-popup {
+}
+.quantity-popover__info.global-settings-popup {
+  @media (--lg) {
     transform: translateX(-100%);
     top: 0.3125rem;
   }

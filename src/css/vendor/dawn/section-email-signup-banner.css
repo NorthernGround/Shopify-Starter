@@ -3,8 +3,8 @@
   display: inline-block;
 }
 
-@media only screen and (min-width: 750px) {
-  .email-signup-banner:not(.banner--desktop-transparent) .email-signup-banner__box {
+.email-signup-banner:not(.banner--desktop-transparent) .email-signup-banner__box {
+  @media (--md) {
     width: 100%;
   }
 }
@@ -29,8 +29,8 @@
   transform: translateX(-50%);
 }
 
-@media screen and (max-width: 749px) {
-  .email-signup-banner:not(.banner--mobile-bottom) .banner__box:not(.email-signup-banner__box--no-image) {
+.email-signup-banner:not(.banner--mobile-bottom) .banner__box:not(.email-signup-banner__box--no-image) {
+  @media (--md-down) {
     background-color: transparent;
     --color-text-rgb: 255, 255, 255;
     --color-action-rgb: 255, 255, 255;
@@ -38,37 +38,41 @@
   }
 }
 
-@media only screen and (min-width: 750px) {
-  .banner--desktop-transparent .email-signup-banner__box--no-image * {
+.banner--desktop-transparent .email-signup-banner__box--no-image * {
+  @media (--md) {
     color: rgb(var(--color-text-rgb));
   }
-
-  .banner--desktop-transparent .email-signup-banner__box .field__input {
+}
+.banner--desktop-transparent .email-signup-banner__box .field__input {
+  @media (--md) {
     background-color: transparent;
   }
-
-  .banner--desktop-transparent .email-signup-banner__box--no-image .field__input {
+}
+.banner--desktop-transparent .email-signup-banner__box--no-image .field__input {
+  @media (--md) {
     box-shadow: 0 0 0 0.0625rem rgba(var(--color-text-rgb), 0.55);
   }
-
-  .banner--desktop-transparent .email-signup-banner__box--no-image .field__input:focus {
+}
+.banner--desktop-transparent .email-signup-banner__box--no-image .field__input:focus {
+  @media (--md) {
     box-shadow: 0 0 0 0.125rem rgba(var(--color-text-rgb), 0.75);
   }
-
-  .banner--desktop-transparent .email-signup-banner__box--no-image .field__button:focus-visible {
+}
+.banner--desktop-transparent .email-signup-banner__box--no-image .field__button:focus-visible {
+  @media (--md) {
     outline: 0.125rem solid rgba(var(--color-text-rgb), 0.5);
     box-shadow: 0 0 0 0.1875rem rgb(var(--color-canvas-rgb)), 0 0 0.3125rem 0.25rem rgba(var(--color-text-rgb), 0.3);
   }
 }
 
-@media only screen and (min-width: 750px) {
-  .email-signup-banner-background-mobile {
+.email-signup-banner-background-mobile {
+  @media (--md) {
     display: none;
   }
 }
 
-@media only screen and (max-width: 749px) {
-  .email-signup-banner-background:not(.email-signup-banner-background-mobile) {
+.email-signup-banner-background:not(.email-signup-banner-background-mobile) {
+  @media (--md-down) {
     display: none;
   }
 }
@@ -77,22 +81,24 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 749px) {
-  .banner--mobile-content-align-left .newsletter-form__message {
+.banner--mobile-content-align-left .newsletter-form__message {
+  @media (--md-down) {
     justify-content: flex-start;
   }
-
-  .banner--mobile-content-align-right .newsletter-form__message {
+}
+.banner--mobile-content-align-right .newsletter-form__message {
+  @media (--md-down) {
     justify-content: right;
   }
 }
 
-@media screen and (min-width: 750px) {
-  .banner--content-align-center .newsletter-form__message {
+.banner--content-align-center .newsletter-form__message {
+  @media (--md) {
     justify-content: center;
   }
-
-  .banner--content-align-right .newsletter-form__message {
+}
+.banner--content-align-right .newsletter-form__message {
+  @media (--md) {
     justify-content: right;
   }
 }

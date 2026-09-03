@@ -36,18 +36,19 @@
   display: table;
 }
 
-@media screen and (min-width: 750px) {
-  .featured-product .product__media-item {
+.featured-product .product__media-item {
+  @media (--md) {
     padding-bottom: 0;
   }
-
-  .product--right .product__media-wrapper {
+}
+.product--right .product__media-wrapper {
+  @media (--md) {
     order: 2;
   }
 }
 
-@media screen and (min-width: 990px) {
-  .featured-product:not(.product--no-media) > .product__info-wrapper {
+.featured-product:not(.product--no-media) > .product__info-wrapper {
+  @media (--lg) {
     padding: 0 4.375rem;
   }
 }

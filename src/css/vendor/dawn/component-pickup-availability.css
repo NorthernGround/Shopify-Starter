@@ -67,13 +67,14 @@ pickup-availability-drawer[open] {
   opacity: 1;
 }
 
-@media screen and (min-width: 750px) {
-  pickup-availability-drawer {
+pickup-availability-drawer {
+  @media (--md) {
     transform: translateX(100%);
     width: 23.4375rem;
   }
-
-  pickup-availability-drawer[open] {
+}
+pickup-availability-drawer[open] {
+  @media (--md) {
     opacity: 1;
     transform: translateX(0);
     animation: animateDrawerOpen var(--duration-standard) ease;

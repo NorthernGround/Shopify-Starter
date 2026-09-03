@@ -97,12 +97,13 @@ variant-selects {
   color: rgb(var(--color-canvas-rgb));
 }
 
-@media screen and (forced-colors: active) {
-  .product-form__input--pill input[type='radio']:checked + label {
+.product-form__input--pill input[type='radio']:checked + label {
+  @media screen and (forced-colors: active) {
     text-decoration: underline;
   }
-
-  .product-form__input--pill input[type='radio']:focus-visible + label {
+}
+.product-form__input--pill input[type='radio']:focus-visible + label {
+  @media screen and (forced-colors: active) {
     outline: transparent solid 1px;
     outline-offset: 2px;
   }
@@ -144,8 +145,8 @@ variant-selects {
   margin: 0.4375rem 0.75rem 0.125rem 0;
 }
 
-@media screen and (min-width: 750px) {
-  .product-form__input--swatch .swatch-input__input + .swatch-input__label {
+.product-form__input--swatch .swatch-input__input + .swatch-input__label {
+  @media (--md) {
     --swatch-input--size: 1.75rem;
   }
 }

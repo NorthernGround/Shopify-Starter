@@ -6,8 +6,8 @@
   margin-bottom: 1.875rem;
 }
 
-@media screen and (min-width: 750px) {
-  .main-page-title {
+.main-page-title {
+  @media (--md) {
     margin-bottom: 2.5rem;
   }
 }

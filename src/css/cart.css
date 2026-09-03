@@ -1,2 +1,3 @@
+@import url('./tokens/breakpoints.css');
 @import url('./vendor/dawn/component-cart.css') layer(dawn);
 @import url('./vendor/dawn/component-cart-items.css') layer(dawn);

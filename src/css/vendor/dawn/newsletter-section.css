@@ -3,8 +3,8 @@
   padding-left: 2.5rem;
 }
 
-@media screen and (min-width: 750px) {
-  .newsletter__wrapper {
+.newsletter__wrapper {
+  @media (--md) {
     padding-right: 5.625rem;
     padding-left: 5.625rem;
   }
@@ -42,8 +42,8 @@
   width: fit-content;
 }
 
-@media screen and (min-width: 750px) {
-  .newsletter__button {
+.newsletter__button {
+  @media (--md) {
     flex-shrink: 0;
     margin: 0 0 0 0.625rem;
   }

@@ -53,12 +53,13 @@
   margin: 0;
 }
 
-@media (forced-colors: active) {
-  .rating {
+.rating {
+  @media (forced-colors: active) {
     display: none;
   }
-
-  .rating-text {
+}
+.rating-text {
+  @media (forced-colors: active) {
     display: block;
   }
 }

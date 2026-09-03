@@ -14,8 +14,8 @@
   margin-bottom: 0.9375rem;
 }
 
-@media screen and (min-width: 750px) {
-  .contact .field {
+.contact .field {
+  @media (--md) {
     margin-bottom: 1.25rem;
   }
 }
@@ -24,14 +24,14 @@
   margin-top: 1.875rem;
 }
 
-@media screen and (min-width: 750px) {
-  .contact__button {
+.contact__button {
+  @media (--md) {
     margin-top: 2.5rem;
   }
 }
 
-@media screen and (min-width: 750px) {
-  .contact__fields {
+.contact__fields {
+  @media (--md) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 1.25rem;

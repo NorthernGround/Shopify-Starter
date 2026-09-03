@@ -7,8 +7,8 @@
   padding-left: 0;
 }
 
-@media screen and (min-width: 750px) {
-  .list-payment {
+.list-payment {
+  @media (--md) {
     justify-content: flex-end;
     margin: -0.3125rem;
     padding-top: 0;

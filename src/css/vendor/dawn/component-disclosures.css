@@ -144,8 +144,8 @@
   transform: rotate(180deg);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .disclosures__summary > .icon-caret {
+.disclosures__summary > .icon-caret {
+  @media (prefers-reduced-motion: reduce) {
     transition: none;
   }
 }

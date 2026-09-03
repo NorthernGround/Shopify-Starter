@@ -4,8 +4,8 @@
   justify-content: flex-end;
 }
 
-@media only screen and (max-width: 749px) {
-  .list-social {
+.list-social {
+  @media (--md-down) {
     justify-content: center;
   }
 }
