@@ -4,14 +4,14 @@
   overflow: hidden;
 }
 
-@media screen and (width >= 750px) {
-  .overflow-hidden-mobile {
+.overflow-hidden-mobile {
+  @media (--md) {
     overflow: auto;
   }
 }
 
-@media screen and (width >= 990px) {
-  .overflow-hidden-tablet {
+.overflow-hidden-tablet {
+  @media (--lg) {
     overflow: auto;
   }
 }

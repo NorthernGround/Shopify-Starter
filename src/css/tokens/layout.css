@@ -8,10 +8,8 @@
   --z-index-header: 20;
   --z-index-overlay: 30;
   --z-index-modal: 40;
-}
 
-@media (--md) {
-  :root {
+  @media (--md) {
     --layout-gutter: var(--space-8);
     --layout-section-gap: var(--space-20);
   }

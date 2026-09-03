@@ -10,20 +10,20 @@
   overflow: hidden;
 }
 
-@media (width < 46.875rem) {
-  .small-hide {
+.small-hide {
+  @media (--md-down) {
     display: none !important;
   }
 }
 
-@media (46.875rem <= width < 61.875rem) {
-  .medium-hide {
+.medium-hide {
+  @media (--md) and (--lg-down) {
     display: none !important;
   }
 }
 
-@media (--lg) {
-  .large-up-hide {
+.large-up-hide {
+  @media (--lg) {
     display: none !important;
   }
 }

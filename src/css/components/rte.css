@@ -16,12 +16,12 @@
 
 .rte table {
   table-layout: fixed;
-}
 
-@media screen and (width >= 750px) {
-  .rte table td {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+  @media (--md) {
+    & td {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
   }
 }
 

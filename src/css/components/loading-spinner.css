@@ -26,10 +26,8 @@
   transform-origin: center;
   stroke: rgb(var(--color-text-rgb));
   animation: dash 1.4s ease-in-out infinite;
-}
 
-@media screen and (forced-colors: active) {
-  .path {
+  @media screen and (forced-colors: active) {
     stroke: CanvasText;
   }
 }

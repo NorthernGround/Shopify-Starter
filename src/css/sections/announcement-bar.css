@@ -7,8 +7,8 @@
   border-bottom: 0.0625rem solid rgb(var(--color-text-rgb), 0.08);
 }
 
-@media screen and (width >= 990px) {
-  .utility-bar--bottom-border-social-only {
+.utility-bar--bottom-border-social-only {
+  @media (--lg) {
     border-bottom: 0.0625rem solid rgb(var(--color-text-rgb), 0.08);
   }
 }
@@ -25,8 +25,8 @@
   grid-area: social-icons;
 }
 
-@media screen and (width <= 989px) {
-  .utility-bar .utility-bar__grid .list-social {
+.utility-bar .utility-bar__grid .list-social {
+  @media (--lg-down) {
     display: none;
   }
 }
@@ -35,19 +35,23 @@
   scale: 0.9;
 }
 
-@media screen and (width >= 990px) {
-  .utility-bar__grid--3-col {
+.utility-bar__grid--3-col {
+  @media (--lg) {
     grid-template-columns: 3fr 4fr 3fr;
     grid-template-areas: 'social-icons announcements language-currency';
   }
+}
 
-  .utility-bar__grid--2-col {
+.utility-bar__grid--2-col {
+  @media (--lg) {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 'social-icons language-currency';
   }
+}
 
-  .announcement-bar.announcement-bar--one-announcement,
-  .announcement-bar--one-announcement .announcement-bar__link {
+.announcement-bar.announcement-bar--one-announcement,
+.announcement-bar--one-announcement .announcement-bar__link {
+  @media (--lg) {
     width: fit-content;
     margin: auto;
   }
@@ -73,7 +77,14 @@
   width: 100%;
 }
 
-.announcement-bar-slider,
+.announcement-bar-slider {
+  width: 100%;
+
+  @media (--lg) {
+    width: 60%;
+  }
+}
+
 .announcement-bar-slider .slider {
   width: 100%;
 }
@@ -111,17 +122,15 @@
   font-size: 0.8125rem;
 }
 
-@media screen and (width >= 990px) {
-  body:has(.section-header .header:not(.drawer-menu)) .utility-bar .page-width {
+body:has(.section-header .header:not(.drawer-menu)) .utility-bar .page-width {
+  @media (--lg) {
     padding-left: 3.125rem;
     padding-right: 3.125rem;
   }
+}
 
-  .announcement-bar-slider {
-    width: 60%;
-  }
-
-  .announcement-bar .slider-button {
+.announcement-bar .slider-button {
+  @media (--lg) {
     height: 2.375rem;
   }
 }

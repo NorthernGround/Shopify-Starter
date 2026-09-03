@@ -126,10 +126,8 @@ hr {
   background-color: rgb(var(--color-text-rgb), 0.2);
   display: block;
   margin: 3.125rem 0;
-}
 
-@media screen and (width >= 750px) {
-  hr {
+  @media (--md) {
     margin: 4.375rem 0;
   }
 }
@@ -150,8 +148,8 @@ details > * {
   box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion) {
-  .motion-reduce {
+.motion-reduce {
+  @media (prefers-reduced-motion) {
     transition: none !important;
     animation: none !important;
   }
@@ -248,14 +246,14 @@ summary::-webkit-details-marker {
 
 .disclosure-has-popup[open] > summary + * {
   z-index: 100;
-}
 
-@media screen and (width >= 750px) {
-  .disclosure-has-popup[open] > summary + * {
+  @media (--md) {
     z-index: 4;
   }
+}
 
-  .facets .disclosure-has-popup[open] > summary + * {
+.facets .disclosure-has-popup[open] > summary + * {
+  @media (--md) {
     z-index: 2;
   }
 }

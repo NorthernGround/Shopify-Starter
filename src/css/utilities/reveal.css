@@ -1,39 +1,51 @@
 /* Animations */
 
-@media (prefers-reduced-motion: no-preference) {
-  .scroll-trigger.animate--fade-in,
-  .scroll-trigger.animate--slide-in {
+.scroll-trigger.animate--fade-in,
+.scroll-trigger.animate--slide-in {
+  @media (prefers-reduced-motion: no-preference) {
     opacity: 0.01;
   }
+}
 
-  .scroll-trigger.animate--slide-in {
+.scroll-trigger.animate--slide-in {
+  @media (prefers-reduced-motion: no-preference) {
     transform: translateY(1.25rem);
   }
+}
 
-  .scroll-trigger:not(.scroll-trigger--offscreen).animate--fade-in {
+.scroll-trigger:not(.scroll-trigger--offscreen).animate--fade-in {
+  @media (prefers-reduced-motion: no-preference) {
     opacity: 1;
     animation: var(--animation-reveal-fade);
   }
+}
 
-  .scroll-trigger:not(.scroll-trigger--offscreen).animate--slide-in {
+.scroll-trigger:not(.scroll-trigger--offscreen).animate--slide-in {
+  @media (prefers-reduced-motion: no-preference) {
     animation: var(--animation-reveal-slide);
     animation-delay: calc(var(--animation-order) * 75ms);
   }
+}
 
-  .scroll-trigger.scroll-trigger--design-mode.animate--fade-in,
-  .scroll-trigger.scroll-trigger--design-mode.animate--slide-in,
-  .scroll-trigger.scroll-trigger--design-mode .slider,
-  .scroll-trigger:not(.scroll-trigger--offscreen).scroll-trigger--cancel {
+.scroll-trigger.scroll-trigger--design-mode.animate--fade-in,
+.scroll-trigger.scroll-trigger--design-mode.animate--slide-in,
+.scroll-trigger.scroll-trigger--design-mode .slider,
+.scroll-trigger:not(.scroll-trigger--offscreen).scroll-trigger--cancel {
+  @media (prefers-reduced-motion: no-preference) {
     opacity: 1;
     animation: none;
     transition: none;
     transform: none;
   }
+}
 
-  .scroll-trigger.scroll-trigger--design-mode.animate--slide-in {
+.scroll-trigger.scroll-trigger--design-mode.animate--slide-in {
+  @media (prefers-reduced-motion: no-preference) {
     transform: translateY(0);
   }
+}
 
+@media (prefers-reduced-motion: no-preference) {
   @keyframes slideIn {
     from {
       transform: translateY(1.25rem);

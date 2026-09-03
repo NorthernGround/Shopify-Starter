@@ -9,24 +9,24 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width,
   max-inline-size: 100%;
 }
 
+.page-width--narrow {
+  @media (--lg) {
+    max-inline-size: var(--layout-content-narrow-max);
+  }
+}
+
 .page-width-desktop {
   margin-inline: auto;
   padding-inline: 0;
-}
 
-@media (--md) {
-  .page-width-tablet {
+  @media (--lg) {
+    max-inline-size: var(--layout-content-max);
     padding-inline: var(--layout-gutter);
   }
 }
 
-@media (--lg) {
-  .page-width--narrow {
-    max-inline-size: var(--layout-content-narrow-max);
-  }
-
-  .page-width-desktop {
-    max-inline-size: var(--layout-content-max);
+.page-width-tablet {
+  @media (--md) {
     padding-inline: var(--layout-gutter);
   }
 }

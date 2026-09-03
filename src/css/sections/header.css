@@ -44,63 +44,76 @@
   grid-template-areas: 'left-icons heading icons';
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
+
+  @media (--lg) {
+    grid-template-columns: 1fr auto 1fr;
+  }
 }
 
-@media screen and (width <= 749px) {
-  .header--has-app {
+.header--has-app {
+  @media (--md-down) {
     grid-template-columns: auto 1fr auto;
   }
 }
 
-@media screen and (width >= 990px) {
-  .header {
-    grid-template-columns: 1fr auto 1fr;
-  }
-
-  .header--top-left,
-  .header--middle-left:not(.header--has-menu) {
+.header--top-left,
+.header--middle-left:not(.header--has-menu) {
+  @media (--lg) {
     grid-template-areas:
       'heading icons'
       'navigation navigation';
     grid-template-columns: 1fr auto;
   }
+}
 
-  .header--top-left.drawer-menu,
-  .header--middle-left.drawer-menu {
+.header--top-left.drawer-menu,
+.header--middle-left.drawer-menu {
+  @media (--lg) {
     grid-template-areas: 'navigation heading icons';
     grid-template-columns: auto 1fr auto;
     column-gap: 0.625rem;
   }
+}
 
-  .header--middle-left {
+.header--middle-left {
+  @media (--lg) {
     grid-template-areas: 'heading navigation icons';
     grid-template-columns: auto auto 1fr;
     column-gap: 1.25rem;
   }
+}
 
-  .header--middle-center:not(.drawer-menu) {
+.header--middle-center:not(.drawer-menu) {
+  @media (--lg) {
     grid-template-areas: 'navigation heading icons';
     grid-template-columns: 1fr auto 1fr;
     column-gap: 1.25rem;
   }
+}
 
-  .header--middle-center a.header__heading-link {
+.header--middle-center a.header__heading-link {
+  @media (--lg) {
     text-align: center;
   }
+}
 
-  .header--top-center {
+.header--top-center {
+  @media (--lg) {
     grid-template-areas:
       'left-icons heading icons'
       'navigation navigation navigation';
   }
+}
 
-  .header--top-center.drawer-menu {
+.header--top-center.drawer-menu {
+  @media (--lg) {
     grid-template-areas: 'left-icons heading icons';
     grid-template-columns: 1fr auto 1fr;
   }
+}
 
-  .header:not(.header--middle-left, .header--middle-center)
-    .header__inline-menu {
+.header:not(.header--middle-left, .header--middle-center) .header__inline-menu {
+  @media (--lg) {
     margin-top: 0.6563rem;
   }
 }
@@ -122,6 +135,14 @@
 .header__heading-link {
   grid-area: heading;
   justify-self: center;
+
+  @media (--lg-down) {
+    text-align: center;
+  }
+
+  @media (--lg) {
+    justify-self: start;
+  }
 }
 
 .header__heading-link {
@@ -142,42 +163,38 @@
   transition: width 0.3s cubic-bezier(0.52, 0, 0.61, 0.99);
 }
 
-@media screen and (width <= 989px) {
-  .header__heading,
-  .header__heading-link {
-    text-align: center;
-  }
-
-  .header--mobile-left .header__heading,
-  .header--mobile-left .header__heading-link {
+.header--mobile-left .header__heading,
+.header--mobile-left .header__heading-link {
+  @media (--lg-down) {
     text-align: left;
     justify-self: start;
   }
+}
 
-  .header--mobile-left {
+.header--mobile-left {
+  @media (--lg-down) {
     grid-template-columns: auto 2fr 1fr;
   }
 }
 
-@media screen and (width >= 990px) {
-  .header--middle-left .header__heading-link,
-  .header--top-left .header__heading-link {
+.header--middle-left .header__heading-link,
+.header--top-left .header__heading-link {
+  @media (--lg) {
     margin-left: -0.4688rem;
   }
+}
 
-  .header__heading,
-  .header__heading-link {
-    justify-self: start;
-  }
-
-  .header--middle-center .header__heading-link,
-  .header--middle-center .header__heading {
+.header--middle-center .header__heading-link,
+.header--middle-center .header__heading {
+  @media (--lg) {
     justify-self: center;
     text-align: center;
   }
+}
 
-  .header--top-center .header__heading-link,
-  .header--top-center .header__heading {
+.header--top-center .header__heading-link,
+.header--top-center .header__heading {
+  @media (--lg) {
     justify-self: center;
     text-align: center;
   }
@@ -328,14 +345,16 @@ menu-drawer + .header__search {
   display: inline-flex;
 }
 
-@media screen and (width >= 990px) {
-  .header:not(.header--top-center) * > .header__search,
-  .header--top-center > .header__search {
+.header:not(.header--top-center) * > .header__search,
+.header--top-center > .header__search {
+  @media (--lg) {
     display: inline-flex;
   }
+}
 
-  .header:not(.header--top-center) > .header__search,
-  .header--top-center * > .header__search {
+.header:not(.header--top-center) > .header__search,
+.header--top-center * > .header__search {
+  @media (--lg) {
     display: none;
   }
 }
@@ -377,6 +396,10 @@ details[open] .modal-overlay::after {
   padding: 0 3.125rem 0 0.625rem;
   line-height: 1.8;
   position: relative;
+
+  @media (--md) {
+    padding: 0 3.75rem;
+  }
 }
 
 .search-modal__content-bottom {
@@ -389,29 +412,21 @@ details[open] .modal-overlay::after {
 
 .search-modal__form {
   width: 100%;
+
+  @media (--lg) {
+    max-width: 46.375rem;
+  }
 }
 
 .search-modal__close-button {
   position: absolute;
   right: 0.1875rem;
-}
 
-@media screen and (width >= 750px) {
-  .search-modal__close-button {
+  @media (--md) {
     right: 0.625rem;
   }
 
-  .search-modal__content {
-    padding: 0 3.75rem;
-  }
-}
-
-@media screen and (width >= 990px) {
-  .search-modal__form {
-    max-width: 46.375rem;
-  }
-
-  .search-modal__close-button {
+  @media (--lg) {
     position: initial;
     margin-left: 0.3125rem;
   }
@@ -454,10 +469,8 @@ details[open] > .header__submenu {
   animation: animateMenuOpen var(--duration-standard) ease;
   animation-fill-mode: forwards;
   z-index: 1;
-}
 
-@media (prefers-reduced-motion) {
-  details[open] > .header__submenu {
+  @media (prefers-reduced-motion) {
     opacity: 1;
     transform: translateY(0);
   }
@@ -468,6 +481,10 @@ details[open] > .header__submenu {
   margin-left: -0.75rem;
   grid-area: navigation;
   display: none;
+
+  @media (--lg) {
+    display: block;
+  }
 }
 
 .header--top-center .header__inline-menu,
@@ -475,20 +492,20 @@ details[open] > .header__submenu {
   margin-left: 0;
 }
 
-@media screen and (width >= 990px) {
-  .header__inline-menu {
-    display: block;
-  }
-
-  .header--top-center .header__inline-menu {
+.header--top-center .header__inline-menu {
+  @media (--lg) {
     justify-self: center;
   }
+}
 
-  .header--top-center .header__inline-menu > .list-menu--inline {
+.header--top-center .header__inline-menu > .list-menu--inline {
+  @media (--lg) {
     justify-content: center;
   }
+}
 
-  .header--middle-left .header__inline-menu {
+.header--middle-left .header__inline-menu {
+  @media (--lg) {
     margin-left: 0;
   }
 }

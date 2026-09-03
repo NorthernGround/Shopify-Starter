@@ -13,13 +13,15 @@
   overflow-wrap: break-word;
 }
 
-@media screen and (forced-colors: active) {
-  .icon {
+.icon {
+  @media screen and (forced-colors: active) {
     color: CanvasText;
     fill: CanvasText !important;
   }
+}
 
-  .icon-close-small path {
+.icon-close-small path {
+  @media screen and (forced-colors: active) {
     stroke: CanvasText;
   }
 }
@@ -61,15 +63,15 @@
   border-radius: 0;
 }
 
-@media screen and (width <= 749px) {
-  .content-container--full-width-mobile {
+.content-container--full-width-mobile {
+  @media (--md-down) {
     border-left: none;
     border-right: none;
     border-radius: 0;
-  }
 
-  .content-container--full-width-mobile:after {
-    display: none;
+    &:after {
+      display: none;
+    }
   }
 }
 

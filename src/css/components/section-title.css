@@ -2,6 +2,10 @@
 .title,
 .title-wrapper-with-link {
   margin: 1.875rem 0 1.25rem;
+
+  @media (--lg) {
+    margin: 3.125rem 0 1.875rem;
+  }
 }
 
 .title-wrapper-with-link .title {
@@ -23,44 +27,35 @@
   gap: 0.625rem;
   margin-bottom: 1.875rem;
   flex-wrap: wrap;
+
+  @media (--lg) {
+    align-items: center;
+  }
 }
 
 .title--primary {
   margin: 2.5rem 0;
+
+  @media (--lg) {
+    margin: 1.25rem 0;
+  }
 }
 
-.title-wrapper--self-padded-tablet-down,
-.title-wrapper--self-padded-mobile {
+.title-wrapper--self-padded-tablet-down {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
-}
 
-@media screen and (width >= 750px) {
-  .title-wrapper--self-padded-mobile {
+  @media (--lg) {
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-@media screen and (width >= 990px) {
-  .title,
-  .title-wrapper-with-link {
-    margin: 3.125rem 0 1.875rem;
-  }
+.title-wrapper--self-padded-mobile {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
 
-  .title--primary {
-    margin: 1.25rem 0;
-  }
-
-  .title-wrapper-with-link {
-    align-items: center;
-  }
-
-  .title-wrapper-with-link .title {
-    margin-bottom: 0;
-  }
-
-  .title-wrapper--self-padded-tablet-down {
+  @media (--md) {
     padding-left: 0;
     padding-right: 0;
   }
